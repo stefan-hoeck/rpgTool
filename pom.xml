@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>nb</artifactId>
+    <groupId>efa.mvn</groupId>
+    <version>1.0.1</version>
+  </parent>
+
+  <groupId>efa</groupId>
+  <artifactId>rpg</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>rpg</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>efa.scala</groupId>
+      <artifactId>scalaW</artifactId>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
+    <dependencies>    
+      <dependency>
+        <groupId>efa.scala</groupId>
+        <artifactId>scalaW</artifactId>
+        <version>2.9.2</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.scala</groupId>
+        <artifactId>scalazW</artifactId>
+        <version>7.0.0-M3</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.scala</groupId>
+        <artifactId>scalaCheckW</artifactId>
+        <version>1.9</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.react</groupId>
+        <artifactId>core</artifactId>
+        <version>${react.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.react</groupId>
+        <artifactId>swing</artifactId>
+        <version>${react.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efa</groupId>
+        <artifactId>core</artifactId>
+        <version>${util.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efa</groupId>
+        <artifactId>io</artifactId>
+        <version>${util.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efa</groupId>
+        <artifactId>nb</artifactId>
+        <version>${util.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.netbeans.api</groupId>
+        <artifactId>org-netbeans-core-multiview</artifactId>
+        <version>${netbeans.version}</version>
+      </dependency>
+    </dependencies>    
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>nbm-maven-plugin</artifactId>
+          <configuration>
+            <cluster>rpgTool</cluster>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <modules>
+    <module>core</module>
+    <module>preferences</module>
+    <module>explorer</module>
+    <module>items</module>
+    <module>describedPanel</module>
+    <module>being</module>
+    <module>rules</module>
+    <module>rulesUI</module>
+  </modules>
+
+  <properties>
+    <util.version>0.1.0-SNAPSHOT</util.version>
+    <react.version>0.1.0-SNAPSHOT</react.version>
+    <core.version>1.0.0-SNAPSHOT</core.version>
+    <preferences.version>1.0.0-SNAPSHOT</preferences.version>
+    <explorer.version>1.0.0-SNAPSHOT</explorer.version>
+    <items.version>1.0.0-SNAPSHOT</items.version>
+    <describedPanel.version>1.0.0-SNAPSHOT</describedPanel.version>
+    <being.version>1.0.0-SNAPSHOT</being.version>
+    <rules.version>1.0.0-SNAPSHOT</rules.version>
+    <rulesUI.version>1.0.0-SNAPSHOT</rulesUI.version>
+  </properties>
+</project>
+
+<!-- vim: set ts=2 sw=2 et: -->

@@ -1,0 +1,9 @@
+<folder>
+    <name>Vorteile</name>
+    <advantage>
+        <name>Vorteil</name>
+        <id>1</id>
+        <gp>2</gp>
+        <desc>blub</desc>
+    </advantage>
+</folder>

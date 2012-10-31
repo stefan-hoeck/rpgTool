@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="efa-rpg-explorer-ExplorerAction.instance">
+                <attr name="component" methodvalue="efa.rpg.explorer.ExplorerTcProvider.findInstance"/>
+                <attr name="displayName" bundlevalue="efa.rpg.explorer.Bundle#CTL_ExplorerAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Window">
+            <file name="ExpAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Window/efa-rpg-explorer-ExplorerAction.instance"/>
+                <attr name="position" intvalue="0"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="ExplorerTc.settings" url="ExplorerTcSettings.xml"/>
+        </folder>
+        <folder name="Modes">
+            <folder name="explorer">
+                <file name="ExplorerTc.wstcref" url="ExplorerTcWstcref.xml"/>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="RpgTool">
+        <folder name="Explorer">
+        </folder>
+    </folder>
+    <folder name="ContextActions">
+        <folder name="BeingsFolderNode">
+            <file name="NewAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
+                <attr name="position" intvalue="25"/>
+            </file>
+            <file name="RenameAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
+                <attr name="position" intvalue="1050"/>
+            </file>
+            <file name="DeleteAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+                <attr name="position" intvalue="150"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Templates">
+        <folder name="Being"/>
+    </folder>
+</filesystem>

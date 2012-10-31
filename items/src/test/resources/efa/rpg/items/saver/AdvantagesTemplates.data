@@ -1,0 +1,14 @@
+<data>
+    <advantage>
+        <name>Template</name>
+        <id>-1</id>
+        <gp>4</gp>
+        <desc>knartz</desc>
+    </advantage>
+    <advantage>
+        <name>Template2</name>
+        <id>-2</id>
+        <gp>5</gp>
+        <desc>knortz</desc>
+    </advantage>
+</data>

@@ -1,0 +1,1723 @@
+<folder>
+    <name>Vorteile</name>
+    <folder>
+        <name>Herausragende Eigenschaft</name>
+        <advantage>
+            <name>Herausragendes Charisma</name>
+            <id>45</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+        <advantage>
+            <name>Herausragende Fingerfertigkeit</name>
+            <id>98</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+        <advantage>
+            <name>Herausragende Gewandtheit</name>
+            <id>99</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+        <advantage>
+            <name>Herausragende Intuition</name>
+            <id>100</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+        <advantage>
+            <name>Herausragende Klugheit</name>
+            <id>101</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+        <advantage>
+            <name>Herausragende Körperkraft</name>
+            <id>102</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+        <advantage>
+            <name>Herausragende Konstitution</name>
+            <id>103</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+        <advantage>
+            <name>Herausragender Mut</name>
+            <id>104</id>
+            <gp>8</gp>
+            <desc>Der Held kann den Startwert einer Eigenschaft über das Maximum von
+                14 heben. Der Vorteil kann mehrmals (auch für die gleiche Eigenschaft)
+                erworben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 8 (die nächst höhere Steigerung ist jeweils um 2 Punkte
+            teurer, also 10 von 15 auf 16, 12 von 16 auf 17 etc.)
+            </desc>
+        </advantage>
+    </folder>
+    <advantage>
+        <name>Adlig</name>
+        <id>1</id>
+        <gp>7</gp>
+        <desc>Der Held ist von hervorgehobenen Stand, sei es, weil er einer
+                &apos;blaublütigen&apos; Familie entstammt, sei es, weil er für seine Taten
+                oder in seiner Funktion als Amtsträger geadelt wurde. Der Vor-
+                teil ist wählbar für Helden aus Feudalsgesellschaften, für Helden
+                aus entsprechenden strukturieren tulamidischen Kulturen und
+                für süd-aventurische Grandensprösslinge, nicht jedoch für thor-
+                walsche Hetleute oder Häuptlingskinder aus &apos;barbarischen&apos; Stammes-
+                gesellschaften. Dieser Vorteil verbilligt den Vorteil &lt;i&gt;Besonderer
+                Besitz&lt;/i&gt; auf 3 GP, bring beim &lt;i&gt;Ausrüstungsvorteil&lt;/i&gt; SO x 3
+                Dukaten pro GP und erhöht das Startkapital auf SO x SO x 2 Silber-
+                taler.
+                Die Verschiedenen Varianten dieses Vorteils sind (eine muss ge-
+                wählt werden):
+
+                &lt;b&gt;Adlige Abstammung (7 GP)&lt;/b&gt;
+                Der Held entstammt einer lokalen Herrscherfamilie, Anspruch auf
+                Titel (&apos;Edler&apos;) aber nicht auf Erbe, da Ältere Geschwister.
+                Mögliche Titel der Eltern: &lt;i&gt;Junker, Baron&lt;/i&gt; oder &lt;i&gt;Graf&lt;/i&gt;.
+                Bei Tulamiden: &lt;i&gt;Bey, Emir&lt;/i&gt; oder &lt;i&gt;Sultan&lt;/i&gt;.
+                SO-Voraussetzung ist 8, 10, oder 12 (Junker, Baron, Graf). An-
+                erkannte uneheliche Kinder von Adligen brauchen 1 SO-Punkt weniger.
+                Auch bei Tulamiden-Töchter kann der SO unter Umständen 1 Punkt
+                weniger sein.
+
+                &lt;b&gt;Adliges Erbe (+6 GP)&lt;/b&gt;
+                Hat Anspruch auf adliges Erbe, und somit auf entsprechenden
+                Titel und auch auf einen &lt;i&gt;Besonderen Besitz&lt;/i&gt;
+                (besonderes Schwert, ausgebildetes Ross ect.) plus SO-Bonus
+                von 1 Punkt.
+
+                &lt;b&gt;Amtsadel (5 GP)&lt;/b&gt;
+                Held ist Würdenträger o.ä. stammt aber selber nicht aus einer
+                adligen Familie (z.B. Vögte oder Wesire = Berater). Held hat
+            Anspruch auf Anrede &apos;achtbarer Herr&apos; oder &apos;achtbare Dame&apos;.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Affinität zu [Geistern, Elementaren, Dämonen]</name>
+        <id>2</id>
+        <gp>5</gp>
+        <desc>Der Held hat besonders gute Beziehung zu Geistern, Elementar-
+                wesen oder Dämonen. Proben, um ein solches Wesen zu einem Dienst
+                zu bewegen (WdZ) sind um 3 Punkte erleichtert. Es ist nicht
+                möglich, eine Affinität zu mehr als einer der genannten Gruppen
+                zu haben.
+            &lt;b&gt;Kosten&lt;/b&gt; 5 GP (2 für Nichtzauberer)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Akademische Ausbildung (Gelehrter)</name>
+        <id>3</id>
+        <gp>7</gp>
+        <desc>Der Held steigert während der Genierierung alle Wissenstalente
+                und Sprachen und Schriften aus eigenen und fremden Sprachfamilien
+                (WdS 31) um eine Spalte erleichtert. Dies gilt auch für Aktivie-
+                rungskosten. Diese Talente können so verbilligt nur bei der Ge-
+                nerierung und nur bis TaW 10 (beim Vorteil &lt;i&gt;Veteran&lt;/i&gt; bis
+                15) gesteigert werden.
+                Inbegriffen in diesem Vorteil ist die SF &lt;i&gt;Nandusgefälliges
+                Wissen&lt;/i&gt;. Eine &lt;i&gt;Akademische Ausbildung (Gelehrter)&lt;/i&gt; be-
+                deutet automatisch, dass die damit verbundene Profession &lt;i&gt;
+            zeitaufwändig&lt;/i&gt; ist.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Akademische Ausbildung (Krieger)</name>
+        <id>4</id>
+        <gp>20</gp>
+        <desc>Der Held hat seine Jugend an einer Kriegerakademie Verbracht. Er kann
+                bei der Heldengenerierung alle Kampftechniktalente um zwei Spalten er-
+                leichtert steigern. Auch Aktivierungskosten sind entsprechend verbilligt.
+                Dies gilt bis zu einem TaW von 10 (mit Vorteil &lt;i&gt;Veteran&lt;/i&gt;: 15).
+                Zudem sind für den Krieger (während und nach der Generierung) sämtliche
+                Kampf-SF und Waffenlose Kampfstile auf 3/4 verbilligt. Dies gilt zu-
+                sätzlich zu allfälligen weiteren Verbilligungen.
+                Der Krieger erhält zudem einen &lt;i&gt;Kriegsbrief&lt;/i&gt;, der ihm das Führen
+                sämtlicher Waffen und die Teilnahme an Turnieren erlaubt.
+            &lt;b&gt;GP:&lt;/b&gt; 20
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Akademische Ausbildung (Magier)</name>
+        <id>5</id>
+        <gp>25</gp>
+        <desc>Z, nicht frei wählbar
+                Der Held steigert während der Genierierung alle Wissenstalente
+                und Sprachen und Schriften aus eigenen und fremden Sprachfamilien
+                (WdS 31) um eine Spalte erleichtert. Dies gilt auch für Aktivie-
+                rungskosten. Diese Talente können so verbilligt nur bei der Ge-
+                nerierung und nur bis TaW 10 (beim Vorteil &lt;i&gt;Veteran&lt;/i&gt; bis
+                15) gesteigert werden.
+                Er erhält zudem 6 AsP zu seinem Grundvorrat hinzu.
+                Zudem erwirbt der Held die ihm offenstehenden magischen SF
+                (solche, die nicht explizit eine fremde Ritualkenntnis, Reprä-
+                sentation, Profession oder Rasse erfordern; nicht fremde Re-
+                präsentationen oder Ritualkenntnisse) auf 3/4 verbilligt (auch
+                später im Spiel). Dieser Bonus gilt zusätzlich zu eventuellen
+                weiteren Verbilligungen.
+                Ebenfalls zu diesem Vorteil gehört die &lt;i&gt;Bindung des Stabs&lt;/i&gt;
+                (Kenntnis und erstmalige Ausführung des Rituals ohne Probe oder
+                AE-Aufwand).
+                Andererseits können die SF &lt;i&gt;Rüstungsgewöhnung I-III&lt;/i&gt; nur
+                zu 1.5-fachen Kosten erworben werden.
+                Dieser Vorteil ist automatisch mit der Profession &lt;i&gt;Gilden-
+                magier&lt;/i&gt; verbunden und dort bereits mit all seinen Folgen
+                eingerechnet. Schüler &lt;i&gt;privater Lehrmeister&lt;/i&gt; müssen den
+            Vorteil selber erwerben, wenn sie ihn haben wollen.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Altersresistenz</name>
+        <id>6</id>
+        <gp>3</gp>
+        <desc>Ein altersresistenter Held ist im (natürlichen) Rahmen immun gegen die
+                Auswirkungen hohen Alters. Dieser Vorteil ist üblicherweise direkt mit
+                einer Rasse verbunden. Altersresistente Menschen brauchen einen guten
+                Grund für diesen Vorteil (z.B. eine &lt;i&gt;eigebohrene&lt;/i&gt; Hexe).
+                Dieser Vorteil ist Teil des Gesamtvorteils &lt;i&gt;Eigebohren&lt;/i&gt;. Er kann
+                nicht mit dem Nachteil &lt;i&gt;Schneller Alternd&lt;/i&gt; kombiniert werden.
+            &lt;b&gt;GP:&lt;/b&gt; 3
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Astrale Regeneration I</name>
+        <id>7</id>
+        <gp>4</gp>
+        <desc>Der Held regeneriert pro Ruhephase 1 zusätzlichen Astralpunkt. IN-Proben
+                zur Rückgewinnung verlorener AE-Punkte sowie KL- oder IN-Proben bei
+                Ritualen zur Erlangung eines höheren AsP-Grundwerts sind um 1 Punkt er-
+                leichtert. Nicht kombinierbar mit dem Nachteil &lt;i&gt;Astraler Block&lt;/i&gt;
+                und anderen Versionen des Vorteils &lt;i&gt;Astrale Regeneration&lt;/i&gt;.
+            &lt;b&gt;GP:&lt;/b&gt; 4
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Astrale Regeneration II</name>
+        <id>8</id>
+        <gp>8</gp>
+        <desc>Der Held regeneriert pro Ruhephase 2 zusätzlichen Astralpunkt. IN-Proben
+                zur Rückgewinnung verlorener AE-Punkte sowie KL- oder IN-Proben bei
+                Ritualen zur Erlangung eines höheren AsP-Grundwerts sind um 2 Punkt er-
+                leichtert. Nicht kombinierbar mit dem Nachteil &lt;i&gt;Astraler Block&lt;/i&gt;
+                und anderen Versionen des Vorteils &lt;i&gt;Astrale Regeneration&lt;/i&gt;.
+            &lt;b&gt;GP:&lt;/b&gt; 8
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Astrale Regeneration III</name>
+        <id>9</id>
+        <gp>12</gp>
+        <desc>Der Held regeneriert pro Ruhephase 3 zusätzlichen Astralpunkt. IN-Proben
+                zur Rückgewinnung verlorener AE-Punkte sowie KL- oder IN-Proben bei
+                Ritualen zur Erlangung eines höheren AsP-Grundwerts sind um 3 Punkt er-
+                leichtert. Nicht kombinierbar mit dem Nachteil &lt;i&gt;Astraler Block&lt;/i&gt;
+                und anderen Versionen des Vorteils &lt;i&gt;Astrale Regeneration&lt;/i&gt;.
+            &lt;b&gt;GP:&lt;/b&gt; 12
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Astralmacht</name>
+        <id>10</id>
+        <gp>1</gp>
+        <desc>Der Held erhält einen Astralpunktebonus von 1 AsP pro eingesetzten GP.
+                Max.: 6 zusätzliche AsP.
+            &lt;b&gt;GP:&lt;/b&gt; 1 GP pro AsP
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Ausdauernd</name>
+        <id>11</id>
+        <gp>0</gp>
+        <desc>Der Held erhält einen Ausdauerbonus von 2 Punkten pro eingesetzem GP;
+                maximal können auf diese Weise 6 Ausdauerpunkte hinzugewonnen werden.
+                Diese Punkte zählen zur AU-Basis, werden also beim späteren Zukauf von
+                AU-Punkten nicht beachtet. Ein Held, der besonders Ausdauernd ist (der
+                mindestens 2 GP in diesen Vorteil investiert hat), wird langsamer
+                erschöpft, d.h. seine Erschöpfungsschwelle beträgt nicht KO-Punkte son-
+                dern KO + 1; wer &lt;i&gt;Ausdauern&lt;/i&gt; für 3 Punkte gewählt hat, dessen
+                Erschöpfungsschwelle steigt sogar um 2 Punkte.
+            &lt;b&gt;GP:&lt;/b&gt; je 1 GP für 2 AU-Punkte
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Ausdauernder Zauberer</name>
+        <id>12</id>
+        <gp>3</gp>
+        <desc>Der Held verliert nur halb so viele AuP beim Wirken eines Zaubers.
+            &lt;b&gt;GP:&lt;/b&gt; 3
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Ausrüstungsvorteil</name>
+        <id>13</id>
+        <gp>1</gp>
+        <desc>Der Held erhält GP x SO x 2D zusätzliches Startgeld zum Kauf von
+                besserer Ausrüstung (nicht als Handgeld). Maximal können GP in Höhe des
+                SO des Helden eingesetzt werden. Dieser Vorteil kann mit dem Vorteil
+                &lt;i&gt;Besonderer Besitz&lt;/i&gt; kombiniert werden.
+            &lt;b&gt;GP:&lt;/b&gt; 1 GP pro SO X 2D
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Balance</name>
+        <id>14</id>
+        <gp>10</gp>
+        <desc>Alle &lt;i&gt;Körperbeherrschungs-, Athletik-, Akrobatik-, Tanzen-&lt;/i&gt; Proben
+                sind um 3 alle GE-Proben um 2 Punkte erleichtert, wenn diese mit dem
+                Balance halten, Drehen in der Luft oder Stehenbleiben auf schwankendem
+                Grund zu tun haben.
+                Bei Sturzschaden kann (nach der Einberechnung der &lt;i&gt;Körperbeherrschungs-&lt;/i&gt;
+                Probe) ein Fünftel der erlittenen Punkte abgezogen werden. Der Vorteil
+                hilft zudem, nach gewissen Kampfmanövern stehen zu bleiben oder bei
+                einem Patzer einen Sturz zu vermeiden (WdS 63, 65, 84f.).
+                Dieser Vorteil kann nicht mit der stärkeren Version &lt;i&gt;Herausragende
+                Balance&lt;/i&gt; kombiniert werden. Er beinhaltet automatisch die SF &lt;i&gt;Standfest&lt;/i&gt;.
+                &lt;b&gt;GP:&lt;/b&gt; 10; 6 falls SF &lt;i&gt;Standfest&lt;/i&gt; durch Kultur, Rasse oder Pro-
+            fession vorhanden
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Begabung für [Merkmal]</name>
+        <id>15</id>
+        <gp>8</gp>
+        <desc>Das Erlernen und Steigern von Sprüchen dieses Merkmals ist um eine Kate-
+                gorie erleichtert. Diese Erleichterung ist kumulativ mit SF &lt;i&gt;Merkmals-
+                kenntnis&lt;/i&gt;.
+                Dieser Vorteil kann mehrfach erworben werden, jedoch nur einmal pro
+                Merkmal. Er kann nur von Spruchzauberern erlernt werden und nicht für
+                &lt;i&gt;Übernatürliche Begabungen&lt;/i&gt; eingesetzt werden. Wer eine &lt;i&gt;Begabung für
+                ein Merkmal&lt;/i&gt; besitzt kann nicht eine &lt;i&gt;Begabung für einen Zauber&lt;/i&gt;
+                dieses Merkmals besitzen.
+                &lt;b&gt;GP:&lt;/b&gt; 8: &lt;i&gt;Dämonisch (einzelne Domäne), Elementar (einzelnes Ele-
+                ment), Geisterwesen, Heilung, Herbeirufung, Illusion, Schaden, Teleki-
+                nese, Verständigung&lt;/i&gt;
+                12: &lt;i&gt;Antimagie, Beschwörung, Eigenschaften, Einfluss, Form, Hellsicht,
+                Herrschaft, Kraft, Objekt, Umwelt&lt;/i&gt;
+                16: &lt;i&gt;Dämonisch (gesamt), Elementar (gesamt), Limbus, Metamagie, Tempo-
+            ral&lt;/i&gt;
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Begabung für [Ritual]</name>
+        <id>16</id>
+        <gp>0</gp>
+        <desc>Die Ritualprobe für das Ritual ist um 3 Punkte erleichtert, AP-Kosten
+                zum Erlernen des Rituals werden halbiert.
+            &lt;b&gt;GP:&lt;/b&gt; (Unmodifizierte) AP-Kosten des Rituals / 50
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Begabung für [Talent] / [Talentgruppe]</name>
+        <id>17</id>
+        <gp>0</gp>
+        <desc>Das Steigern des Talents / der Talentgruppe ist um 1 Spalte verbilligt.
+                Bei einer Begabung für ein einzelnes Talent erhält der Held in diesem
+                Talent einen zusätzlichen TaP zu Spielbeginn.
+                Der Maximale TaW in einem Talent ist [höchste beteiligte Eigenschaft] + 5
+                (also 2 Punkte höher als normal).
+                Die Erleichterungen aus diesem Vorteil sind nicht kumulierbar mit anderen
+                Erleichterungen aus Vorteilen, Professionen oder SF. Ein Talent kann
+                nicht gleichzeitig von einer Begabung für ein Einzeltalent und eine
+                Talentgruppe profitieren. In einer Talentgruppe, für die ein Held begabt
+                ist, ist zudem keine Unfähigkeit (einzeln oder als Gruppe) möglich.
+                &lt;b&gt;GP:&lt;/b&gt; &lt;i&gt;Kampf&lt;/i&gt; und &lt;i&gt;Körperliche Talente&lt;/i&gt;: 6 GP für ein
+                Talent (ausser &lt;i&gt;Schwimmen, Tanzen, Sich Verstecken, Singen, Zechen&lt;/i&gt;),
+                30 GP für eine Gruppe
+                Sonstiges Talent (auch oben genannte körperliche Talente): 4 GP, Gruppe
+                20 GP
+                &lt;i&gt;Sprachen und Schriften&lt;/i&gt;: 10 GP.
+                Begabung &lt;i&gt;Nahkampffertigkeiten&lt;/i&gt; für 20 GP, &lt;i&gt;Fernkampffertigkeiten&lt;/i&gt;
+            für 15 GP.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Begabung für [Zauber]</name>
+        <id>18</id>
+        <gp>2</gp>
+        <desc>Das Steigern des Zaubers ist um eine Spalte erleichtert und der maxi-
+                male ZfW beträgt [höchste Probeneigenschaft] + 5. Handelt es sich beim
+                gewählten Zauber um eine Grundkenntnis (Hauszauber, Zauber der zu Spiel-
+                beginn aus Profession oder Rasse zur Verfügung steht), steigt der ZfW
+                des Zaubers automatisch um 1 Punkt.
+                Der Vorteil kann maximal 3 Mal erworben werden, jedoch nur einmal pro
+                Zauber und nicht für solche, für die man bereits eine Merkmalsbegabung
+                besitzt. Der Lernbonus ist kumulierbar mit solchen aus Haussprüchen und
+                der SF &lt;i&gt;Merkmalskenntnis&lt;/i&gt;. Der Vorteil kann nur von Spruchzauberern
+                gewählt werden und ist nicht für &lt;i&gt;Übernatürliche Begabungen&lt;/i&gt; ein-
+                setzbar.
+                Bei speziellen Zaubern ist eine einleuchtende Begründung nötig, warum
+                der Held für den Zauber begabt ist (Meisterentscheid).
+            &lt;b&gt;GP:&lt;/b&gt; 2
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Beidhändig</name>
+        <id>19</id>
+        <gp>12</gp>
+        <desc>Der Held ist gleich gut mit beiden Händen. Er erleidet keine Einbussen
+                auf Talentproben oder Kampf-Würfe mit der falschen Hand.
+                Die SF &lt;i&gt;Linkhand, Beidhändiger Kampf I und II&lt;/i&gt; können zur Hälfte,
+                die SF &lt;i&gt;Schildkampf I und II, Parierwaffen I und II, Tod von Links&lt;/i&gt;
+                und &lt;i&gt;Doppelangriff&lt;/i&gt; zu 3/4 der angegebenen Kosten erworben werden.
+                Nicht kombinierbar mit dem Vorteil &lt;i&gt;Linkshändig&lt;/i&gt;. Der beidhändig
+                Begabte kann aber den Überraschungsvorteil des Linkshänders nutzen:
+                Während der ersten 5 KR kriegt der Gegner eines Linkshänders einen
+                PA-Nachteil von 1 Punkt.
+            &lt;b&gt;GP:&lt;/b&gt; 12
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Beseelte Knochenkeule</name>
+        <id>20</id>
+        <gp>1</gp>
+        <desc>Die Knochenkeule des Schamanen wird von einem Geist bewohnt (siehe SF
+                &lt;i&gt;Geist der Keule&lt;/i&gt; in WdZ).
+                &lt;b&gt;GP:&lt;/b&gt; LO x 1 für Totengeist, LO x 2 für Elementargeist, LO x 3 für
+            Dschinn oder Dämon (LO ist die Loyalität des Geistes)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Besonderer Besitz</name>
+        <id>21</id>
+        <gp>7</gp>
+        <desc>Ein besonderer Besitz ist ein Ausrüstungsgegenstand, der normalerweise
+                zu teuer ist, als dass er dem Helden zu Beginn seiner Karriere schon
+                zur Verfügung stehen würde. Bei den Professionen sind Beispiele ange-
+                geben, welcher &lt;i&gt;Besondere Besitz&lt;/i&gt; gut zur gewählten Profession passt.
+                In der Regel ist es ein passendes Grossgerät (zum Beispiel ein Pferd
+                für den Krieger) oder ein besonderer, für den Helden prägender Gegenstand
+                (wie eine &lt;i&gt;persönlichen Waffe&lt;/i&gt;), unter Umstände gar ein Zauberbuch
+                oder ein weniger mächtiges magisches Artefakt. Es sollte sich aber immer
+                um etwas handeln, das zu dem Hintergrund des Helden passt und das in seinem
+                Wert mit den anderen Gegenständen vergleichbar ist. (grob: zwischen 50
+                und 200 Dukaten). Nicht als &lt;i&gt;Besonderer Besitz&lt;/i&gt; wählbar sind Dauer-
+                einkünfte aus Grundbesitz, Schiffsbeteiligungen, Leibrenten etc. Bei
+                Professionen, bei denen nichts angegeben ist, erfordert der &lt;i&gt;Besondere
+                Besitz&lt;/i&gt; auch eine besondere Begründung (aber Fundsachen oder Dieb-
+                stahl sind fast immer möglich). Der &apos;standestypische Gegenstand&apos; eines
+                magisch begabten und ausgebildeten Helden (Vulkanglasdolch des Druiden,
+                Zauberstab des Gildenmagiers, &lt;i&gt;iama&lt;/i&gt; eines Elfen und dergleichen)
+                muss nicht als &lt;i&gt;Besonderer Besitz&lt;/i&gt; generiert werden, sondern gilt
+                als Teil der Ausbildung. Weitere Artefakte oder Zauberbücher zu Spiel-
+                beginn müssen jedoch mit diesem Vorteil erkauft werden.
+                Helden mit dem Vorteil &lt;i&gt;Adlig&lt;/i&gt; zahlen für diesen Vorteil nur 3 GP.;
+                Helden mit dem Vorteil &lt;i&gt;Adliges Erbe&lt;/i&gt; erhalten eine Stufe des
+                Vorteils umsonst.
+                Es ist möglich, diesen Vorteil bis zu fünf Mal zu erwerben: Jede
+                Stufe des Vorteils erhöht den Wert des Gegenstandes um den Faktor
+                5 (auf 600, 3&apos;000, 15&apos;000, 75&apos;000 Dukaten), damit ein Händler bei-
+                spielsweise einen Planwagen mit Zugtieren sein Eigen nennen kann. Es
+                ist auch möglich, dass eine von vornherein abgesprochene Heldengruppe
+                ihre GP für einen &lt;i&gt;Besonderen Besitz&lt;/i&gt; zusammenlegt, um z.B. das
+                Spiel mit einem eigenen Schiff zu beginnen. Die Verbilligung dieses
+                Vorteils für adlige gilt auch für höhere Stufen des besonderen von
+                &lt;i&gt;Besonderem Besitz&lt;/i&gt;. Höhere Stufen dieses Vorteils erfordern auf
+                jeden Fall die Zustimmung des Spielleiters.
+                &lt;b&gt;Anmerkung:&lt;/b&gt; Man beachte, dass ein Held eine persönliche Beziehung
+                zu seinem &lt;i&gt;Besonderen Besitz&lt;/i&gt; hat. Er käme nie auf die Idee,
+                ihn zu verkaufen. Andererseits sollte ein Spielleiter mit dem &lt;i&gt;Be-
+                sonderen Besitz&lt;/i&gt; eines Helden auch pfleglich umgehen und ihn nicht
+                einfach so zerstören, weil er nicht in die aktuelle Abenteuerplanung
+                passt - ein Diebstahl mit einem folgenden Abenteuer zur Wiederbe-
+            schaffung ist aber jederzeit möglich. 
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Breitgefächerte Bildung</name>
+        <id>22</id>
+        <gp>7</gp>
+        <desc>Der Held hat bereits zwei Professionen erlernt und hat daher ein um
+                6 Jahre höheres Einstiegsalter.
+                Er erhält die Hälft der Boni auf LE, AU, MR und INI der zweiten Profes-
+                sion. Bei Verdoppelungen von Vor- und Nachteilen gelten die Regeln aus
+                WdH 12.
+                Er erhält [GP der Zweitprofession + 7] x 50 AP zur Steigerung der Talente,
+                die im Profil der zweiten Profession angegeben sind. Er darf diese Ta-
+                lente um maximal so viele Punkte steigern, wie im Profil der Zweitpro-
+                fession angegeben ist. Er darf zudem maximal 8 (statt 5) Talente akti-
+                vieren. Talente, in denen der Held eine Unfähigkeit besitzt, dürfen
+                trotzdem (um eine Spalte verteuert) zu Spielbeginn um maximal die
+                bei der Profession genannte Punktezahl gesteigert werden.
+                Er darf von den AP-Punkten auch die bei der Zweitprofession genannten
+                SF (zum halben Listenpreis erwerben).
+                Eine in der ersten Profession eingebundene &lt;i&gt;Akademische Ausbildung&lt;/i&gt;
+                kann bis zu einem TaW von 15 genutzt werden, wenn die zweite Profession
+                das gewünschte Talent ebenfalls unterstützt.
+                Der Held erhält 3 x SO Dukaten pro GP für einen allfälligen &lt;i&gt;Aus-
+                rüstungsvorteil&lt;/i&gt;. Ein &lt;i&gt;Besonderer Besitz&lt;/i&gt; kostet nur 5 GP (kom-
+                biniert mit &lt;i&gt;Adlig&lt;/i&gt; 2 GP).
+
+                Dieser Vorteil ist nur einmal pro Held wählbar, und nur eine der beiden
+                Professionen darf &lt;i&gt;zeitaufwändig&lt;/i&gt; sein. Der Vorteil kann nicht
+                mit dem Vorteil &lt;i&gt;Veteran&lt;/i&gt; kombiniert werden.
+                &lt;i&gt;Vollzauberer, Halbzauberer&lt;/i&gt; und &lt;i&gt;Geweihte&lt;/i&gt; können Teil einer
+                solche Professionskombination sein, allerdings nur, wenn die magische
+                oder karmale Profession die zuerst gewählte ist.
+            &lt;b&gt;GP:&lt;/b&gt; 7 + Professionskosten der Zweitprofession
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Dämmerungssicht</name>
+        <id>23</id>
+        <gp>10</gp>
+        <desc>Der Held erhält bei schlechter Beleuchtung nur die Hälfte der Abzüge
+                auf AT, PA, FK und &lt;i&gt;Sinnenschärfe&lt;/i&gt;-Proben. Andere Probenerleich-
+                terungen sind Meisterentscheid. Dieser Vorteil ist üblicherweise direkt
+                mit einer Rasse verbunden, aber auch ein menschlicher Held kann den
+                Vorteil mit etwas &apos;Elfenblut in den Adern&apos; begründen.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Eidetisches Gedächtnis</name>
+        <id>24</id>
+        <gp>35</gp>
+        <desc>Alle Kl-Proben, um sich an ein Detail zu erinnern, sind um 7 Punk-
+                te erleichtert.
+                Der Held steigert alle Wissens- und Sprachtalente sowie Zauber-
+                fähigkeiten und die SF &lt;i&gt;Geländekunde, Kulturkunde, Nandusge-
+                fälliges Wissen, Ortskenntnis, Talentspezialisierung bei Wissens-
+                talenten, Objektrituale, Bann- und Schutzkreise, Exorzist, Invo-
+                catio Integra, Kraftlinienmagie I/II, Matrixkontrolle, Ritual-
+                kenntnis (auch Schamane), Runenkunde, Signaturkenntnis, Zauber-
+                spezialisierung, Zauberzeichen, Zibilja-Rituale, Liturgiekenntnis
+                und Liturgien&lt;/i&gt; zu halben Kosten.
+                Dieser Vorteil erfordert die Zustimmung des Meiters und ist nicht
+                mit &lt;i&gt;Gutem Gedächtnis, Unstet&lt;/i&gt; und &lt;i&gt;Vergesslichkeit&lt;/i&gt;
+                kombinierbar.
+            &lt;b&gt;GP:&lt;/b&gt; 35
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Eigeboren</name>
+        <id>25</id>
+        <gp>20</gp>
+        <desc>Die Hexe wurde aus einem Hexenei geboren. Sie besitzt automatisch
+                die Vorteile &lt;i&gt;Altersresistenz, Gut Aussehend&lt;/i&gt; und &lt;i&gt;Macht-
+                voller Vertrauter&lt;/i&gt;. Alle Gesellschaftlichen Talentproben im
+                Kreise ihrer Schwestern sind um 3 Punkte erleichtert. Sie steigert
+                zudem ihr Charisma eine Spalte leichter. Das Erlernen von Flüchen
+                ist nur halb so teuer wie für ihre Schwester.
+                Nur für weibliche Hexen und nicht kombinierbar mit den Nachteilen
+                &lt;i&gt;Miserabels Charisma, Unansehnlich, Widerwärtiges Aussehen&lt;/i&gt;.
+            &lt;b&gt;GP:&lt;/b&gt; 20
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Eisenaffine Aura</name>
+        <id>26</id>
+        <gp>7</gp>
+        <desc>Der Zauberer erleidet nur die &lt;i&gt;leichten&lt;/i&gt; Auswirkungen bei
+                &lt;i&gt;Zauberbehinderung durch Metalle&lt;/i&gt; (WdZ). Kann nicht von
+                Druiden und Geoden gewählt werden.
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Eisern</name>
+        <id>27</id>
+        <gp>7</gp>
+        <desc>Die Wundschwellen des Helden sind jeweils um 2 Punkte erhöht (auch
+                die Werte, bei denen auf einen Schlag zwei oder drei Wunden ent-
+                stehen). Der Held ist zudem mit 1 bis 5 LeP noch in der Lage,
+                Aktionen durchzuführen.
+                Nicht kombinierbar mit &lt;i&gt;Glasknochen&lt;/i&gt;
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Empathie</name>
+        <id>28</id>
+        <gp>30</gp>
+        <desc>Diese Gabe erlaubt die Durchleuchtung der Gefühlswelt eines Ge-
+                schöpfs. Die Probe ist erschwert durch die Fremdartigkeit einer
+                Rasse (+1 wenn ein nostrische Empath einen Utulu durchleuchtet,
+                +7 bei der Einschätzung eines Drachen durch einen Menschen), vor
+                allem aber durch den halben MU-Wert des &apos;Opfers&apos;, wenn es den
+                Empath bei seiner Tätigkeit erspürt (IN-Probe + 10).
+                Die Reichweite dieser Gabe beträgt TaW/2 Schritt. Übrigbehaltene
+                Punkte lassen sich dazu verwenden, Gesellschaftliche Talentproben
+                und Proben auf Sprachverständnis zu erleichtern.
+                Eine Empathie-Probe dauert 1 Aktion und bringt einen Punkt Er-
+                schöpfung (3 Aktionen und W6 Erschöpfung falls die Punkte zur
+                Erleichterung einer Gesellschaftlichen Probe verdoppelt werden
+                sollen). Gescheiterte Proben können sofort mit 3 Punkten Aufschlag
+                wiederholt werden, nach einer SR ohne Aufschlag.
+                Eine erfolgreiche Probe wirkt für TaP* SR mindestens jedoch 1 SR.
+                Der Startwert der Gabe beträgt 3, die Probe wird auf MU/IN/IN ab-
+                gelegt.
+            &lt;b&gt;GP:&lt;/b&gt; 30
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Entfernungssinn</name>
+        <id>29</id>
+        <gp>10</gp>
+        <desc>Der Held kann schnell und präzise Distanzen zu anderen Objekten
+                und Wesen schätzen. Alle IN-Proben zur Abschätzung von Distanzen
+                sind um 3 Punkte erleichtert, FK-Proben und Zauber mit Reichweite
+                &lt;i&gt;Horizont&lt;/i&gt; sind um 2 Punkte erleichtert.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Ererbte Knochenkeule</name>
+        <id>30</id>
+        <gp>2</gp>
+        <desc>Der Schamane hat eine Knochenkeule geerbt und diese bereits durch
+                eine &lt;i&gt;Weihe der Keule&lt;/i&gt; an sich gebunden. Die Keule kann be-
+                reits weitere Rituale enthalten (nicht &lt;i&gt;Geist der Keule&lt;/i&gt;),
+                der Schamane muss diese nicht selber beherrschen. Kein Bonus auf
+                der Keule darf grösser als +3 sein.
+            &lt;b&gt;GP:&lt;/b&gt; 2 GP pro in der Keule gespeichertem pAsP
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Feenfreund</name>
+        <id>31</id>
+        <gp>7</gp>
+        <desc>Es kann sein, dass der Held unerwartet Hilfe von Seiten der
+                Feen-Wesen bekommt (an Orten, wo es Feen gibt wie dem alberni-
+                schen Farindelwald oder im Überwals östlich des Bornwaldes).
+                Kobolde zählen in diesem Zusammenhang nicht zu den Feen.
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Feste Matrix</name>
+        <id>32</id>
+        <gp>5</gp>
+        <desc>Dem Held unterläuft nur dann ein Patzer beim Zaubern, wenn er
+                zusätzlich zu den beiden Zwanzigern noch eine 18, 19 oder 20
+                bei der Zauberprobe würfelt.
+                Kann nicht von Schelmen gewählt oder mit dem Nachteil &lt;i&gt;Wilde
+                Magie&lt;/i&gt; kombiniert werden.
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Flink</name>
+        <id>33</id>
+        <gp>10</gp>
+        <desc>Die Basis-GS des Helden steigt um 1, er erhält zudem einen Bonus
+                von 1 auf alle &lt;i&gt;Ausweichen&lt;/i&gt; Proben. Der Held erhält für jeden
+                TaP* bei einer &lt;i&gt;Athletik&lt;/i&gt; Probe eine Zusatz-GS von 0.2 (statt
+                0.1). Er muss nicht &lt;i&gt;Kampfreflexe&lt;/i&gt; besitzen, um &lt;i&gt;Klingen-
+                sturm oder Klingenwand&lt;/i&gt; zu erlernen, und auch die KO-Vorbe-
+                dingung für &lt;i&gt;Ausfall&lt;/i&gt; entfällt.
+                Der Vorteil entfällt bei einer BE von 5 oder mehr. Der Vorteil
+                kann nur einmal gewählt werden (ausser von Helden, die diesen
+                Vorteil bereits aus ihrer Rasse erhalten; in diesem Fall entfällt
+                der erste Vorteil bei BE 5, der zweite bei BE 7).
+                Nicht kombinierbar mit &lt;i&gt;Behäbig&lt;/i&gt;.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Gebildet</name>
+        <id>34</id>
+        <gp>1</gp>
+        <desc>Der Held erhält pro eingesetztem GP 40 AP zur Steigerung von
+                &lt;i&gt;Wissenstalenten, Sprachen, Schriften, Handwerkstalenten&lt;/i&gt;
+                und zum Erwerb dazugehöriger SF. Maximal sind so 200 AP möglich.
+                Die Hälfte dieser AP können auch zur Verbesserung von Zauberfer-
+                tigkeiten oder dem Erwerb magischer SF verwendet werden.
+            &lt;b&gt;GP:&lt;/b&gt; 1 GP pro 40 AP (max 5 GP)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Gefahreninstinkt</name>
+        <id>35</id>
+        <gp>12</gp>
+        <desc>Diese Gabe lässt einen Helden Gefahren frühzeitig erkennen. Sie
+                hilft, einen Hinterhalt zu Erkennen und Überraschungssituationen
+                zu Kampfbeginn leichter zu überwinden (WdS 78). Die Probe sollte
+                verdeckt gewürfelt werden. Wenn sie gelingt, weiss der Held, dass
+                er akut in Gefahr schwebt. Je mehr TaP* übrigbleiben, desto eher
+                kann er die Gefahr eingrenzen.
+                Der Startwert der Gabe beträgt 3, die Probe wird auf KL/IN/IN ab-
+                gelegt.
+            &lt;b&gt;GP:&lt;/b&gt; 12
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Geräuschhexerei</name>
+        <id>36</id>
+        <gp>3</gp>
+        <desc>Diese Gabe kann nur von Schelmen oder Helden mit dem Vorteil &lt;i&gt;
+                Koboldfreund&lt;/i&gt; erlernt werden. Der Held ist in der Lage, allerlei
+                Geräusche ausserhalb seines Körper entstehen zu lassen (eine er-
+                weiterte Form des Bauchrednens). Da es sich hierbei um eine akus-
+                tische Illusion handelt, entscheiden TaP* über die Qualität und
+                Glaubwürdigkeit der Geräuschhexerei. Während der Verwendung dieser
+                Gabe sind alle Talent- und Zauberproben für den Helden um 3 Punkte
+                erschwert. Jede Anwendung der Gabe bringt 1 Punkt Erschöpfung
+                mit sich.
+                Startwert: 3, Probe: IN/CH/KO
+            &lt;b&gt;GP:&lt;/b&gt; 3
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Geweiht</name>
+        <id>37</id>
+        <gp>10</gp>
+        <desc>Der Held ist geweihter Priester in einem Kult, der eine karma-
+                spendende Gottheit verehrt. Dies gibt einen MR-Bonus von einem
+                Punkt und einem &lt;i&gt;Liturgiekenntnis&lt;/i&gt; wert von 3 Punkten (in
+                den Liturgien des jeweiligen Kultes). Der Geweihte kann mit hilfe
+                von Karmaenergie Mirakel und Liturgien wirken. Alle Geweihten be-
+                herrschen zudem die SF &lt;i&gt;Karmalqueste&lt;/i&gt;.
+                Geweihte der alveranischen Götter (auch in den Varianten Angrosch,
+                Gravesh, H&apos;Szinth oder Zsahh) verfügen über 24 Karmapunkte und
+                haben Liturgien im Gegenwert von 14 Liturgiegraden erlernt.
+                Geweihte nicht alveranischer Götter haben 12 KaP und 10 Litur-
+                giegrade.
+                &lt;b&gt;Zwölfgötter Geweihte&lt;/b&gt;
+                Beherrschen die &lt;i&gt;Zwölf Segnungen&lt;/i&gt; und weitere Liturgien je
+                nach Profession. Für sie kostet der Vorteil 18 GP.
+
+                &lt;b&gt;H&apos;Szinth, Zsahh, Angrosch oder Gravesh Geweihte&lt;/b&gt;
+                16 GP, die Liturgischen Fähigkeiten sindn bei den Professionen
+                angegeben
+
+                &lt;b&gt;Nicht Alveranische Götter&lt;/b&gt;
+                10 GP, Liturgien bei den Professionen angegeben
+
+                &lt;b&gt;Geweihte des Kor&lt;/b&gt;
+                Müssen von Haus aus erfahrene Kämpfer sein; der Zugang zu die-
+                ser Profession erfolgt ausschliesslich über die SF &lt;i&gt;Späht-
+            weihe&lt;/i&gt;
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Glück</name>
+        <id>38</id>
+        <gp>12</gp>
+        <desc>Der Held kann bis zu zweimal pro aventurischem Tag einen Würfel-
+                wurf (AT-, PA-, Schadenswurf, Zauber- oder Talentprobe, aber auch
+                das Ergebnis eines Sturzschadens) wiederholen und das für ihn
+                günstigere Ergebnis wählen. Alternativ kann er vom Meister die
+                Wiederholung eines nicht verdeckten Wurfes (AT- oder Schadenswurf).
+                Der Meister kann die Häufigkeit eines solchen Würfelwurfes zu
+                Beginn des Tages mit 1W3-1 verdeckt festlegen.
+            &lt;b&gt;GP:&lt;/b&gt; 12
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Glück im Spiel</name>
+        <id>39</id>
+        <gp>3</gp>
+        <desc>Ein Glückspiel kann entweder am Tisch ausgespielt oder mit einer
+                IN-Probe simuliert werden. Für einen Helden mit dem Vorteil &lt;i&gt;
+                Glück im Spiel&lt;/i&gt; ist diese IN-Probe um 7 Punkte erleichtert, was
+                bei Gelingen bedeutet, dass der Held höhere Gewinnchancen hat.
+                In einem ausgespielten Glückspiel darf der Held eine Karte neu
+                ziehen oder ein Würfelergebnis modifizieren und dergleichen. Je
+                nachdem, wie gücksabhängig ein Brett- oder Kartenspiel ist, kann
+                dieser Vorteil Boni auf das Talent &lt;i&gt;Brett/Kartenspiel&lt;/i&gt; bringen.
+            &lt;b&gt;GP:&lt;/b&gt; 3
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Gut Aussehend</name>
+        <id>40</id>
+        <gp>5</gp>
+        <desc>Alle Proben auf gesellschaftliche Talente und solche Talentproben, bei
+                denen es darauf ankommt, Sympathien zu gewinnen und in dere Probe CH
+                geprüft wird, sind um 1 Punkt erleichtert. Ob der Vorteil auch in frem-
+                den Kulturen wirkt, ist Meisterentscheid.
+                Der Vorteil kann bei gewissen Zaubern (BANNBALADIN, SATUARIAS, HERRLICH-
+                KEIT oder SEIDENZUNGE) eine Erleichterung von 1 Punkt auf die Zauber-
+                probe bringen.
+                Nicht kombinierbar mit &lt;i&gt;Widerwärtiges Aussehen, Unansehnlich, Her-
+                ausragendes Aussehen&lt;/i&gt;
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Guter Ruf</name>
+        <id>41</id>
+        <gp>1</gp>
+        <desc>Der Held ist bekannt für seine Gerechtigkeit, Grosszügigkeit ect. Je
+                zwei GP, die in diesem Vorteil investiert wurden, erleichtern Talent-
+                proben in gesellschaftlichen Talenten um 1 Punkt. Je nach Situation
+                kann ein Drittel der GP auch fehlenden SO wettmachen, um zum Beispiel
+                eine Audienz oder Einladung zu einem Hofball zu erhalten.
+            &lt;b&gt;GP:&lt;/b&gt; 1 - 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Gutes Gedächtnis</name>
+        <id>42</id>
+        <gp>7</gp>
+        <desc>Alle Kl-Proben, um sich an ein Detail zu erinnern, sind um 7 Punk-
+                te erleichtert.
+                Der Held steigert alle Wissens- und Sprachtalente sowie Zauber-
+                fähigkeiten und die SF &lt;i&gt;Geländekunde, Kulturkunde, Nandusge-
+                fälliges Wissen, Ortskenntnis, Talentspezialisierung bei Wissens-
+                talenten, Objektrituale, Bann- und Schutzkreise, Exorzist, Invo-
+                catio Integra, Kraftlinienmagie I/II, Matrixkontrolle, Ritual-
+                kenntnis (auch Schamane), Runenkunde, Signaturkenntnis, Zauber-
+                spezialisierung, Zauberzeichen, Zibilja-Rituale, Liturgiekenntnis
+                und Liturgien&lt;/i&gt; zu 3/4 Kosten.
+                Dieser Vorteil ist nicht mit &lt;i&gt;Eidetischem Gedächtnis&lt;/i&gt;
+                und &lt;i&gt;Vergesslichkeit&lt;/i&gt; kombinierbar.
+                Ein Held, der diesen Vorteil aus Rasse, Kultur oder Profession besitzt,
+                kann ihn für 23 bzw 28 Punkte zu &lt;i&gt;Eidetischem Gedächtnis&lt;/i&gt; auf-
+                werten.
+            &lt;b&gt;GP:&lt;/b&gt; 12 für Spruchzauberer, 7 für alle anderen
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Halbzauberer</name>
+        <id>43</id>
+        <gp>10</gp>
+        <desc>Der Held erhält zusätzlich 6 AsP und einen MR-Bonus von 1 Punkt. Er
+                ist in der Lage, entweder Spruchzauber zu wirken oder besitzt Kenntnis
+                in den für seine Ausbildung typischen Ritualen. Für Details, siehe
+                die entsprechenden Professionen.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Herausragende Balance</name>
+        <id>44</id>
+        <gp>20</gp>
+        <desc>Alle &lt;i&gt;Körperbeherrschungs-, Athletik-, Akrobatik-, Tanzen-&lt;/i&gt; Proben
+                sind um 7 alle GE-Proben um 5 Punkte erleichtert, wenn diese mit dem
+                Balance halten, Drehen in der Luft oder Stehenbleiben auf schwankendem
+                Grund zu tun haben.
+                Bei Sturzschaden kann (nach der Einberechnung der &lt;i&gt;Körperbeherrschungs-&lt;/i&gt;
+                Probe) ein Viertel der erlittenen Punkte abgezogen werden. Der Vorteil
+                hilft zudem, nach gewissen Kampfmanövern stehen zu bleiben oder bei
+                einem Patzer einen Sturz zu vermeiden (WdS 63, 65, 84f.).
+                Dieser Vorteil kann nicht mit &lt;i&gt;Balance&lt;/i&gt; kombiniert werden. Ein
+                Aufwerten von &lt;i&gt;Balance&lt;/i&gt; kostet 10 GP.
+                Er beinhaltet automatisch die SF &lt;i&gt;Standfest&lt;/i&gt;.
+                &lt;b&gt;GP:&lt;/b&gt; 20; 16 falls SF &lt;i&gt;Standfest&lt;/i&gt; durch Kultur, Rasse oder Pro-
+            fession vorhanden
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Herausragender Sechster Sinn</name>
+        <id>46</id>
+        <gp>3</gp>
+        <desc>Der Held erfasst magische Zusammenhänge besser, erkennt mehr Details
+                in der Hellsicht und spürt astrale Präsenzen schneller: Alle Proben
+                auf die Gabe &lt;i&gt;Magiegespür&lt;/i&gt; sowie auf Zauber und Muster, die ast-
+                rale Muster und Präsenzen erkennen und untersuchen (ODEM, ANALYS, OCU-
+                LUS, &lt;i&gt;Sicht auf Madas Welt&lt;/i&gt;, &lt;i&gt;Blick der Weberin&lt;/i&gt;) sind um
+                3 Punkte erleichtert.
+            &lt;b&gt;GP:&lt;/b&gt; 7 für Zauberer und Geweihte, 3 für alle anderen
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Herausragender Sinn</name>
+        <id>47</id>
+        <gp>5</gp>
+        <desc>Alle &lt;i&gt;Sinnenschärfe&lt;/i&gt;-Proben, die sich auf diesen Sinn beziehen,
+                sind um 5 Punkte erleichtert. Der Meister kann einem solchen Helden je
+                nach Situation auch Proben zugestehen, die anderen Helden nicht er-
+                laubt sind.
+                Bei &lt;i&gt;Herausragendem Tastsinn&lt;/i&gt; können Talentproben, bei denen FF
+                und der Tastsinn eine grosse Rolle spielen um 1 - 3 Punkte erleichtert
+                sein.
+                Bei &lt;i&gt;Herausragender Geruchsinn&lt;/i&gt; ist eine Erleichterung für das
+                Talent &lt;i&gt;Kochen&lt;/i&gt; (ab TaW 5) beim Zubereiten von Mahlzeiten von
+                1 bis 3 Punkten möglich.
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Herausragendes Aussehen</name>
+        <id>48</id>
+        <gp>12</gp>
+        <desc>Alle Proben auf gesellschaftliche Talente und solche Talentproben, bei
+                denen es darauf ankommt, Sympathien zu gewinnen und in dere Probe CH
+                geprüft wird, sind um 3 Punkt erleichtert. Ob der Vorteil auch in frem-
+                den Kulturen wirkt, ist Meisterentscheid.
+                Der Vorteil kann bei gewissen Zaubern (BANNBALADIN, SATUARIAS, HERRLICH-
+                KEIT oder SEIDENZUNGE) eine Erleichterung von 2 Punkt auf die Zauber-
+                probe bringen.
+                Nicht kombinierbar mit &lt;i&gt;Widerwärtiges Aussehen, Unansehnlich, Gut-
+                aussehend&lt;/i&gt;
+            &lt;b&gt;GP:&lt;/b&gt; 12 (Aufwertung von &lt;i&gt;Gut Aussehend&lt;/i&gt;: 7)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Hitzeresistenz</name>
+        <id>49</id>
+        <gp>5</gp>
+        <desc>&lt;i&gt;Hitzeresistente&lt;/i&gt; Helden erleiden durch hohe Temperaturen (bis ca.
+                +50°C) keinen Schaden. Sie müssen nur dann erhöhten Ausdauerverlust und
+                stärkere Erschöpfun hinnehmen, wenn sie sich übermässig anstrengen.
+                Der Vorteil schützt nicht vor Feuerschaden (auch nicht gegen Zauber).
+                Üblicherweise wird man durch Akklimatisierung (Leben in heissen Regio-
+                nen, entsprechende Berufe wie Glasbläser, Metallgiesser) oder durch
+                akklimatisierte Vorfahren &lt;i&gt;Hitzeresistent&lt;/i&gt;.
+                Der Vorteil kann im späteren Heldenleben über die SF &lt;i&gt;Akklimatisie-
+                rung&lt;/i&gt; erworben werden.
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Hohe Lebenskraft</name>
+        <id>50</id>
+        <gp>2</gp>
+        <desc>Der Held erhält einen LE-Bonus von 1 Punkt (max. 6 Punkte) pro 2 ein-
+                gesetzter GP. Diese Punkte zählen zur LE-Basis, werden also später beim
+                Hinzukaufen von LE-Punkten nicht beachtet.
+            &lt;b&gt;GP:&lt;/b&gt; 2 GP pro Punkt LE
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Hohe Magieresistenz</name>
+        <id>51</id>
+        <gp>2</gp>
+        <desc>Der Held erhält einen MR-Bonus von 1 Punkt (max. 3 Punkte) pro 2 ein-
+                gesetzter GP. Diese Punkte zählen zur MR-Basis, werden also später beim
+                Hinzukaufen von MR-Punkten nicht beachtet.
+            &lt;b&gt;GP:&lt;/b&gt; 2 GP pro Punkt MR
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Immunität gege Gift</name>
+        <id>52</id>
+        <gp>5</gp>
+        <desc>Der Charakter ist extrem widerstandsfähig gegen ein Gift oder eine
+                Gruppe von Giften: Bei Resistenzproben gegen solche Gifte ist seine
+                KO um 15 Punkte erhöht.
+                Der Vorteil kostet 5 GP für ein einzelnes Gift, 10 für eine Gruppe von
+                Giften (tierische, pflanzliche, mineralische, alchimistische Gifte,
+                oder Einnahmegifte, Atemgifte, Kontaktgifte, Blut/Waffengifte) und
+                35 GP für die Immunität gegen alle Gifte.
+                Ist dieser Vorteil bei einer Rasse, Kultur oder Profession genannt,
+                ist immer die Immunität gegen ein einzelnes Gift gemeint.
+                Der Vorteil ist nicht mit &lt;i&gt;Resistenz gegen Gift&lt;/i&gt; kombinierbar,
+                eine Resistenz gegen ein einzelnes Gift kann aber für 3 GP zu einer
+                Immunität aufgewertet werden.
+            &lt;b&gt;GP:&lt;/b&gt; 5 / 10 / 35 GP (siehe oben)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Immunität gegen Krankheiten</name>
+        <id>53</id>
+        <gp>3</gp>
+        <desc>Der Held ist besonders widerstandsfähig gegen Krankheiten. Seine KO
+                ist bei der Immunitätsprobe oder beim Ausheilen von Krankheiten um
+                15 Punkte erhöht.
+            &lt;b&gt;GP:&lt;/b&gt; 3 für eine einzelne, 10 für alle Krankheiten
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Innerer Kompass</name>
+        <id>54</id>
+        <gp>7</gp>
+        <desc>Dies heisst nicht mehr und nicht weniger, als dass der Held immer - auf
+                dem Land, in der Stadt oder gar unterirdisch - weiss, wo Norden ist.
+                Dadurch sind alle &lt;i&gt;Orientierungs&lt;/i&gt;-Proben (oder &lt;i&gt;Wildnisleben&lt;/i&gt; /
+                &lt;i&gt;Gassenwissen&lt;/i&gt;-Proben zur Orientierung) um 7 Punkte erleichtert, auf
+                See oder in der Wüste sogar um bis zu 14 Punkte (Meisterentscheid).
+                &lt;i&gt;Innerer Kompass&lt;/i&gt; beinhaltet den Vorteil &lt;i&gt;Richtungssinn&lt;/i&gt; und
+                kann daher nicht mit diesem kombiniert werden, wer jedoch aus Rasse, Kultur
+                oder Profession &lt;i&gt;Richtungssinn&lt;/i&gt; mitbringt, kann &lt;i&gt;Inneren Kompass&lt;/i&gt;
+            für 4 GP erwerben.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Kampfrausch</name>
+        <id>55</id>
+        <gp>15</gp>
+        <desc>Im Gegensatz zum unkontrollierten &lt;i&gt;Blutrausch&lt;/i&gt; können sich manche
+                Menschen, Zwerge und Orks bewusst in einen Zustand versetzen, in dem
+                sie keine Schmerzen mehr spüren und sich voll aufs Gefecht konzentrieren
+                können. Um in einen &lt;i&gt;Kampfrausch&lt;/i&gt; zu verfallen, muss dem Kämpfer
+                eine &lt;i&gt;Selbstbeherrschungs&lt;/i&gt;-Probe +10 gelingen, während er sich selbst
+                leichte Schmerzen (kleine Schnitte oder Bisse; auf jeden Fall Verlust
+                von 1W3 LeP und 1 Punkt Erschöpfung).
+                Gelingt dies, so erleidet er während des Kampfrausches keine Werte-
+                Einbussen durch Wunden, niedrige LE oder niedrige AU, bzw. Erschöpfung/
+                Überanstrengung und muss nicht auf &lt;i&gt;Selbstbeherrschung&lt;/i&gt; würfeln,
+                um bei schweren Treffern bei Bewusstsein zu bleiben. Er kann jedoch
+                als Kampfmanöver nur den &lt;i&gt;Wuchtschlag&lt;/i&gt; und die darauf basierenden
+                Manöver &lt;i&gt;Niederwerfen, Strumangriff, Hammerschlag, Befreiungsschlag&lt;/i&gt;
+                und &lt;i&gt;Schildspalter&lt;/i&gt; nutzen, diese jedoch um 2 Punkte erleichtert.
+                Ebenfalls um 2 Punkte erleichtert (also nur um 2 Punkte erschwert) ist
+                das Umwandeln von Paraden in Attacken.
+                Der Meister führt verdeckt Buch über die Schadenspunkte, die der Held
+                erleidet, so dass es durchaus passieren kann, dass der Betreffende
+                bis zum Umfallen kämpft und dann nicht mehr aufsteht. Zudem erhält ein
+                Kämpfer im &lt;i&gt;Kampfrausch&lt;/i&gt; einen zusätzlichen TP und 1 Punkt auf seinen
+                AT-Basiswert, während sein PA- und FK-Basiswert um 1 Punkt sinken.
+                Der &lt;i&gt;Kampfrausch&lt;/i&gt; dauert bis zum Ende eines Kampfes, also bis
+                keine lebenden Gegner mehr zu bemerken sind. Die Rasse der &lt;i&gt;Thorwaler&lt;/i&gt;
+                ist bekannt für ihren Kampfrausch - die auch bei dieser Rasse vor-
+                kommende &lt;i&gt;Walwut&lt;/i&gt; finden sie unter dem Nachteil &lt;i&gt;Blutrausch&lt;/i&gt;.
+            Selbiger Nachteil ist nicht mit &lt;i&gt;Kampfrausch&lt;/i&gt; kombinierbar.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Koboldfreund</name>
+        <id>56</id>
+        <gp>10</gp>
+        <desc>Der Held ist aus irgendwelchen Gründen ein Sympathieträger bei Ko-
+                bolden. Er kann sogar versuchen, einen Kobold herbeizurufen (was na-
+                türlich nur funktioniert, wenn ein solcher in der Nähe ist). Der Um-
+                gang mit Kobolden ist aber auch für einen solchen Helden nicht sonder-
+                lich leicht, und es wird in der Regel auf langes Feilschen heraus-
+                laufen, bis der Kobold bereit ist, den Helden auf irgendeine Weise
+                zu helfen.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Kräfteschub</name>
+        <id>57</id>
+        <gp>10</gp>
+        <desc>Diese Gabe ermöglicht es dem Helden, durch besondere Konzentration
+                für eine Probe auf eine körperliche Eigenschaft (KO, KK, FF, GE)
+                eine Erleichterung um TaP*/2 zu erhalten. Die Probe muss innerhalb
+                einer SR nach der Kräfteschubprobe erfolgen. Misslingt die Probe,
+                so ist die Folgeprobe um 1 Punkt erschwert. Die Verwendung dieser
+                Gabe für mehrere Proben ist nur zulässig, wenn diese direkt auf-
+                einander folgen (z.B. bei einem Armdrücken-Wettbewerb). Diese
+                Gabe beschränkt sich auf eine Eigenschaft (Gewandheitsschub, Körper-
+                kraftschub etc.), kann aber mehrfach gewählt werden.
+
+                Der Einsatz dieser Gabe bringt dem Helden 1W3 Punkte Erschöpfung und
+                benötigt 4 Aktionen Konzentration. Ein Kraftschub kann auch spontan
+                mit einer Aktion Zeitaufwand ausgelöst werden, was jedoch 1W3+2
+                Punkte Erschöpfung bringt.
+                Startwert ist 3, die Probe wird auf MU/IN/KO abgelegt.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Kälteresistenz</name>
+        <id>58</id>
+        <gp>5</gp>
+        <desc>Der Held erleidet keinen Schaden durch aussergewöhnlich kalte tempera-
+                turen (-20°C Luft, oder 0°C Wasser) und nur reduzierten Schaden bei
+                noch extremerer Kälte. Der Vorteil nützt nicht gegen Kältezauber.
+                Üblicherweise wird man durch Akklimatisierung (Leben in heissen Regio-
+                nen, entsprechende Berufe wie Glasbläser, Metallgiesser) oder durch
+                akklimatisierte Vorfahren &lt;i&gt;Kälteresistent&lt;/i&gt;.
+                Der Vorteil kann im späteren Heldenleben über die SF &lt;i&gt;Akklimatisie-
+                rung&lt;/i&gt; erworben werden.
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Linkshänder</name>
+        <id>59</id>
+        <gp>5</gp>
+        <desc>Während der ersten 5 KR kriegt der Gegner eines Linkshänders einen
+                PA-Nachteil von 1 Punkt. &lt;i&gt;Linkshänder&lt;/i&gt; erwerben folgende SF
+                zu 3/4 ihrer Kosten: &lt;i&gt;Linkhand, Beidhändiger Kampf I&lt;/i&gt; und &lt;/i&gt;II&lt;/i&gt;.
+                Es mag Waffen und Objekte geben, die für &lt;i&gt;Linkshänder&lt;/i&gt; unge-
+                eignet sind, weil sie speziell für die rechte Hand entworfen wurden.
+                Nicht kombinierbar mit &lt;i&gt;Beidhändig&lt;/i&gt;.
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Machtvoller Vertrauter</name>
+        <id>60</id>
+        <gp>5</gp>
+        <desc>Der Held erhält bei der Charaktererschaffung einen besonder macht-
+                vollen Vertrauten (Werte siehe WdZ). Entsprechende Vorschläge sind
+                auch bei den jeweiligen Professionen angegeben.
+                Die Werte des Vertrautentiers lehnen sich an die Angaben in WdZ an
+                (Maximalwerte), auf die Eigenschaften können aber deutlich mehr Punk-
+                te verteilt werden (das Maximum kann bei einer Eigenschaft um 3 Punkte
+                überschritten werden).
+                Dieser Vorteil ist nur für Helden wählbar, die überhaupt einen Ver-
+                trauten haben können (Hexen, Geoden, Zibiljas und Goblin-Schamanen).
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Magiedilettant</name>
+        <id>61</id>
+        <gp>0</gp>
+        <desc>Der Held verfügt über sehr begrenzte magische Fähigkeiten. Nähere
+                Angaben und &lt;i&gt;Meisterhandwerk&lt;/i&gt;, &lt;i&gt;Übernatürliche Begabung&lt;/i&gt;,
+            und &lt;i&gt;Viertelzauberer&lt;/i&gt;.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Magiegespür</name>
+        <id>62</id>
+        <gp>12</gp>
+        <desc>Der Held kann Quellen astraler Kraft spüren, die sich unmittelbar
+                in seiner Nähe befinden. Dies sollte vom Meister verdeckt gewürfelt
+                werden, eine willentliche Probe ist erst ab TaW 7 möglich.
+                Erleichterungen bis 7 Punkte (rohe astrale Kraft von der Dimension
+                eines Sphärendurchbruchs oder ein sich enthüllender mächtiger Dämon)
+                und Erschwernisse bis 10 Punkte (gebundene Magie in mässig kraft-
+                vollen Artefakten, Berührung eines Zauberkundigen) sind möglich.
+                Der Held weiss häufig nur, dass es in der Nähe eine Kraftquelle gibt,
+                nicht aber wo oder welcher Art. Alle ODEM ARCANUM und OCULUS-Proben
+                sind um 1/5 der TaW in &lt;i&gt;Magiegespür&lt;/i&gt; erleichtert.
+                Jede Magiegespür-Probe (willentlich und unwillentlich) bringt dem
+                Helden 1 Punkt Erschöpfung. Startwert ist 3, Probe auf MU/IN/IN.
+                Die Probe benötigt üblicherweise 10 Aktionen.
+            &lt;b&gt;GP:&lt;/b&gt; 12
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Meisterhandwerk</name>
+        <id>63</id>
+        <gp>1</gp>
+        <desc>Der Zauberer kann AsP einsetzen, die Proben auf bis zu 5 von ihm
+                gewählte Talente zu erleichtern (nur Körper-, Natur-, Gesellschaft-,
+                oder Handwerkstalente; Wissenstalente nur, wenn sie für eine hand-
+                werkliche Tätigkeit stehen und zur Profession passen).
+
+                2 Möglichkeiten: AsP im Voraus eingesetzt erhöhen den TaW für eine
+                Probe um 2 Punkte pro AsP (maximal bis doppelten TaW; diese Punkte
+                können als TaP* übrig behalten werden). AsP während er Probe eingesetz,
+                um eine misslungene Probe doch noch zu schaffen (1 AsP pro Punkt)
+                oder die Qualität zu verbessern.
+                &lt;b&gt;GP:&lt;/b&gt; Vollzauberer: 5; Halbzauberer 3; Viertelzauberer 1
+            (alle Kosten pro Talent)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Nachtsicht</name>
+        <id>64</id>
+        <gp>20</gp>
+        <desc>Der Held erleidet selbst bei minimaler Beleuchtung (nicht aber ab-
+                solute Dunkelheit) maximale Abzüge von -2 auf AT und PA und -5 auf
+                FK.
+                Dieser Vorteil beinhaltet den Vorteil &lt;i&gt;Dämmerungssicht&lt;/i&gt;. Kann
+                nicht mit &lt;i&gt;Nachtblindheit&lt;/i&gt; kombiniert werden.
+                &lt;b&gt;GP:&lt;/b&gt; 20 (10 falls &lt;i&gt;Dämmerungssicht&lt;/i&gt; automatischer Vorteil
+            aus Rasse)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Natürliche Waffen</name>
+        <id>65</id>
+        <gp>0</gp>
+        <desc>Die Rasse des Helden verfügt über natürliche Waffen (in der Regel
+                Krallen oder Raubtierzähne). Zähne verursachen prinzipiell echte
+                TP, bei Krallen kann der Held je nach Situation wählen ob TP oder
+                TP(A).
+                Orks und Goblins besitzen diesen Vorteil von Natur aus (beide Gebiss
+                mit 1W6 + 1 Schaden), Schwanz und Gebiss der Achaz richten 1W6 TP(A)
+                an und zählen somit als &lt;i&gt;Natürliche Waffen&lt;/i&gt; mit 0 GP Kosten.
+
+                Die Fähigkeit, mit Biss oder Krallen echte TP anrichten zu können,
+                kostet 1 GP (für Biss und Krallen also 2 GP) sowie je 1 GP für jeden
+                zusätzlichen TP über den Grundwert von 1W6 hinaus.
+                Für eine Erhöhung von TP(A) müssen nur die Kosten für zusätzliche
+                TP verrechnet werden.
+                Eine &lt;i&gt;Natürliche Waffe&lt;/i&gt; beinhaltet die Kenntnis des dazugehörigen
+                Manövers (&lt;i&gt;Biss, Krallenhieb&lt;/i&gt; oder &lt;i&gt;Schwanzschlag&lt;/i&gt;).
+                &lt;b&gt;GP:&lt;/b&gt; 1 pro Waffe die echte TP anrichten, plus 1 pro TP über
+            Grundwert von 1W6.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Natürlicher Rüstungsschutz</name>
+        <id>66</id>
+        <gp>10</gp>
+        <desc>Nur ausgewählte Rassen können diesen Vorteil nutzen, wobei der
+                RS fest vorgegeben ist. Das Maximum für selber generierte Ras-
+                sen beträgt 3.
+            &lt;b&gt;GP:&lt;/b&gt; RS x 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Niedrige Schlechte Eigenschaft</name>
+        <id>67</id>
+        <gp>0</gp>
+        <desc>Dieser Vorteil ist für Helden wählbar, die über Rasse, Profession
+                oder Kultur mindestens eine schlechte Eigenschaft erhalten.
+                Der Wert einer solchen schlechten Eigenschaft kann mit diesem
+                Vorteil reduziert werden und so auch vor Spielbeginn unter 5
+                Punkte liegen (Reduktion bis 0 möglich).
+                Der Vorteil kann mehrfach gewählt werden, allerdings sollte je-
+                weils eine passende Begründung vorliegen.
+                &lt;b&gt;GP:&lt;/b&gt; entspricht den GP, die der Held für die wahl der
+            schlechten Eigenschaft erhalten würde
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Prophezeihen</name>
+        <id>68</id>
+        <gp>12</gp>
+        <desc>Der Held hat ein Gespür für grossräumige, zukünftige Entwicklungen.
+                Wann immer er die von im gewählte Methode des Propheziehens an-
+                wendet (Sterndeutung, Kartenlegen, Visionen im Drogenrausch,
+                Werfen von Runenstäben, Deuten des Vogelflugs, der Eingeweide von
+                Opfertieren oder auch nur des Teesatzes), kann der Meister eine
+                Probe auf &lt;i&gt;Prophezeihen&lt;/i&gt; verdeckt würfeln. In besonderen
+                Situationen kann der Meister dem Helden auch ungefragt Hinweise
+                geben, wenn der Held sich in einer besonderen Stimmung befindet.
+                Die Einsichten in die Zukunft sind auch bei noch so gut gelungnen
+                Proben niemals konkret und eindeutig. Der Einsatz dieser Gabe
+                führt automatisch zu 2 Punkten Erschöpfung und dauert mindestens
+                eine halbe Stunde.
+                Diese Gabe passt gut zu schwach magisch begabten Helden. Sie kann
+                durch Einsatz von 1W3+1 AsP (anstatt oben genannter Erschöpfung)
+                eingeleitet werden.
+                Probe auf IN/IN/CH, Startwert 3.
+            &lt;b&gt;GP:&lt;/b&gt; 12
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Resistenz gegen Gift</name>
+        <id>69</id>
+        <gp>3</gp>
+        <desc>Bei Resistenzproben gegen ein oder mehrere Gift ist die KO des
+                Helden um 7 Punkte erhöht.
+                Dieser Vorteil ist nicht mit &lt;i&gt;Immunität gegen Gift&lt;/i&gt; kombi-
+                nierbar.
+                &lt;b&gt;GP:&lt;/b&gt; 3 GP für ein einzelnes Gift; 7 für eine Gruppe von
+                Giften (nach Herkunft: tierisch, pflanzlich, mineralisch oder
+                alchimistisch; nach Verwendung: Kontaktgift, Waffengift, Atem-
+            gift, Einnahmegift); 25 für Resistenz gegen alle Gifte
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Resistenz gegen Krankheiten</name>
+        <id>70</id>
+        <gp>7</gp>
+        <desc>Bei Resistenzproben gegen Krankheiten ist die KO des Helden um
+                7 Punkte erhöht.
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Richtungssinn</name>
+        <id>71</id>
+        <gp>3</gp>
+        <desc>Der Held ist in der Lage, sich seinen Ort und seine zurück gelegte Strecke
+                zu merken, er hat ein intuitives Gespür für Himmelsrichtungen und der gleichen
+                mehr. Alle &lt;i&gt;Orientierungs&lt;/i&gt;-Proben (oder &lt;i&gt;Wildnisleben&lt;/i&gt;-Proben
+                zu Orientierungszwecken) sind um 5 Punkte erleichtert. Richtungssinn
+                ist auf den Geländetyp begrenzt, aus dem der Charakter stammt - das können
+                durchaus so grosse, aber recht einheitliche Gebiete wie die Wüste Khom,
+                die nördlichen Steppengebiete oder der Raschtullswall, nicht aber ein
+                Geländetyp wie &apos;Stadt&apos; sein (letzters lässt sich am besten mit der SF
+                &lt;i&gt;Ortskenntnis&lt;/i&gt; darstellen). &lt;i&gt;Richtungssinn&lt;/i&gt; kann nicht mit dem
+                Vorteil &lt;i&gt;Innerer Kompass&lt;/i&gt; kombiniert werden, jedoch kann ein vor-
+                handener &lt;i&gt;Richtungssinn&lt;/i&gt; für 4 GP zum &lt;i&gt;Inneren Kompass&lt;/i&gt; auf-
+            gewertet werden.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Schlangenmensch</name>
+        <id>72</id>
+        <gp>25</gp>
+        <desc>Der Held erhält aufgrund seiner Beweglichkeit einen Bonus von
+                1 Talentpunkt auf &lt;i&gt;Ringen, Akrobatik, Gaukeleien, Körperbeherr-
+                schung, Schleichen, Sich Verstecken, Tanzen, Fesseln/Entfesseln&lt;/i&gt;
+                und steigert diese Talente um eine Spalte leichter.
+                Alle &lt;i&gt;Ringen&lt;/i&gt;-Paraden und &lt;i&gt;Fesseln/Entfesseln&lt;/i&gt;-Proben,
+                um sich aus einer Umschlingung zu befreien, sind um 1 Punkt er-
+                leichtert, &lt;i&gt;Ringen&lt;/i&gt;-Paraden gegen waffenlose Angriffe sogar
+                um 3 Punkte. Die SF &lt;i&gt;Ausweichen I bis III, Schnellziehen&lt;/i&gt; und
+                alle &lt;i&gt;Waffenlosen Kampfstile&lt;/i&gt; sind zu halben AP-Kosten zu
+                erwerben.
+                Der Held muss eine GE von mindestens 14 mitbringen, und sein
+                KK-Maximum liegt 2 Punkte niedriger als üblich.
+                Dieser Vorteil lässt sich nicht mit &lt;i&gt;Herausragende Eigenschaft
+                Körperkraft&lt;/i&gt; kombinieren.
+            &lt;b&gt;GP:&lt;/b&gt; 25
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Schnelle Heilung I</name>
+        <id>73</id>
+        <gp>5</gp>
+        <desc>Der Held regeneriert pro Ruhephase 1 LE-Punkt zusätzlich, die
+                KO-Probe zur Rückgewinnung verlorener Lebensenergie ist um 1
+                Punkt erleichtert.
+                Nicht mit dem Nachteil &lt;i&gt;Schlechte Regeneration&lt;/i&gt; kombinier-
+                bar.
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Schnelle Heilung II</name>
+        <id>74</id>
+        <gp>10</gp>
+        <desc>Der Held regeneriert pro Ruhephase 2 LE-Punkt zusätzlich, die
+                KO-Probe zur Rückgewinnung verlorener Lebensenergie ist um 2
+                Punkt erleichtert.
+                Nicht mit dem Nachteil &lt;i&gt;Schlechte Regeneration&lt;/i&gt; kombinier-
+                bar.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Schnelle Heilung III</name>
+        <id>75</id>
+        <gp>15</gp>
+        <desc>Der Held regeneriert pro Ruhephase 3 LE-Punkt zusätzlich, die
+                KO-Probe zur Rückgewinnung verlorener Lebensenergie ist um 3
+                Punkt erleichtert.
+                Nicht mit dem Nachteil &lt;i&gt;Schlechte Regeneration&lt;/i&gt; kombinier-
+                bar.
+            &lt;b&gt;GP:&lt;/b&gt; 15
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Schutzgeist</name>
+        <id>76</id>
+        <gp>3</gp>
+        <desc>Der von einem &apos;Schutzgeist&apos; behütete, kann seine AE in einer be-
+                drohlichen Situation einsetzen, um eine Talent- oder Eigenschafts-
+                probe zu beeinflussen. Unter Einsatz aller noch vorhandenen AE
+                kann er einen Patzer abwenden, eine beliebige misslungene Probe
+                wiederholen, oder einen Probenwurf (als 1W20, egal ob teil einer
+                Talentprobe, Attacke, Parade oder Eigenschaftsprobe) wiederho-
+                len. Ob dieser Vorteil einsetzbar ist (die Situation lebensbe-
+                drohen ist), entscheidet der Meister. Es kann sein, dass dieser
+                Vorteil zum Einsatz kommt, obwohl der Held das nicht will.
+                Gelegentlich wird ein solcher Ausbruch von Astralenergie vom
+                Erscheinen minderer Geister begleitet, was zum Mythos des Schutz-
+                geistes führte.
+                Dieser Vorteil kann nur von Viertelzauberern gewählt weren.
+            &lt;b&gt;GP:&lt;/b&gt; 3
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Schwer zu verzaubern</name>
+        <id>77</id>
+        <gp>7</gp>
+        <desc>Der Held hat eine angeborene Resistenz gegen Zauberei. Alle &lt;i&gt;
+                Herrschafts-, Einfluss-, Hellsicht-, Eigenschaften-, Form-&lt;/i&gt; und
+                &lt;i&gt;Heilzauber&lt;/i&gt; (egal, ob zum Vor- oder Nachteil des Helden)
+                sind um 3 Punkte erschwert, ebenso etliche Zauber anderer Katego-
+                rien, die eine Verwandlung oder Geisteskontrolle bewirken.
+                Diese Erschwernis wird zu allen anderen Modifikationen addiert.
+                Es sind nur Zauber betroffen, die direkt auf den Helden wirken,
+                nicht Flächen- oder indirekte Effekte.
+                Dieser Vorteil kann nur von Helden gewählt werden, die selber nicht
+                zaubern können. Für die Geoden und zwergische Akademiemagier,
+                die von Haus aus &lt;i&gt;schwer zu verzaubern&lt;/i&gt; sind, gelten be-
+                sondere Regeln (WdH 168 und 174).
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Soziale Anpassungsfähigkeit</name>
+        <id>78</id>
+        <gp>7</gp>
+        <desc>Der Held muss nur geringe Einbussen auf gesellschaftliche Talent-
+                proben hinnehmen, wenn er sich in fremden Kulturen aufhält. Er
+                kann die SF &lt;i&gt;Kulturkunde&lt;/i&gt; verbilligt erwerben.
+                Zudem kann er leichter als andere Helden einen falschen SO vor-
+                täuschen. Seine &lt;i&gt;Verbindungen&lt;/i&gt; kosten ihn nur einen Fünftel
+                ihres SO and GP und können in einem Rahmen von SO +/- 7 gewählt
+                werden (aber auch hier kann der SO nicht über 15 liegen).
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Talentschub</name>
+        <id>79</id>
+        <gp>5</gp>
+        <desc>Diese Gabe ermöglicht es dem Helden, durch besondere Konzentration
+                für eine Talentprobe
+                eine Erleichterung um TaP* zu erhalten. Die Probe muss innerhalb
+                einer SR nach der Talentschubprobe erfolgen. Misslingt die Probe,
+                so ist die Folgeprobe um 3 Punkte erschwert. Die Verwendung dieser
+                Gabe für mehrere Proben ist nur zulässig, wenn diese direkt auf-
+                einander folgen (z.B. bei einem Armdrücken-Wettbewerb). Diese
+                Gabe beschränkt sich auf ein Talent (z.B. Schwimmen), kann aber
+                mehrfach gewählt werden.
+
+                Der Einsatz dieser Gabe bringt dem Helden 1W3 Punkte Erschöpfung und
+                benötigt 4 Aktionen Konzentration.
+                Startwert ist 3, die Probe wird auf MU/IN/KO abgelegt.
+
+                &lt;i&gt;Talentschub&lt;/i&gt; ist nicht mit einem &lt;i&gt;Meisterhandwerk&lt;/i&gt; im
+                gleichen Talent kombinierbar.
+            &lt;b&gt;GP:&lt;/b&gt; 5
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Tierempathie</name>
+        <id>80</id>
+        <gp>15</gp>
+        <desc>Diese Gabe reicht von einfachem Stimmungssinn und dem guten Ein-
+                fühlungsvermögen für Tiere bis hin zur vollständigen Verständigung
+                mit Tieren, was über den TaW und die TaP* geregelt wird. Eine
+                Probe ist erschwert durch die Fremdartigkeit der Kreatur (1 bis
+                7 Punkte) und durch die Willenskraft und Klugheit des Tieres
+                (-2 bis +5 Punkte). Der Tier-Empath darf nicht weiter als 1 Schritt
+                vom Tier entfernt sein. TaP* aus &lt;i&gt;Tierempathie&lt;/i&gt;-Proben können
+                auch verwendet werden, um gesellschaftliche Talente auf Tiere an-
+                zuwenden, bzw. Tieren regelrecht &apos;magische&apos; Befehle zu erteilen.
+                Der Zeitraum in der eine solche Probe wirkt beträgt TaP* SR
+                (mindestens 1 SR).
+                Der Einsatz dieser Gabe bringt 1 Punkt Erschöpfung, zum Verdoppeln
+                des TaP* für die Verwendung in einer anderen Probe 1W3 Punkte.
+                Eine Probe auf &lt;i&gt;Tierempathie&lt;/i&gt; dauert mindestens 5 KR. Eine
+                misslungene Probe kann mit 3 Punkten Aufschlag pro Versuch wieder-
+                holt werden.
+                Startwert 3, Probe auf MU/IN/CH
+                &lt;b&gt;GP:&lt;/b&gt; 15 für eine Art von Tieren (Schlangen, Hunde); 30 für
+                alle Tiere, in diesem Fall ist es möglich, sich wie bei einem
+                Talent zu spezialisieren (Spalte F; siehe SF &lt;i&gt;Talentspeziali-
+            sierung&lt;/i&gt;
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Tierfreund</name>
+        <id>81</id>
+        <gp>7</gp>
+        <desc>Der Held hat ein besonderes Händchen für Tiere. Alle Talent-
+                proben, die mit dem Umgang mit Tieren zu tun haben (vor allem
+                &lt;i&gt;Abrichten&lt;/i&gt; und &lt;i&gt;Reiten&lt;/i&gt;), aber auch Proben, um Tiere
+                zu beruhigen, oder gar Zauberproben auf Zauber wie SANFTMUT oder
+                HERR ÜBER DAS TIERREICH sind um 3 Punkte erleichtert.
+                Falls der Held zum Tier entfernt artverwandt ist (Achaz zu Echsen-
+                wesen, oder Zweibeiner zu Affen), sind die Proben um weitere
+                2 Punkte erleichtert.
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Unbeschwertes Zaubern</name>
+        <id>82</id>
+        <gp>7</gp>
+        <desc>Der Schelm zaubert auf spielerische Art und ignoriert MR bis 7
+                bei Zaubern in schelmischer Repräsentation. MR über 7 kommt
+                voll zur Geltung. Dies gilt auch für die Zauberei von Koboldn.
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Verbindungen</name>
+        <id>83</id>
+        <gp>0</gp>
+        <desc>Der Helden hat &apos;einen guten Bekannten&apos; (auch Gruppe möglich), den
+                er in schwierigen Situationen um Hilfe bitte kann. Wie oft, wann
+                und wo ist Meisterentscheid.
+                Beispiele:
+                -Alanfanische Strassenbande mit 6 Schlägern zu SO 2 und 1 Anführer
+                zu SO 5 für 6 GP
+                -Mittelreichischer Graf mit SO 15 für 5 GP
+                Dieser Vorteil ist bei Helden mit akademischer Ausbildung (Krieger,
+                Magier) häufiger zu finden.
+            &lt;b&gt;GP:&lt;/b&gt; SO / 3 (Max. SO: 15)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Verhüllte Aura</name>
+        <id>84</id>
+        <gp>3</gp>
+        <desc>Die magische Aura des Helden ist verhüllt und erscheint schwächer
+                als sie eigentlich ist. Hellsichtzauber wie ODEM und Gaben wie
+                &lt;i&gt;Magiegespür&lt;/i&gt; sind um 5 Punkte erschwert, Magieerkennung
+                durch Artefakte (z.B. schamanische Knochenkeule) und entsprechend
+                begabte Tiere (Hexenkröte, Nachtwind) um 7 Punkte. Ungezielte
+                Erkenntniszauber und -rituale schlagen gar nicht an.
+                Der Zauber SCHLEIER ist für den Helden um 3 Punkte erleichtert,
+                die MU-Probe bei der SF &lt;i&gt;Aura verhüllen&lt;/i&gt; um 1 Punkt.
+            &lt;b&gt;GP:&lt;/b&gt; 3
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Veteran</name>
+        <id>85</id>
+        <gp>3</gp>
+        <desc>Ein &lt;i&gt;Veteran&lt;/i&gt; hat in seiner Profession längere Berufserfah-
+                rung und somit ein um 5 Jahre höheres Einstigsalter als andere
+                Helden.
+                Er erhält noch einmal die Hälfte der bei der Profession genannten
+                Boni auf LE, AU, MR und INI, allerdings ohne Vorteile, Nachteile
+                oder SF ein zweites Mal zu erhalten.
+                Er darf 8 statt 5 Talente aktivieren.
+                Er erhält (GP der Profession + 3) * 50 zusätzliche AP zur Stei-
+                gerung von Talenten und Kauf von SF.
+                Eine eventuelle &lt;i&gt;akademische Ausbildung&lt;/i&gt; kann bis zu einem
+                TaW von 15 genutzt werden.
+                Ein &lt;i&gt;Veteran&lt;/i&gt; erhält 3 x SO Dukaten pro GP, den er in den
+                Vorteil &lt;i&gt;Ausrüstungsvorteil&lt;/i&gt; investiert; ein &lt;i&gt;besonderer
+                Besitz&lt;/i&gt; kostet ihn nur 5 GP (in Kombination mit &lt;i&gt;adlig&lt;/i&gt;
+                2 GP) pro Stufe.
+
+                &lt;i&gt;Veteran&lt;/i&gt; kann nicht mit &lt;i&gt;breitgefächerte Bildung&lt;/i&gt; komb-
+                iniert werden, es ist jedoch möglich, als &lt;i&gt;Veteran&lt;/i&gt; eine an-
+                dere Variante der selben Profession zu wählen, wenn dies nicht
+                ausdrücklich untersagt ist. Dieser Vorteil ist nur einmal wähl-
+                bar.
+
+                Dieser Vorteil ist auch für magische Helden wählbar, allerdings
+                muss hier beachtet werden, dass die Boni für AE, KE und MR meist
+                aus entsprechenden Vorteilen stammen und daher kein zweites Mal
+                vergeben werden.
+                &lt;b&gt;GP:&lt;/b&gt; 3 + Professionskosten
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Viertelzauberer</name>
+        <id>86</id>
+        <gp>3</gp>
+        <desc>Der Held hat eine magische Begabung, die schwach oder noch gar
+                nicht ausgeprägt ist, und von der er möglicherweise noch gar
+                nichts weiss.
+                Der Held verfügt über (MU+IN+CH)/2 - 6 AsP und hat das Potential,
+                die Vorteile &lt;i&gt;Meisterhandwerk, Schutzgeist&lt;/i&gt; und &lt;i&gt;Überna-
+                türliche Begabung&lt;/i&gt; sowie die SF &lt;i&gt;Apport, Aura verhüllen, Blut-
+                magie, Invocatio Integra, Kraftkontrolle, Matrixregeneration I,
+                Ottagaldr (Zauberer), Regeneration I, Runenkunde&lt;/i&gt; und &lt;i&gt;Zauber-
+                zeichen&lt;/i&gt; zu erlernen; als Halbelf zudem &lt;i&gt;Tierischer Begleiter&lt;/i&gt;
+                und mit dem Vorteil &lt;i&gt;Zweistimmiger Gesang&lt;/i&gt; auch &lt;i&gt;Salasandra&lt;/i&gt;;
+                dazu die mit dem speziellen Viertelzauberer-Professionen verbun-
+                denen Rituale und &lt;i&gt;Ritualkenntnisse&lt;/i&gt;.
+                Ein &lt;i&gt;Viertelzauberer&lt;/i&gt; ist nicht in der Lage, Zaubersprüche
+                zu lernen, geschweige denn zu wirken.
+                Als ausgebildete Viertelzauberer gelten: &lt;i&gt;Alchimisten, Gjals-
+                kerländer Tierkrieger, Ferkina-Besessene&lt;/i&gt;. Alle Halbelfen sind
+                zumindest mit dieser Form magischer Begabung gesegnet.
+                Weitere Einzelheiten zum generischen Magiedilettanten (= unspe-
+                zialisierter Viertelzauberer) finden sich bei den Vorteilen
+                &lt;i&gt;Meisterhandwerk, Schutzgeist&lt;/i&gt; und &lt;i&gt;Übernatürliche Bega-
+                bung&lt;/i&gt;.
+                Dieser Vorteil kann nicht in Kombination mit Professionen ge-
+                wählt werden, bei denen das Tragen von Metallrüstungen Teil der
+                Ausbildung oder des Lebensstils ist. Das heisst auch, dass Halb-
+                elfen diese Professionen nicht wählen dürfen, ohne ihrer Kräfte
+                verlustig zu gehen.
+                Nicht kombinierbar mit &lt;i&gt;Halbzauberer&lt;/i&gt; und &lt;i&gt;Vollzauberer&lt;/i&gt;.
+                &lt;b&gt;GP:&lt;/b&gt; 5 (3 falls der Held nichts von seinen Fähigkeiten
+            weiss, und der Meister entscheidet, wann diese sich offenbaren.)
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Vollzauberer</name>
+        <id>87</id>
+        <gp>20</gp>
+        <desc>Der Held besitzt in vollem Umfang magische Kräfte. Er besitzt
+                (MU+IN+CH)/2 + 12 AsP plus eventuell weitere Vor- und Nachteile
+                je nach Kultur und Profession. Dazu kommen Kenntnisse und 13
+                kultur- oder professionstypischen Zaubern (Grundkenntnisse), von
+                denen 7 erleichtert gesteigert werden können (Hauszauber) sowie
+                die jeweils passende SF zur &lt;i&gt;Repräsentation&lt;/i&gt;. Er erhält die
+                SF &lt;i&gt;Grosse Meditaion&lt;/i&gt;, einen MR-Bonus von 2 und die zur Pro-
+                fession passende &lt;i&gt;Ritualkenntnis&lt;/i&gt; auf einem Startwert von
+                3 Punkten.
+                Nicht kombinierbar mit &lt;i&gt;Viertelzauberer&lt;/i&gt; und &lt;i&gt;Halbzauber-
+                er&lt;/i&gt;. Alle Auswirkungen dieses Vorteils sind bei den jeweiligen
+                Rassen und Professionen bereits eingerechnet.
+            &lt;b&gt;GP:&lt;/b&gt; 20
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Vom Schicksal begünstigt</name>
+        <id>88</id>
+        <gp>10</gp>
+        <desc>Einmal pro Abenteuer kann der Spieler eine lebensbedrohliche Si-
+                tuation durch einen &apos;glücklichen Zufall&apos; abwenden, in die er
+                sich nicht willentlich begeben hat (Hinterhalt, Schiffsunter-
+                gang, plötzlicher Lawinengang etc.).
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Wesen der Nacht</name>
+        <id>89</id>
+        <gp>2</gp>
+        <desc>Der Held ist von Mada begünstigt und zaubert bevorzugt und er-
+                leichtert bei Nacht. Alle Zauberproben sind um 1, 2 oder 3 Punk-
+                te erleichtert, wenn sie während der Nacht gezaubert werden.
+                Dieser Vorteil kommt oft in Kombination mit dem Nachteil &lt;i&gt;Licht-
+                empfindlich&lt;/i&gt;.
+                &lt;b&gt;GP:&lt;/b&gt; 2, 4 oder 6 je nach Ausmass der Probenerleichterung.
+
+                DSA_Tool Anmerkung: Um die Erleichterung automatisch zu verrechnen,
+                sollte der entsprechende Wert (1, 2 oder 3) als Wert beim Vorteil
+            angegeben werden.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Wohlklang</name>
+        <id>90</id>
+        <gp>10</gp>
+        <desc>Die wohlklingende Stimme des Helden bringt im 5 Punkte Erleich-
+                terung auf alle &lt;i&gt;Singen&lt;/i&gt; Proben und 2 Punkte auf alle gesell-
+                schaftlichen Talentproben, bei denen die Stimme aktiv zu Ein-
+                satz kommt.
+                Dieser Vorteil hilft nicht bei magischen Elfenliedern, und auch
+                Dschinne und Dämonen zeigen sich von einer wohlklingenden Stimme
+                nicht beeindruckt.
+                Nicht kombinierbar mit &lt;i&gt;Unangenehme Stimme&lt;/i&gt;.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Wolfskind</name>
+        <id>91</id>
+        <gp>15</gp>
+        <desc>Der Held kann sich für 1W6 AsP bis zur übernächsten Dämmerung
+                (Sonnenauf- oder Untergang, welches von beiden später kommt) in
+                einen Rauwolf verwandeln. Die Verwandlung dauert etwa eine Minute.
+                Die Kosten können gegebenenfalls durch die Sparfunktion einer
+                Knochenkeule reduziert werden.
+            Wölfe sind &lt;i&gt;Wolfskindern&lt;/i&gt; allgemein
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Zauberhaar</name>
+        <id>92</id>
+        <gp>0</gp>
+        <desc>Ein beträchtlicher Teil der Astralkraft des Helden sitz in seinem - wild
+                wuchernden - Haar. Ab einer Länge von 2.5 Spann (50 cm) gilt das Haupt -
+                haar (und bei Männern ein entsprechender Bart) als Astralspeicher, der
+                7 AsP zusätzlich aufnehmen kann, also die BasisAE des Helden um 7 Punkte
+                vergrössert. Von Zeit zu Zeit sollte sich solch langes Haar aber als
+                hindernd bemerkbar machen (nach Meisterentscheid Talent- und Zauberproben
+                umd 1 bis 3 Punkte erschwert). Zauberkundige mit diesem Vorteil haben oft
+                eine sehr auffällige, geradezu magische Haarfarbe. Die zusätzlichen AsP
+                aus diesem Vorteil können nicht als permanente AsP (z.B. zur Artefakt-
+                erschaffung) verwendet werden. Das Haar wächst mit einem halben Spann pro
+                Monat nach, falls es abgeschnitten wurde. Für Rituale wie den druidischen
+                Herrschaftsritualen eignet sich ein solches Zauberhaar viel besser als
+                herkömmliches Haar (die Proben sind um 7 Punk- te erleichtert). Anderer-
+                seits ist das &lt;i&gt;Zauberhaar&lt;/i&gt; sehr resistent gegen Veränderungen mittels
+                PECTETONDO (Probe um 7 Punkte erschwert).
+                Dieser Vorteil kann nicht mit &lt;i&gt;Körpergebundener Kraft&lt;/i&gt; kombiniert
+                werden.
+            &lt;b&gt;GP:&lt;/b&gt; 10
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Zeitgefühl</name>
+        <id>93</id>
+        <gp>3</gp>
+        <desc>Der Held kann die Tageszeit auf eine Viertelstunde genau bestimmen, selbst
+                wenn er keinen Blick auf den freien Himmel hat und seit Tagen in einem dunk-
+                len Verliess herumirrt. Ein solcher Held verschläft nicht und verpasst keine
+                Termine (ausser es geschieht absichtlich). Dieser Vorteil kann &lt;i&gt;Sternenkunde&lt;/i&gt;-
+                Proben (speziell im Rahmen ma- gischer Grossrituale) positiv beeinflussen. Nur
+                schwere Krankheiten oder Zauberei können ein solches &lt;i&gt;Zeitgefühl&lt;/i&gt; verwirren.
+            &lt;b&gt;GP:&lt;/b&gt; 3
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Zweistimmiger Gesang</name>
+        <id>94</id>
+        <gp>7</gp>
+        <desc>Dieser Vorteil ist üblicherweise nur Elfen gegeben, und nur sie sind in der Lage,
+                elfische &lt;i&gt;Zauberlieder&lt;/i&gt; zu erlernen und die Sprache &lt;i&gt;Asdharia&lt;/i&gt; zur Perfek-
+                tion zu bringen. Es gibt allerdings ein paar wenige Halbelfen, die ebenfalls zu die-
+                sem Gesang in der Lage sind. Anderen Helden ist der Vorteil nicht zugänglich.
+            &lt;b&gt;GP:&lt;/b&gt; 7
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Zwergennase</name>
+        <id>95</id>
+        <gp>12</gp>
+        <desc>Der Held hat einen übernatürlichen Instikt zum Aufspüren von Geheimtüren, -gängen
+                und Hohlräumen entwickelt - auch wenn diese keine &lt;i&gt;Sinnenschärfe&lt;/i&gt;-Probe erlau-
+                ben oder diese deutlich erschwert ist. Ab einem TaW von 7 kann diese Gabe vom Helden
+                willentlich eingesetzt werden, bis dahin entscheidet der Meister (verdeckt), wann sie
+                zum Einsatz kommt. Bei Gelingen der Probe erhält der Spieler Hinweise, wo sich solche
+                Hohlräume befinden können, aber keine Angaben bezüglich Öffnungsmechanismen oder
+                Grösse und Art des Hohlraumes. Der willentliche Einsatz der Gabe kostet 1 Punkt Er-
+                schöpfung und benötigt mindestens 10 Aktionen. Diese Gabe ist zwar eher untypisch für
+                Zauberer, kann von diesen aber unter Einsatz von 1 AsP (statt der Erschöpfung) ein-
+                gesetzt werden.
+                Startwert 3, Probe auf IN/IN/FF.
+                Trotz des Namens kann der Vorteil auch von Nicht-Angroschim gewählt werden.
+            &lt;b&gt;GP:&lt;/b&gt; 12
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Zäher Hund</name>
+        <id>96</id>
+        <gp>10</gp>
+        <desc>Üblicherweise fällt ein Held, dessen LeP unter 0 sinken, in ein Koma, aus
+                dem er noch innerhalb der nächsten (W6 x KO) Kampfrunden gerettet werden
+                kann. Fällt seine LE auf weniger als den negativen Betrag seiner KO,
+                ist der Held unweigerlich tot. &lt;i&gt;Zähe Hunde&lt;/i&gt; können in diesen beiden
+                Fällen statt der einfachen KO einen Wert von KO x 1.5 einsetzen. Zudem
+            können sie auch bei einem LE-Stand von 1 bis 5 LeP noch agieren.
+        </desc>
+    </advantage>
+    <advantage>
+        <name>Übernatürliche Begabung</name>
+        <id>97</id>
+        <gp>1</gp>
+        <desc>Der Viertelzauberer kann pro GP eine Zauberwirkung aus der fol-
+                genden Liste bewirken. Diese Wirkungen werden wie Zaubersprüche
+                gehandhabt, aber es ist kein Aussprechen von Formeln oder Gesti-
+                kulieren mit den Händen vonnöten, um die Wirkung auszulösen; der
+                Einsatz von AsP und eine gelungene Probe genügen. Fast alle mö-
+                glichen Wirkungen beziehen sich auf den Körper des Viertelzauberes
+                selbst.
+
+                Mit dem Erwerb dieser SF gilt der Zauber als aktiviert mit einem
+                Startwert von 3. Er kann unabhängig von der Komplexität des ur-
+                sprünglichen Zaubers nach Spalte F gesteigert werden. Der Held
+                kann maximal 5 &lt;i&gt;Übernatürliche Begabungen&lt;/i&gt; haben, die er
+                alle bei der Generierung wählen muss. Die Regeln zum &lt;i&gt;Ausdauer-
+                verlust beim Zaubern&lt;/i&gt; wirken sich auch hier aus.
+                Mögliche Zauber: Alderauge, Alderschwinge*, Ängste lindern, Arma-
+                trutz, Attributo, Axxeleratus, Balsam, Bannbaladin, Bärenruhe*,
+                Blich aufs Wesen, Blick in die Gedanken, Blitz, Böser Blick,
+                Chamaeleoni, Eiseskälte, Exposami, Falkenauge, Firnlauf, Flim
+                Flam, Foramen, Fulminictus*, Gedankenbilder, Gefunden!, Grosse
+                Verwirrung, Harmlose Gestalt, Hexenkrallen, Hexenspeichel, Höllen-
+                pein, Horriphobus, Ignoratia, Karnifilo, Katzenaugen, Klarum Pu-
+                rum, Klickeradomms, Krötensprung, Kusch!, Lachkramf, Lunge des
+                Leviatan, Memorans, Motoricus, Movimento, Odem, Pectetondo,
+                Penetrizzel, Pestilenz erspüren, Psychostabilis, Ruhe Körper,
+                Sanftmut, Satuarias Herrlichkeit, Schleier, Seidenzunge, Sens-
+                attacco, Sensibar, Somnigravis*, Spinnenlauf, Spurlos, Standfest,
+                Sumus Elixire, Tiere besprechen, Unitatio, Vipernblick, Visibili*,
+                Warmes Blut, Wasseratem*, Wellenlauf*, Wipferllauf*, Zaubernah-
+                rung.
+                Die mit einem Stern markierten Zauber sind nur von Halbelfen
+                wählbar.
+            &lt;b&gt;GP:&lt;/b&gt; 1 GP pro Begabung (max 5)
+        </desc>
+    </advantage>
+</folder>
