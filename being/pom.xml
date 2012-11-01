@@ -92,7 +92,9 @@
         <artifactId>nbm-maven-plugin</artifactId>
         <configuration>
           <publicPackages>
-            <publicPackage>efa.rpg.being.*</publicPackage>
+            <publicPackage>efa.rpg.being</publicPackage>
+            <publicPackage>efa.rpg.being.loaders</publicPackage>
+            <publicPackage>efa.rpg.being.spi</publicPackage>
           </publicPackages>
         </configuration>
       </plugin>
