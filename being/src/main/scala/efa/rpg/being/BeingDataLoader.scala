@@ -108,7 +108,7 @@ object BeingLoader extends StateTransFunctions {
       def nameOut: Out[C] = c ⇒ IO(ctc.setDisplayName(Described[C] name c))
       def cOut: Out[C] = nameOut ⊹ bd.pl.set[C] //adjust name
       def bcSST: SST[B,C] = sTrans.id[B] ⊛ bwSST apply calc to cOut
-      def bbSST: SST[B,B] = toSST(bcSST >=> loggedSt) >=> undoSST //B to B plus undo
+      def bbSST: SST[B,B] = toSST(bcSST >=> loggedSt).distinct >=> undoSST //B to B plus undo
       def bSin: SIn[B] = sTrans.loop(bbSST)(saver loadFromFo bd.fo) //Signal[B]
       def saveIOs: EIn[IO[Unit]] = bSin.events map saver.saveToFo(bd.fo)
       def saves: EIn[SaveEvent] = saveIOs >=> Saver.events(bd.fo.getNameExt)
