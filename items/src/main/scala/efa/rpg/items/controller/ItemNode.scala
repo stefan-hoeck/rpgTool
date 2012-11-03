@@ -2,7 +2,7 @@ package efa.rpg.items.controller
 
 import efa.core._, Efa._
 import efa.nb.dialog.DialogEditable
-import efa.nb.node.{NodeOut, NbNode ⇒ N}, N.ValSt
+import efa.nb.node.{NodeOut, NbNode ⇒ N}
 import efa.rpg.core.{RpgItem, HtmlDesc}
 import efa.rpg.items._
 import scalaz._, Scalaz._

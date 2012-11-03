@@ -1,7 +1,6 @@
 package efa.rpg
 
-import efa.core.Service
-import efa.nb.controller.StateTrans.ValSt
+import efa.core.{Service, ValSt}
 import efa.react.{Events, Connectors, SET}
 import efa.rpg.being.loaders.BeingDo
 import efa.rpg.being.spi.BeingLocal

@@ -1,9 +1,8 @@
 package efa.rpg.items
 
-import efa.core.ValRes
+import efa.core.{ValRes, ValSt}
 import efa.nb.{UndoEdit, VSIn}
 import efa.nb.dialog.DialogEditable
-import efa.nb.node.NbNode.ValSt
 import efa.nb.node.NodeOut
 import efa.rpg.core.RpgItem
 import efa.react.{EIn, Source, Out, eTrans, SST}
