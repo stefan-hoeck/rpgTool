@@ -29,6 +29,16 @@ object EnumMap extends EnumMapInstances0 {
     fromMap(RpgEnum[K].values map ((_, v)) toMap)
 
   private[core] def fromMap[K,V](m: Map[K,V]): EnumMap[K,V] = Impl(m)
+
+  def at[K,V](k: K): EnumMap[K,V] @> V =
+    Lens.lensu((a,b) ⇒ a + (k, b), _(k))
+  
+  case class EnumMapLenses[A,K,V](l: A @> EnumMap[K,V]) {
+    def at (k: K): A @> V = l >=> EnumMap.at(k)
+  }
+ 
+  implicit def ToEnumMapLenses[A,K,V](l: A @> EnumMap[K,V]) =
+    EnumMapLenses(l)
  
   private case class Impl[K,V](m: Map[K,V]) extends EnumMap[K,V] {
     def apply (k: K) = m(k)
