@@ -1,7 +1,7 @@
 package efa.rpg.being
 
 import efa.core.{Read, EndoVal}
-import efa.nb.InputWidgets
+import efa.nb.{InputWidgets, VSET}
 import efa.react.{Out}
 import efa.react.swing.{GbPanel, UiFactory, Swing}
 import efa.rpg.core._
