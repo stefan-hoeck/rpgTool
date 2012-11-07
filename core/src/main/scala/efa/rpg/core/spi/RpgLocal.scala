@@ -9,19 +9,22 @@ trait RpgLocal {
   final lazy val femaleLoc =
     Localization("female", femaleName, femaleShort, femaleName)
 
-  def maleName: String
-
-  def maleShort: String
+  def dieString: String
 
   def femaleName: String
 
   def femaleShort: String
 
+  def invalidLength (a: Int): String
+
+  def maleName: String
+
+  def maleShort: String
+
+  def total: String
+
   def unknownDieRollerFormat: String
 
-  def dieString: String
-
-  def invalidLength (a: Int): String
 }
 
 object RpgLocal extends RpgLocal {
@@ -38,6 +41,8 @@ object RpgLocal extends RpgLocal {
   def dieString = "W"
 
   def invalidLength (a: Int) = "Es werden %d Werte benötigt" format a
+
+  def total = "Total"
 }
 
 // vim: set ts=2 sw=2 et:

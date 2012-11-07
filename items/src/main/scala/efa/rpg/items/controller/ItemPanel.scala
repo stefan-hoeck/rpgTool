@@ -22,7 +22,7 @@ abstract class ItemPanel[I:RpgItem](p: ItemPair[I]) extends DialogPanel {
   protected def nameVal = IState nameVal p
 
   protected lazy val dataIn: VSIn[ItemData] =
-    ^(RpgItem[I].id(item).η[VSIn],
+    ^^(RpgItem[I].id(item).η[VSIn],
     stringIn (nameC, nameVal),
     stringIn (descC))(ItemData.apply)
 

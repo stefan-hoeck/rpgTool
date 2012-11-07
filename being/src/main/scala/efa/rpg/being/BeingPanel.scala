@@ -49,13 +49,7 @@ object BeingPanel{
 
   def modifierToolTip[A:HasModifiers](
     a: A, k: ModifierKey, format: Long ⇒ String
-  ): String = {
-    def head = "<b>%s: %s</b>" format (loc.total, format(property(a, k)))
-    def single (m: Modifier) = "%s: %s" format(m.name, format(m.value))
-    def rest = mods(a, k) map single
-
-    "<html>%s<br>%s</html>" format (head, rest mkString "<br>")
-  }
+  ): String = prettyMods(property(a, k), mods(a, k), format)
 
   def mods[A:HasModifiers] (a: A, k: ModifierKey): List[Modifier] =
     HasModifiers[A] modifiers a get k

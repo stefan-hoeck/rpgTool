@@ -35,7 +35,7 @@ object ItemData {
 
   implicit lazy val ItemDataToXml = new ToXml[ItemData] {
     def fromXml (ns: Seq[Node]) =
-      ^(ns.readTag[Int]("id"),
+      ^^(ns.readTag[Int]("id"),
       ns.readTag[String]("name"),
       ns.readTag[String]("desc"))(ItemData.apply)
 
@@ -44,7 +44,7 @@ object ItemData {
   }
 
   implicit lazy val ItemDataArbitrary = Arbitrary (
-    ^(arbitrary[Int], Gen.identifier, Gen.identifier)(ItemData.apply)
+    ^^(arbitrary[Int], Gen.identifier, Gen.identifier)(ItemData.apply)
   )
 }
 

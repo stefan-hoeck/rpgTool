@@ -68,10 +68,10 @@ object Dependencies {
   val nbModulesOptions = "org.netbeans.api" % "org-netbeans-modules-options-api" % nbV
   val nbMultiview = "org.netbeans.api" % "org-netbeans-core-multiview" % nbV
 
-  val scalaz_core = "org.scalaz" %% "scalaz-core" % "7.0.0-M3"
-  val scalaz_effect = "org.scalaz" %% "scalaz-effect" % "7.0.0-M3"
+  val scalaz_core = "org.scalaz" %% "scalaz-core" % "7.0.0-M4"
+  val scalaz_effect = "org.scalaz" %% "scalaz-effect" % "7.0.0-M4"
   val scalaz_scalacheck =
-    "org.scalaz" %% "scalaz-scalacheck-binding" % "7.0.0-M3"
+    "org.scalaz" %% "scalaz-scalacheck-binding" % "7.0.0-M4"
   val scalaz_scalacheckT = scalaz_scalacheck % "test"
 
   val scalacheck = "org.scalacheck" %% "scalacheck" % "1.9"

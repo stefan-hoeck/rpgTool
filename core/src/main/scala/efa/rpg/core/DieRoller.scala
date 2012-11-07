@@ -64,7 +64,7 @@ object DieRoller {
  
     (s: String) ⇒ s match {
       case dr(a, b, c) ⇒ 
-        ^(readCount(a), readDie(b), readPlus(c))(DieRoller.apply)
+        ^^(readCount(a), readDie(b), readPlus(c))(DieRoller.apply)
       case _ ⇒  loc.unknownDieRollerFormat.failureNel
     }
   }
@@ -86,7 +86,7 @@ object DieRoller {
     val countGen = Gen.choose(minCount, maxCount)
     val dieGen = countGen
     val plusGen = Gen.choose(-maxCount, maxCount)
-    Arbitrary(^(countGen, dieGen, plusGen)(DieRoller.apply))
+    Arbitrary(^^(countGen, dieGen, plusGen)(DieRoller.apply))
   }
 
   private lazy val rnd = new Random
