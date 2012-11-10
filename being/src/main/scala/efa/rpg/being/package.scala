@@ -32,7 +32,7 @@ package object being {
   type UIInfo[B,C] = (SET[C, ValSt[B]], List[MVInfo])
 
   def uiInfo[A,B,P <: MVPanel[A,B]](f: IO[P]): IO[UIInfo[B,A]] =
-    f map (p ⇒ (p.set, List(MultiViewInfo(p, p.prefId, p.name))))
+    (f map (p ⇒ (p.set, List(MultiViewInfo(p, p.prefId, p.locName)))))
 
   def PersistenceNever = TopComponent.PERSISTENCE_NEVER
   def StateOk = CloseOperationState.STATE_OK
