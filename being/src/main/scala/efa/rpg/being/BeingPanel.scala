@@ -49,13 +49,7 @@ object BeingPanel{
 
   def modifierToolTip[A:HasModifiers](
     a: A, k: ModifierKey, format: Long ⇒ String
-  ): String = prettyMods(property(a, k), mods(a, k), format)
-
-  def mods[A:HasModifiers] (a: A, k: ModifierKey): List[Modifier] =
-    HasModifiers[A] modifiers a get k
-
-  def property[A:HasModifiers] (a: A, k: ModifierKey): Long =
-    HasModifiers[A] modifiers a property k
+  ): String = prettyModsKey(k, format) apply a
 }
 
 // vim: set ts=2 sw=2 et:

@@ -19,6 +19,22 @@ package object core {
 
     "<html>%s<br>%s</html>" format (head, rest mkString "<br>")
   }
+
+  def prettyModsKey[A:HasModifiers](
+    k: ModifierKey, 
+    format: Long ⇒ String = (_: Long).toString
+  ): A ⇒ String = a ⇒ prettyMods(property(a,k), mods (a, k), format) 
+
+  def prettyModsKeyO[A:HasModifiers](
+    k: ModifierKey, 
+    format: Long ⇒ String = (_: Long).toString
+  ): A ⇒ Option[String] = prettyModsKey(k, format) andThen (_.some)
+
+  def mods[A:HasModifiers] (a: A, k: ModifierKey): List[Modifier] =
+    HasModifiers[A] modifiers a get k
+
+  def property[A:HasModifiers] (a: A, k: ModifierKey): Long =
+    HasModifiers[A] modifiers a property k
 }
 
 // vim: set ts=2 sw=2 et:
