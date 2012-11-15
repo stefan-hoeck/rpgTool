@@ -107,7 +107,7 @@ object UtilBuild extends Build {
     settings = addDeps (scalazCheckET ++
       Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact, nbLoaders,
         nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer))
-  ) dependsOn (core, preferences)
+  ) dependsOn (core, preferences, rules)
 
   lazy val describedPanel = Project (
     "describedPanel",

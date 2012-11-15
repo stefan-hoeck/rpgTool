@@ -26,6 +26,11 @@
       <artifactId>preferences</artifactId>
       <version>${preferences.version}</version>
     </dependency>
+    <dependency>
+      <groupId>efa.rpg</groupId>
+      <artifactId>rules</artifactId>
+      <version>${rules.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>efa.react</groupId>

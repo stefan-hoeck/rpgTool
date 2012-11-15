@@ -12,6 +12,12 @@ object RuleSettings {
 
   lazy val in: SIn[RulesFolder] = sTrans inIO rfVar.get
 
+  lazy val actives: SIn[Set[String]] = {
+    val sig = IOCached((in ∘ (_.allData ∘ (_.loc.name) toSet) go) ∘ (_._2))
+
+    sTrans inIO sig.get
+  }
+
   def out (f: RulesFolder): IO[Unit] = rfVar.get >>= (_ put f)
 
   def mod (f: RulesFolder ⇒ RulesFolder): IO[Unit] = rfVar.get >>= (_ mod f)

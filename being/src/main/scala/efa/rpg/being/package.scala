@@ -4,6 +4,7 @@ import efa.core.{Service, ValSt}
 import efa.react.{Events, Connectors, SET}
 import efa.rpg.being.loaders.BeingDo
 import efa.rpg.being.spi.BeingLocal
+import efa.rpg.rules.Rule
 import org.openide.windows.{CloneableTopComponent, TopComponent}
 import org.netbeans.core.spi.multiview._
 import scalaz._, Scalaz._, effect.IO
@@ -30,6 +31,8 @@ package object being {
   type Controller = (COHandler, BeingDo) ⇒ IO[BeingOpenParams]
 
   type UIInfo[B,C] = (SET[C, ValSt[B]], List[MVInfo])
+
+  type Rules[A] = List[Rule[A]]
 
   def uiInfo[A,B,P <: MVPanel[A,B]](f: IO[P]): IO[UIInfo[B,A]] =
     (f map (p ⇒ (p.set, List(MultiViewInfo(p, p.prefId, p.locName)))))

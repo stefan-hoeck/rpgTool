@@ -9,6 +9,7 @@ import efa.react._
 import efa.rpg.core.Described
 import efa.rpg.being.loaders.BeingDo
 import efa.rpg.preferences.Preferences
+import efa.rpg.rules.{Rule, RuleSettings}
 import java.awt.Image
 import javax.swing.{Action, JToolBar}
 import org.openide.util.{Lookup, HelpCtx}
@@ -72,11 +73,13 @@ object BeingLoader extends StateTransFunctions {
   def default[B:Equal:Default:TaggedToXml,C:Manifest:Described,W] (
     info: IO[UIInfo[B,C]],
     world: SIn[W],
-    calc: (B,W) ⇒ C
+    calc: (B,W) ⇒ C,
+    rules: IO[Rules[C]]
   ): Controller = controller[B,C,W](
     info,
     world,
     calc,
+    rules,
     BeingSaver.xmlSaver(),
     Preferences.mainLogger,
     Preferences.beingsLogger
@@ -90,24 +93,31 @@ object BeingLoader extends StateTransFunctions {
    * from rules and stuff that were not present in the raw data.
    * W is the changeable state of the world that is relevant for
    * calculating beings of type C. 
-     @TODO: Include a signal for Rules, and calc being from there
    */
   def controller[B:Equal:Default,C:Manifest:Described,W] (
     info: IO[UIInfo[B,C]],
     world: SIn[W],
     calc: (B,W) ⇒ C,
+    rules: IO[Rules[C]],
     saver: BeingSaver[B],
     mainLog: LoggerIO,
     valLog: LoggerIO
   ): Controller = (coh, bd) ⇒ {
-    def ein (st: SET[C,ValSt[B]], ctc: CTC, uo: Out[UndoEdit]): EIn[Unit] = {
+    def ein (
+      st: SET[C,ValSt[B]], ctc: CTC, uo: Out[UndoEdit], rs: List[Rule[C]]
+    ): EIn[Unit] = {
       implicit def Logger: LoggerIO = mainLog
+
+      def calcTot (b: B, w: W, rules: Endo[C]): C = rules(calc(b, w))
       def loggedSt = st to valLog.logValRes //log failures
       def undoSST: SST[B,B] = UndoEdit.undoSST[B](uo) //undo/redo
       def bwSST: SST[B,W] = sTrans(_ ⇒ world run ()) //world in
+      def rulesEndo = RuleSettings.actives map (ns ⇒ rs foldMap (_ endo ns))
+      def rulesSST: SST[B,Endo[C]] = sTrans(_ ⇒ rulesEndo run ())
       def nameOut: Out[C] = c ⇒ IO(ctc.setDisplayName(Described[C] name c))
       def cOut: Out[C] = nameOut ⊹ bd.pl.set[C] //adjust name
-      def bcSST: SST[B,C] = sTrans.id[B] ⊛ bwSST apply calc to cOut
+      def bcSST: SST[B,C] =
+        sTrans.id[B] ⊛ bwSST ⊛ rulesSST apply calcTot to cOut
       def bbSST: SST[B,B] = toSST(bcSST >=> loggedSt).distinct >=> undoSST //B to B plus undo
       def bSin: SIn[B] = sTrans.loop(bbSST)(saver loadFromFo bd.fo) //Signal[B]
       def saveIOs: EIn[IO[Unit]] = bSin.events map saver.saveToFo(bd.fo)
@@ -121,7 +131,8 @@ object BeingLoader extends StateTransFunctions {
       mvis = uii._2.isEmpty ? defaultMVInfo | uii._2
       um   ← IO(new UndoRedo.Manager)
       ctc  ← createMV (mvis map editorDesc(um), coh)
-      es   ← ein (uii._1, ctc, UndoEdit managedOut um) go
+      rs   ← rules
+      es   ← ein (uii._1, ctc, UndoEdit managedOut um, rs) go
     } yield (ctc, es._2, es._1)
   }
 
