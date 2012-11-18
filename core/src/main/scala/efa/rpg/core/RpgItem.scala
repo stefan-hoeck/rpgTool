@@ -37,23 +37,12 @@ trait RpgItemLikes[A<:RpgItemLike[A]] extends Util {
   def shortDesc (a: A): String
   def fullDesc (a: A): String = titleBody (a.name, a.desc)
 
-  type Tag = Pair[String,String]
-
-  def titleBody (title: String, body: String) =
-    "<P><B>%s</B></P>%s" format (title, body)
-
-  def html (title: String, body: String) =
-    "<html>%s</html>" format titleBody(title, body)
-
-  def tagShortDesc (a: A, tags: Tag*) = {
-    def wrap(t: Tag) = "<P><B>%s: </B>%s</P>" format (t._1, t._2)
-
-    html (a.name, tags map wrap mkString "")
-  }
-
   import scala.xml.Node
 
   private def idXml = ToXml[ItemData]
+
+  protected def tagShortDesc (a: A, tags: Tag*): String =
+    nameShortDesc(a.name, tags: _*)
 
   protected def dataToNode (a: A): Seq[Node] = idXml toXml a.data
 

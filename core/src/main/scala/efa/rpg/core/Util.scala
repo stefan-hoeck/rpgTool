@@ -6,7 +6,7 @@ import org.scalacheck.{Arbitrary, Gen}
 /**
  * Utility Functions
  */
-trait Util extends WithIdFunctions {
+trait Util extends WithIdFunctions with HtmlTags {
 
   def !![B:Default]: B = Default[B].default
 
