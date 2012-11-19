@@ -127,7 +127,9 @@ object UtilBuild extends Build {
     "items",
     file("items"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test"))
+      Seq (scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test")) :+ (
+        parallelExecution in Test := false
+      )
   ) dependsOn (core, preferences)
 
   lazy val preferences = Project (
