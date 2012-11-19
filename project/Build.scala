@@ -46,7 +46,7 @@ object Dependencies {
   val efaReactSwing = react %% "swing" % reactVersion changing
 
 
-  val nbV = "RELEASE72"
+  val nbV = "RELEASE71"
 
   val scalaSwing = "org.scala-lang" % "scala-swing" % "2.9.2" 
  
