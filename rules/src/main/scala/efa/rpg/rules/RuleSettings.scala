@@ -3,9 +3,9 @@ package efa.rpg.rules
 import efa.core.Folder
 import efa.core.std.lookup.provide
 import efa.io.IOCached
-import efa.react.{Var, SIn, Signal, sTrans}
+import efa.react.{Var, SIn, Signal, sTrans, SST}
 import efa.rpg.rules.spi.RulesProvider
-import scalaz._, Scalaz._, effect.IO
+import scalaz._, Scalaz._, effect.IO, Dual._
 
 object RuleSettings {
   type LocFolders = List[LocFolder]
@@ -13,10 +13,13 @@ object RuleSettings {
   lazy val in: SIn[RulesFolder] = sTrans inIO rfVar.get
 
   lazy val actives: SIn[Set[String]] = {
-    val sig = IOCached((in ∘ (_.allData ∘ (_.loc.name) toSet) go) ∘ (_._2))
+    val sig = IOCached((in map activeIds go) map (_._2))
 
     sTrans inIO sig.get
   }
+
+  def endoSST[A,B](rs: List[Rule[B]]): SST[A,Endo[B]] =
+    sTrans(_ ⇒ actives map (ns ⇒ rs foldMap (_ endo ns)) run ())
 
   def out (f: RulesFolder): IO[Unit] = rfVar.get >>= (_ put f)
 
@@ -49,6 +52,9 @@ object RuleSettings {
 
     provide[LocFolder,RulesProvider] map root
   }
+
+  private [rules] def activeIds (f: RulesFolder): Set[String] =
+    f.allData filter (_.active) map (_.loc.name) toSet
 }
 
 // vim: set ts=2 sw=2 et:

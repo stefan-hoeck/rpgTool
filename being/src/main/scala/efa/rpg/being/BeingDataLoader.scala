@@ -17,7 +17,7 @@ import org.openide.awt.UndoRedo
 import org.openide.filesystems.FileObject
 import org.openide.loaders._
 import scala.swing.Panel
-import scalaz._, Scalaz._, effect.{IO, IORef}
+import scalaz._, Scalaz._, effect.{IO, IORef}, Dual._
 import org.openide.filesystems.FileObject
 
 /**
@@ -112,8 +112,7 @@ object BeingLoader extends StateTransFunctions {
       def loggedSt = st to valLog.logValRes //log failures
       def undoSST: SST[B,B] = UndoEdit.undoSST[B](uo) //undo/redo
       def bwSST: SST[B,W] = sTrans(_ ⇒ world run ()) //world in
-      def rulesEndo = RuleSettings.actives map (ns ⇒ rs foldMap (_ endo ns))
-      def rulesSST: SST[B,Endo[C]] = sTrans(_ ⇒ rulesEndo run ())
+      def rulesSST: SST[B,Endo[C]] = RuleSettings endoSST rs
       def nameOut: Out[C] = c ⇒ IO(ctc.setDisplayName(Described[C] name c))
       def cOut: Out[C] = nameOut ⊹ bd.pl.set[C] //adjust name
       def bcSST: SST[B,C] =

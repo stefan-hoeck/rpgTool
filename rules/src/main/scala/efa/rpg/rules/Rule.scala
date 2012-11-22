@@ -1,10 +1,10 @@
 package efa.rpg.rules
 
-import scalaz.{Endo, State}
+import scalaz._, Scalaz._, Tags.Dual
 
 case class Rule[A](id: String, f: A ⇒ A) {
-  def endo (ids: Set[String]): Endo[A] =
-    if (ids(id)) Endo endo f else Endo.idEndo
+  def endo (ids: Set[String]): Endo[A] @@ Dual =
+    Dual(if (ids(id)) Endo endo f else Endo.idEndo)
 }
 
 object Rule {
