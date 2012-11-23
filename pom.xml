@@ -26,17 +26,7 @@
       <dependency>
         <groupId>efa.scala</groupId>
         <artifactId>scalaW</artifactId>
-        <version>2.9.2</version>
-      </dependency>
-      <dependency>
-        <groupId>efa.scala</groupId>
-        <artifactId>scalazW</artifactId>
-        <version>7.0.0-M4</version>
-      </dependency>
-      <dependency>
-        <groupId>efa.scala</groupId>
-        <artifactId>scalaCheckW</artifactId>
-        <version>1.9</version>
+        <version>3.0.0</version>
       </dependency>
       <dependency>
         <groupId>efa.react</groupId>
