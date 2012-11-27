@@ -134,19 +134,43 @@ abstract class EnumMaps[K:RpgEnum,V:Show:Equal:Read] {
 }
 
 object EnumMaps {
+  def apply[K:RpgEnum,V:Show:Equal:Read] (
+    endoVal: EndoVal[V],
+    valueGen: Gen[V],
+    defaultVal: V,
+    tagString: String, 
+    delimiter: String = "/"
+  ): EnumMaps[K,V] = new EnumMaps[K,V] {
+    val validator = endoVal
+    val vGen = valueGen
+    val delim = delimiter
+    val tag = tagString
+    val default = defaultVal
+  }
+
+  def default[K:RpgEnum,V:Show:Equal:Read:Default:Arbitrary] (
+    tagString: String, delimiter: String = "/"
+  ): EnumMaps[K,V] = apply (
+    Validators.dummy[V],
+    Arbitrary.arbitrary[V],
+    Default[V].default,
+    tagString,
+    delimiter
+  )
+
   def int[K:RpgEnum](
     min: Int,
     max: Int,
     defaultVal: Int,
     tagString: String,
     delimiter: String = "/"
-  ): EnumMaps[K,Int] = new EnumMaps[K,Int] {
-    val validator = Validators interval (min, max)
-    val vGen = Gen choose (min, max)
-    val delim = delimiter
-    val tag = tagString
-    val default = defaultVal
-  }
+  ): EnumMaps[K,Int] = apply[K,Int] (
+    Validators interval (min, max),
+    Gen choose (min, max),
+    defaultVal,
+    tagString,
+    delimiter
+  )
 
   def long[K:RpgEnum](
     min: Long,
@@ -154,13 +178,13 @@ object EnumMaps {
     defaultVal: Long,
     tagString: String,
     delimiter: String = "/"
-  ): EnumMaps[K,Long] = new EnumMaps[K,Long] {
-    val validator = Validators interval (min, max)
-    val vGen = Gen choose (min, max)
-    val delim = delimiter
-    val tag = tagString
-    val default = defaultVal
-  }
+  ): EnumMaps[K,Long] = apply[K,Long] (
+    Validators interval (min, max),
+    Gen choose (min, max),
+    defaultVal,
+    tagString,
+    delimiter
+  )
 }
 
 // vim: set ts=2 sw=2 et:

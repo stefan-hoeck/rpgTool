@@ -104,10 +104,12 @@ object ItemControllerTest extends Properties("ItemController") {
       _   ← undoIn to (ref write _) apply ()
       _   ← c.dbIn.events to (_ ⇒ countR mod (1+) void) apply ()
       _ = c.info.rootNode.getChildren.getNodes(true).head.setName(s)
+      c1  ← countR.read
       ud1 ← ref.read //actual UndoRedo
       _   ←  ud1.un //undo
-      count ← countR.read
-    } yield (2 ≟ count) :| "set once, undone once"
+      c2 ← countR.read
+    } yield ((c1 + 1) ≟ c2) :| "undone once" &&
+      (1 ≟ c1) :| "set once"
 
     eval(res)
   }
