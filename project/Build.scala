@@ -4,16 +4,19 @@ import Keys._
 object BuildSettings {
   import Resolvers._
 
+  val sv = "2.10.0-RC5"
   val buildOrganization = "efa.rpg"
   val buildVersion = "1.0.0-SNAPSHOT"
-  val buildScalaVersion = "2.9.2"
+  val buildScalaVersion = sv
 
   val buildSettings = Defaults.defaultSettings ++ Seq (
     organization := buildOrganization,
     version := buildVersion,
     scalaVersion := buildScalaVersion,
+    scalaBinaryVersion <<= scalaVersion,
     resolvers ++= repos,
-    scalacOptions ++= Seq ("-deprecation"),
+    scalacOptions ++= Seq ("-deprecation", "-feature", "-language:higherKinds",
+      "-language:postfixOps"),
     publishArtifact in (Compile, packageDoc) := false,
     publishArtifact in (Compile, packageSrc) := false
   )
@@ -30,6 +33,7 @@ object Resolvers {
 }
 
 object Dependencies {
+  import BuildSettings.sv  
 
   val utilVersion = "0.1.0-SNAPSHOT"
   val reactVersion = "0.1.0-SNAPSHOT"
@@ -48,7 +52,7 @@ object Dependencies {
 
   val nbV = "RELEASE71"
 
-  val scalaSwing = "org.scala-lang" % "scala-swing" % "2.9.2" 
+  val scalaSwing = "org.scala-lang" % "scala-swing" % sv
  
   val nbUtil = "org.netbeans.api" % "org-openide-util" % nbV
   val nbLookup = "org.netbeans.api" % "org-openide-util-lookup" % nbV
@@ -68,13 +72,13 @@ object Dependencies {
   val nbModulesOptions = "org.netbeans.api" % "org-netbeans-modules-options-api" % nbV
   val nbMultiview = "org.netbeans.api" % "org-netbeans-core-multiview" % nbV
 
-  val scalaz_core = "org.scalaz" %% "scalaz-core" % "7.0.0-M5"
-  val scalaz_effect = "org.scalaz" %% "scalaz-effect" % "7.0.0-M5"
+  val scalaz_core = "org.scalaz" %% "scalaz-core" % "7.0.0-M6"
+  val scalaz_effect = "org.scalaz" %% "scalaz-effect" % "7.0.0-M6"
   val scalaz_scalacheck =
-    "org.scalaz" %% "scalaz-scalacheck-binding" % "7.0.0-M5"
+    "org.scalaz" %% "scalaz-scalacheck-binding" % "7.0.0-M6"
   val scalaz_scalacheckT = scalaz_scalacheck % "test"
 
-  val scalacheck = "org.scalacheck" %% "scalacheck" % "1.9"
+  val scalacheck = "org.scalacheck" %% "scalacheck" % "1.10.0"
   val scalacheckT = scalacheck % "test"
   val scalazCheckT = Seq(scalaz_core, scalaz_scalacheckT, scalacheckT)
   val scalazCheckET = scalazCheckT :+ scalaz_effect

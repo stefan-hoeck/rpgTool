@@ -6,6 +6,7 @@ import efa.react.{Out}
 import efa.react.swing.{GbPanel, UiFactory, Swing}
 import efa.rpg.core._
 import java.awt.Font
+import scala.language.implicitConversions
 import scala.swing.{Label, ComboBox, TextField, Component}
 import scalaz._, Scalaz._
 

@@ -21,7 +21,7 @@ object ItemNodeTest extends Properties ("ItemNode") with FolderFunctions {
 
     val res = for {
       n   ← NbNode.apply
-      _   ← pair.η[SIn] andThen itemOut.set(n) apply ()
+      _   ← pair.η[SIn] andThen itemOut.set(n) runIO ()
       ec  ← n.getLookup.head[EditCookie]
       hdo ← n.getLookup.head[HtmlDesc]
     } yield (n.getDisplayName ≟ a.name) :| "display name" &&
@@ -45,7 +45,7 @@ object ItemNodeTest extends Properties ("ItemNode") with FolderFunctions {
     val res = for {
       stRef ← IO newIORef "".failureNel[St[Advantage]]
       n     ← NbNode.apply // new node
-      _     ← pair.η[SIn] andThen renameOut.set(n) to (stRef write _) apply ()
+      _     ← pair.η[SIn] andThen renameOut.set(n) to (stRef write _) runIO ()
       _     = n.setName (s) // change node's name. This should set stRef
       v     ← stRef.read
     } yield (nesVal(s).isRight ≟ v.isSuccess)

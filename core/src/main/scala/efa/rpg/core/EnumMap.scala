@@ -33,12 +33,9 @@ object EnumMap extends EnumMapInstances0 {
   def at[K,V](k: K): EnumMap[K,V] @> V =
     Lens.lensu((a,b) ⇒ a + (k, b), _(k))
   
-  case class EnumMapLenses[A,K,V](l: A @> EnumMap[K,V]) {
+  implicit class EnumMapLenses[A,K,V](val l: A @> EnumMap[K,V]) extends AnyVal {
     def at (k: K): A @> V = l >=> EnumMap.at(k)
   }
- 
-  implicit def ToEnumMapLenses[A,K,V](l: A @> EnumMap[K,V]) =
-    EnumMapLenses(l)
  
   private case class Impl[K,V](m: Map[K,V]) extends EnumMap[K,V] {
     def apply (k: K) = m(k)
@@ -125,7 +122,7 @@ abstract class EnumMaps[K:RpgEnum,V:Show:Equal:Read] {
   def read (ns: Seq[Node]): ValRes[EnumMap[K,V]] = read(ns \ tag text)
 
   def write (em: EnumMap[K,V]): Seq[Node] = 
-    Elem(null, tag, Null, TopScope, Text(shows(em)))
+    Elem(null, tag, Null, TopScope, true, Text(shows(em)))
 
   def gen: Gen[EnumMap[K,V]] =
     ks traverse (_ ⇒ vGen) map (vs ⇒ EnumMap fromMap (ks zip vs toMap))

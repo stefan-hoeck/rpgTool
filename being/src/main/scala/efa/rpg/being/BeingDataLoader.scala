@@ -146,14 +146,15 @@ object BeingLoader extends StateTransFunctions {
      with COHandler {
 
      private def load: IO[CTC] = for {
-       ps ← ref.read >>= (_ fold (
-              _.η[IO],
-              c(this, bd) >>= (ps ⇒ ref write ps.some as ps)
-            ))
+       ps ← ref.read >>= (
+              _.fold (
+               c(this, bd) >>= (ps ⇒ ref write ps.some as ps)
+             )(_.η[IO])
+           )
      } yield ps._1
 
      private def doClose: IO[Unit] = ref.read >>= (
-       _ fold (_._3.toList foldMap (_.disconnect), IO.ioUnit)
+       _ map (_._3.toList foldMap (_.disconnect)) orZero
      )
     
     protected def createCloneableTopComponent = load.unsafePerformIO()

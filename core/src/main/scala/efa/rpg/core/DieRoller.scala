@@ -102,10 +102,10 @@ object DieRoller {
   val plus: DieRoller @> Int =
     Lens.lensu((a,b) ⇒ a copy (plus = b), _.plus)
   
-  implicit def DieRollerLenses[A](l: A @> DieRoller) = new {
-    val die = l >=> DieRoller.die
-    val count = l >=> DieRoller.count
-    val plus = l >=> DieRoller.plus
+  implicit class DieRollerLenses[A](val l: A @> DieRoller) extends AnyVal {
+    def die = l >=> DieRoller.die
+    def count = l >=> DieRoller.count
+    def plus = l >=> DieRoller.plus
   }
 }
 

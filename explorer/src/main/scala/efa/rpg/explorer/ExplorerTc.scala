@@ -54,9 +54,7 @@ object ExplorerTc {
   } yield ps).unsafePerformIO
 }
 
-object ExplorerTcProvider extends TcProvider[ExplorerTc] (
-  ExplorerTc.create, mainLogger
-) {
+object ExplorerTcProvider extends TcProvider[ExplorerTc] (ExplorerTc.create) {
   override protected[explorer] val preferredId = "ExplorerTc"
 }
 

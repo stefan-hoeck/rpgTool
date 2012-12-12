@@ -42,7 +42,7 @@ object Modifiers {
     def append (a: Modifiers, b: ⇒ Modifiers) = a append b
   }
 
-  case class ModLens[A](l: A @> Modifiers) {
+  implicit class ModLens[A](val l: A @> Modifiers) extends AnyVal {
     def modMods (k: ModifierKey, f: List[Modifier] ⇒ List[Modifier])
       :State[A,Modifiers] = l mods (_ mod (k, f))
 
@@ -57,8 +57,6 @@ object Modifiers {
     def at (k: ModifierKey): Lens[A,List[Modifier]] =
       Lens.lensu((a, ms) ⇒ l set (a, l get a set (k, ms)), l get _ get k)
   }
-
-  implicit def ModLensW[A](l: Lens[A,Modifiers]) = ModLens(l)
 
   private case class Impl (ms: Map[ModifierKey, List[Modifier]])
      extends Modifiers {

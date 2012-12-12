@@ -9,17 +9,10 @@ import scala.xml.{Node, Attribute, Null, Text, MetaData}
 trait FolderFunctions {
   self ⇒ 
 
-  implicit def iFolderLenses[A,B] (l: A @> IFolder[B]) =
-    IFolderLenses[A,B] (l)
-
-  case class IFolderLenses[A,B] (lens: A @> IFolder[B])  {
-
+  implicit class IFolderLenses[A,B] (val lens: A @> IFolder[B]) {
     def name = lens >=> self.name
-
     def id = lens >=> self.id
-
     def items = lens >=> Folder.data
-
     def folders = lens >=> Folder.folders
   }
 

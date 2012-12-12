@@ -17,6 +17,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>efa.scala</groupId>
+      <artifactId>scalaSwingW</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>efa.rpg</groupId>
       <artifactId>core</artifactId>
       <version>${core.version}</version>

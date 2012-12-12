@@ -77,7 +77,7 @@ object FileStreamProvider extends ValLogIOFunctions {
       in  ← stream
       out ← FileIO.createFile (f) ∗ (FileIO fileOutputStream (_)) 
       _   ← FileIO copyBinary (in, out, name)
-    } yield f
+    } yield () 
 
     for {
       fldr ← folder

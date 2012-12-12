@@ -20,14 +20,34 @@
       <groupId>efa.scala</groupId>
       <artifactId>scalaW</artifactId>
     </dependency>
+    <dependency>
+      <groupId>efa.scala</groupId>
+      <artifactId>scalazW</artifactId>
+    </dependency>
   </dependencies>
   <dependencyManagement>
     <dependencies>    
       <dependency>
         <groupId>efa.scala</groupId>
         <artifactId>scalaW</artifactId>
-        <version>3.0.0</version>
+        <version>2.10.0-RC5</version>
       </dependency>
+      <dependency>
+        <groupId>efa.scala</groupId>
+        <artifactId>scalaSwingW</artifactId>
+        <version>2.10.0-RC5</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.scala</groupId>
+        <artifactId>scalazW</artifactId>
+        <version>7.0.0-M6</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.scala</groupId>
+        <artifactId>scalaCheckW</artifactId>
+        <version>1.10.0</version>
+      </dependency>
+
       <dependency>
         <groupId>efa.react</groupId>
         <artifactId>core</artifactId>

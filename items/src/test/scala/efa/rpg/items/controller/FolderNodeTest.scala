@@ -32,7 +32,7 @@ object FolderNodeTest
       no = try{FolderNode.defaultOut[Advantage] (advOut, Nil)} catch {
              case e: StackOverflowError ⇒ e.printStackTrace; throw e
            }
-      _  ← sin(s) andThen no.set(n) apply ()
+      _  ← sin(s) andThen no.set(n) runIO ()
       fNames = folderToNames (s.root)
       nNames = nodeToNames (n)
     } yield fNames ≟ nNames
@@ -56,7 +56,7 @@ object FolderNodeTest
       no = try{FolderNode.defaultOut[Advantage] (advOut, Nil)} catch {
              case e: StackOverflowError ⇒ e.printStackTrace; throw e
            }
-      _  ← sin(s) andThen no.set(n) apply ()
+      _  ← sin(s) andThen no.set(n) runIO ()
       cCount = n.getChildren.getNodes(true).size
       fNames = folderToNames (s.root)
       nNames = nodeToNames (n)

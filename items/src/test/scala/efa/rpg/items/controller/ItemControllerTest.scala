@@ -33,7 +33,7 @@ object ItemControllerTest extends Properties("ItemController") {
   property("loading") = forAll {a: Advantage ⇒ 
     val res = for {
       c  ← advantageController(a)
-      m  ← c.dbIn apply () flatMap (_._2.now)
+      m  ← c.dbIn runIO () flatMap (_._2.now)
       cs = c.info.rootNode.getChildren.getNodes(true)
     } yield (m == Map(a.id → a)) :| "map loaded" &&
       (cs.head.getDisplayName ≟ a.name) :| "node loaded"
@@ -49,7 +49,7 @@ object ItemControllerTest extends Properties("ItemController") {
       c  ← advantageController(a)
       cs = c.info.rootNode.getChildren.getNodes(true)
       _  = cs.head.setName(s)
-      m  ← c.dbIn apply () flatMap (_._2.now)
+      m  ← c.dbIn runIO () flatMap (_._2.now)
       cs2 = c.info.rootNode.getChildren.getNodes(true)
     } yield
       (m == Map(a.id → Advantage.data.name.set(a,s))) :|
@@ -65,13 +65,13 @@ object ItemControllerTest extends Properties("ItemController") {
     val res = for {
       ref ← IO newIORef ud
       c   ← advantageController(a)
-      _   ← undoIn to (ref write _) apply ()
+      _   ← undoIn to (ref write _) runIO ()
       cs = c.info.rootNode.getChildren.getNodes(true)
       _  = cs.head.setName(s)
       name1 = c.info.rootNode.getChildren.getNodes(true).head.getDisplayName
       ud1 ← ref.read //actual UndoRedo
       _   ←  ud1.un //undo
-      m   ←  c.dbIn apply () flatMap (_._2.now)
+      m   ←  c.dbIn runIO () flatMap (_._2.now)
       name2 = c.info.rootNode.getChildren.getNodes(true).head.getDisplayName
     } yield (m == Map(a.id → a)) :| "map undone" &&
       (name1 ≟ s) :| "name set" &&
@@ -86,7 +86,7 @@ object ItemControllerTest extends Properties("ItemController") {
     val res = for {
       ref ← IO newIORef 0
       c   ← advantageController(a)
-      _   ← c.dbIn.events to (_ ⇒ ref mod (1+) void) apply ()
+      _   ← c.dbIn.events to (_ ⇒ ref mod (1+) void) runIO ()
       cs = c.info.rootNode.getChildren.getNodes(true).head.setName(s)
       count ← ref.read
     } yield (count ≟ 1) :| "set only once"
@@ -101,8 +101,8 @@ object ItemControllerTest extends Properties("ItemController") {
       ref ← IO newIORef ud
       countR ← IO newIORef 0
       c   ← advantageController(a)
-      _   ← undoIn to (ref write _) apply ()
-      _   ← c.dbIn.events to (_ ⇒ countR mod (1+) void) apply ()
+      _   ← undoIn to (ref write _) runIO ()
+      _   ← c.dbIn.events to (_ ⇒ countR mod (1+) void) runIO ()
       _ = c.info.rootNode.getChildren.getNodes(true).head.setName(s)
       c1  ← countR.read
       ud1 ← ref.read //actual UndoRedo
@@ -129,7 +129,7 @@ object ItemControllerTest extends Properties("ItemController") {
   property("error_when_loading") = {
     val res = for {
       c  ← errorController
-      m  ← c.dbIn apply () flatMap (_._2.now)
+      m  ← c.dbIn runIO () flatMap (_._2.now)
     } yield (m == Map.empty) :| "map loaded"
 
     eval(res)

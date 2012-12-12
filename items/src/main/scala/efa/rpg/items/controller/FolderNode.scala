@@ -44,7 +44,7 @@ object FolderNode {
     }
 
     def paster = (p: PasteType, n: Node) ⇒ 
-      n.getLookup.head[A] >>= (_ fold (adjust(p), IO.ioUnit))
+      n.getLookup.head[A] >>= (_ map adjust(p) orZero)
 
     n setPasters List(paster)
   })

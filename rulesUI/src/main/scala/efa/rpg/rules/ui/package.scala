@@ -10,7 +10,7 @@ package object ui {
 
   val l = Lens.self[RulesFolder]
 
-  def isActive (f: RulesFolder): Boolean = f ∃ (_.active)
+  def isActive (f: RulesFolder): Boolean = f find (_.active) nonEmpty
 
   def activateS (s: RuleSetting): EnableCookie = 
     EnableCookie (l update (s, RuleSetting.active.mod(x ⇒ !x, s)))

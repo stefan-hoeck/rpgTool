@@ -92,8 +92,6 @@ object DescribedTc {
   }
 }
 
-object DescribedTcProvider extends TcProvider[DescribedTc] (
-  DescribedTc.create, mainLogger
-) {
+object DescribedTcProvider extends TcProvider[DescribedTc] (DescribedTc.create) {
   override protected[describedpanel] val preferredId = "DescribedTc"
 }

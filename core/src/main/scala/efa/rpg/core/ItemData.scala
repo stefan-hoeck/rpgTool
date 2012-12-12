@@ -23,7 +23,7 @@ object ItemData {
   val desc: ItemData @> String =
     Lens.lensu((a,b) ⇒ a copy (desc = b), _.desc)
   
-  implicit def itemDataLenses[A] (l: Lens[A,ItemData]) = new {
+  implicit class itemDataLenses[A] (val l: Lens[A,ItemData]) extends AnyVal {
     def id = l >=> self.id
     def name = l >=> self.name
     def desc = l >=> self.desc

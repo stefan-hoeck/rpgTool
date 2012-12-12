@@ -21,7 +21,7 @@ trait ItemNodeFunctions {
   def item[A:Manifest]: OutOnly[A] = N.cookie
 
   def contextRoot[A](implicit M: Manifest[A]): OutOnly[A] = {
-    val cn = M.erasure.getCanonicalName replace (".", "-")
+    val cn = M.runtimeClass.getCanonicalName replace (".", "-")
     val base = "ContextActions/RpgItemNode/"
 
     N contextRootsA List(base + "All", base + cn)

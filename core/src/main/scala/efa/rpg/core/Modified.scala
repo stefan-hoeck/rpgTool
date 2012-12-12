@@ -53,7 +53,7 @@ trait Modified[A] extends HasModifiers[A] {
     oModAddS(n, v, k) exec a
 
   def oModAddS (n: String, v: Long, k: ModifierKey): State[A,Unit] =
-    oMod(n, v) fold (addModS (k, _), init[A].void)
+    oMod(n, v).fold(init[A].void)(addModS (k, _))
 }
 
 trait ModifiedFunctions extends HasModifiersFunctions {
