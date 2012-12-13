@@ -20,6 +20,10 @@
       <groupId>efa.scala</groupId>
       <artifactId>scalaSwingW</artifactId>
     </dependency>
+    <dependency>
+      <groupId>efa.scala</groupId>
+      <artifactId>scalaCheckW</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>efa.rpg</groupId>

@@ -18,12 +18,13 @@
   <dependencies>
     <dependency>
       <groupId>efa.scala</groupId>
-      <artifactId>scalaCheckW</artifactId>
+      <artifactId>scalaSwingW</artifactId>
     </dependency>
     <dependency>
       <groupId>efa.scala</groupId>
-      <artifactId>scalaSwingW</artifactId>
+      <artifactId>scalaCheckW</artifactId>
     </dependency>
+
 
     <dependency>
       <groupId>efa.rpg</groupId>
