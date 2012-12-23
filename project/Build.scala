@@ -4,7 +4,7 @@ import Keys._
 object BuildSettings {
   import Resolvers._
 
-  val sv = "2.10.0-RC5"
+  val sv = "2.10.0"
   val buildOrganization = "efa.rpg"
   val buildVersion = "1.0.0-SNAPSHOT"
   val buildScalaVersion = sv
@@ -13,7 +13,6 @@ object BuildSettings {
     organization := buildOrganization,
     version := buildVersion,
     scalaVersion := buildScalaVersion,
-    scalaBinaryVersion <<= scalaVersion,
     resolvers ++= repos,
     scalacOptions ++= Seq ("-deprecation", "-feature", "-language:higherKinds",
       "-language:postfixOps"),
@@ -72,10 +71,10 @@ object Dependencies {
   val nbModulesOptions = "org.netbeans.api" % "org-netbeans-modules-options-api" % nbV
   val nbMultiview = "org.netbeans.api" % "org-netbeans-core-multiview" % nbV
 
-  val scalaz_core = "org.scalaz" %% "scalaz-core" % "7.0.0-M6"
-  val scalaz_effect = "org.scalaz" %% "scalaz-effect" % "7.0.0-M6"
+  val scalaz_core = "org.scalaz" %% "scalaz-core" % "7.0.0-M7"
+  val scalaz_effect = "org.scalaz" %% "scalaz-effect" % "7.0.0-M7"
   val scalaz_scalacheck =
-    "org.scalaz" %% "scalaz-scalacheck-binding" % "7.0.0-M6"
+    "org.scalaz" %% "scalaz-scalacheck-binding" % "7.0.0-M7"
   val scalaz_scalacheckT = scalaz_scalacheck % "test"
 
   val scalacheck = "org.scalacheck" %% "scalacheck" % "1.10.0"
