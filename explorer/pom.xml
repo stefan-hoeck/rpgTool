@@ -9,7 +9,7 @@
   </parent>
 
   <groupId>efa.rpg</groupId>
-  <artifactId>explorer</artifactId>
+  <artifactId>rpg-explorer</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>nbm</packaging>
 
@@ -23,35 +23,35 @@
 
     <dependency>
       <groupId>efa.rpg</groupId>
-      <artifactId>core</artifactId>
+      <artifactId>rpg-core</artifactId>
       <version>${core.version}</version>
     </dependency>
     <dependency>
       <groupId>efa.rpg</groupId>
-      <artifactId>items</artifactId>
+      <artifactId>rpg-items</artifactId>
       <version>${items.version}</version>
     </dependency>
     <dependency>
       <groupId>efa.rpg</groupId>
-      <artifactId>preferences</artifactId>
+      <artifactId>rpg-preferences</artifactId>
       <version>${preferences.version}</version>
     </dependency>
 
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>core</artifactId>
+      <artifactId>efa-core</artifactId>
     </dependency>
     <dependency>
       <groupId>efa.react</groupId>
-      <artifactId>core</artifactId>
+      <artifactId>react-core</artifactId>
     </dependency>
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>nb</artifactId>
+      <artifactId>efa-nb</artifactId>
     </dependency>
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>io</artifactId>
+      <artifactId>efa-io</artifactId>
     </dependency>
     <dependency>
       <groupId>org.netbeans.api</groupId>

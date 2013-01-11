@@ -50,27 +50,27 @@
 
       <dependency>
         <groupId>efa.react</groupId>
-        <artifactId>core</artifactId>
+        <artifactId>react-core</artifactId>
         <version>${react.version}</version>
       </dependency>
       <dependency>
         <groupId>efa.react</groupId>
-        <artifactId>swing</artifactId>
+        <artifactId>react-swing</artifactId>
         <version>${react.version}</version>
       </dependency>
       <dependency>
         <groupId>efa</groupId>
-        <artifactId>core</artifactId>
+        <artifactId>efa-core</artifactId>
         <version>${util.version}</version>
       </dependency>
       <dependency>
         <groupId>efa</groupId>
-        <artifactId>io</artifactId>
+        <artifactId>efa-io</artifactId>
         <version>${util.version}</version>
       </dependency>
       <dependency>
         <groupId>efa</groupId>
-        <artifactId>nb</artifactId>
+        <artifactId>efa-nb</artifactId>
         <version>${util.version}</version>
       </dependency>
       <dependency>

@@ -38,15 +38,15 @@ object Dependencies {
   val reactVersion = "0.1.0-SNAPSHOT"
   val util = "efa"
   val react = "efa.react"
-  val efaCore = util %% "core" % utilVersion changing
+  val efaCore = util %% "efa-core" % utilVersion changing
 
-  val efaIo = util %% "io" % utilVersion changing
+  val efaIo = util %% "efa-io" % utilVersion changing
 
-  val efaNb = util %% "nb" % utilVersion changing
+  val efaNb = util %% "efa-nb" % utilVersion changing
 
-  val efaReact = react %% "core" % reactVersion changing
+  val efaReact = react %% "react-core" % reactVersion changing
 
-  val efaReactSwing = react %% "swing" % reactVersion changing
+  val efaReactSwing = react %% "react-swing" % reactVersion changing
 
 
   val nbV = "RELEASE71"
@@ -99,13 +99,13 @@ object UtilBuild extends Build {
                items, preferences, rules, rulesUI)
   
   lazy val core = Project (
-    "core",
+    "rpg-core",
     file("core"),
     settings = addDeps (scalazCheckET ++ Seq(scalaSwing, efaCore))
   )
 
   lazy val being = Project (
-    "being",
+    "rpg-being",
     file("being"),
     settings = addDeps (scalazCheckET ++
       Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact, nbLoaders,
@@ -113,21 +113,21 @@ object UtilBuild extends Build {
   ) dependsOn (core, preferences, rules)
 
   lazy val describedPanel = Project (
-    "describedPanel",
+    "rpg-describedPanel",
     file("describedPanel"),
     settings = addDeps (scalazCheckET ++
       Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact))
   ) dependsOn (core, preferences)
 
   lazy val explorer = Project (
-    "explorer",
+    "rpg-explorer",
     file("explorer"),
     settings = addDeps (scalazCheckET ++
       Seq (scalaSwing, efaCore, efaNb, nbFilesystems, nbLoaders))
   ) dependsOn (items, preferences)
 
   lazy val items = Project (
-    "items",
+    "rpg-items",
     file("items"),
     settings = addDeps (scalazCheckET ++
       Seq (scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test")) :+ (
@@ -136,20 +136,20 @@ object UtilBuild extends Build {
   ) dependsOn (core, preferences)
 
   lazy val preferences = Project (
-    "preferences",
+    "rpg-preferences",
     file("preferences"),
     settings = addDeps (scalazCheckET ++Seq (scalaSwing, efaCore,
       efaIo, nbFilesystems))
   )
   
   lazy val rules = Project (
-    "rules",
+    "rpg-rules",
     file("rules"),
     settings = addDeps (scalazCheckET ++ Seq(efaCore, efaIo, efaReact))
   )
   
   lazy val rulesUI = Project (
-    "rulesUI",
+    "rpg-rulesUI",
     file("rulesUI"),
     settings = addDeps (scalazCheckET ++
       Seq(efaCore, efaIo, efaReact, efaNb, nbNodes))
