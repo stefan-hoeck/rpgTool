@@ -27,6 +27,10 @@
     </dependency>
     <dependency>
       <groupId>efa</groupId>
+      <artifactId>efa-data</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>efa</groupId>
       <artifactId>efa-io</artifactId>
     </dependency>
     <dependency>

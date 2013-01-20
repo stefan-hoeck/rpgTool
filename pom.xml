@@ -65,6 +65,11 @@
       </dependency>
       <dependency>
         <groupId>efa</groupId>
+        <artifactId>efa-data</artifactId>
+        <version>${util.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efa</groupId>
         <artifactId>efa-io</artifactId>
         <version>${util.version}</version>
       </dependency>
@@ -106,8 +111,8 @@
   </modules>
 
   <properties>
-    <util.version>0.1.0-SNAPSHOT</util.version>
-    <react.version>0.1.0-SNAPSHOT</react.version>
+    <util.version>0.2.0-SNAPSHOT</util.version>
+    <react.version>0.1.0</react.version>
     <core.version>1.0.0-SNAPSHOT</core.version>
     <preferences.version>1.0.0-SNAPSHOT</preferences.version>
     <explorer.version>1.0.0-SNAPSHOT</explorer.version>

@@ -15,13 +15,13 @@ case class BeingSaver[A](
     
   def saveToFo (fo: FileObject)(implicit L: LoggerIO): Out[A] = a ⇒ for {
     os ← IO (fo.getOutputStream)
-    _  ← L logValZ save(a, os)
+    _  ← L logValD save(a, os)
   } yield ()
 
   def loadFromFo (fo: FileObject)(implicit D: Default[A], L: LoggerIO)
     : IO[A] = for {
       is ← IO (fo.getInputStream)
-      a  ← L logValZ load(is)
+      a  ← L logValD load(is)
     } yield a
 }
 

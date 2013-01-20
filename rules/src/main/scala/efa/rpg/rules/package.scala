@@ -1,6 +1,7 @@
 package efa.rpg
 
-import efa.core.{Folder, Localization, Service, UniqueId}
+import efa.core.{Folder, Localization, Service}
+import efa.data.UniqueId
 import efa.rpg.rules.spi.RulesLocal
 import scalaz._, Scalaz._
 

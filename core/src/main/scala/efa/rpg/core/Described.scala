@@ -1,17 +1,13 @@
 package efa.rpg.core
 
+import efa.data.{Described ⇒ EfaDesc, Named}
 import scala.swing.Component
 import scalaz.Show
 
-trait Described[A] extends Show[A] {
-  def desc (a: A): String
-  def name (a: A): String
-  def shortDesc (a: A): String
+trait Described[A] extends Named[A] with EfaDesc[A] {
   def fullDesc (a: A): String
 
   def htmlDesc (a: A) = HtmlDesc(name(a), fullDesc(a))
-
-  override def shows (a: A) = name(a)
 }
 
 object Described {

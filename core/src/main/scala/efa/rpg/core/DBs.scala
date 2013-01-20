@@ -1,6 +1,7 @@
 package efa.rpg.core
 
 import efa.core.ToXml
+import efa.data.IntId
 import org.scalacheck.{Arbitrary, Gen}, Arbitrary.arbitrary
 import scala.xml.Node
 import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._
@@ -8,21 +9,11 @@ import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._
 trait DBs {
   def db[A]: DB[A] = Map.empty
 
-  implicit def DBequal[A:Equal] = new Equal[DB[A]] {
-    def equal(a1: DB[A], a2: DB[A]): Boolean = {
-      if (equalIsNatural) a1 == a2
-      else (a1.keySet == a1.keySet) && {
-        a1.forall { case (k, a) ⇒ Equal[A].equal(a, a2(k)) }
-      }
-    }
-    override val equalIsNatural: Boolean = Equal[A].equalIsNatural
-  }
+  implicit def DBArbitrary[A:Arbitrary:IntId]: Arbitrary[DB[A]] =
+    Maps mapArbitrary IntId[A].id
 
-  implicit def DBArbitrary[A:Arbitrary:WithId]: Arbitrary[DB[A]] =
-    Maps mapArbitrary WithId[A].id
-
-  def dbToXml[A:ToXml:WithId](lbl: String): ToXml[DB[A]] =
-    Maps mapToXml (lbl, WithId[A].id)
+  def dbToXml[A:ToXml:IntId](lbl: String): ToXml[DB[A]] =
+    Maps mapToXml (lbl, IntId[A].id)
 
   implicit val DBTraverse = new Traverse[DB] {
     def traverseImpl[F[_] : Applicative, A, B](t: DB[A])(f: A => F[B])

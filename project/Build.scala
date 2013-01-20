@@ -34,19 +34,21 @@ object Resolvers {
 object Dependencies {
   import BuildSettings.sv  
 
-  val utilVersion = "0.1.0-SNAPSHOT"
-  val reactVersion = "0.1.0-SNAPSHOT"
+  val utilVersion = "0.2.0-SNAPSHOT"
+  val reactVersion = "0.1.0"
   val util = "efa"
   val react = "efa.react"
   val efaCore = util %% "efa-core" % utilVersion changing
+
+  val efaData = util %% "efa-data" % utilVersion changing
 
   val efaIo = util %% "efa-io" % utilVersion changing
 
   val efaNb = util %% "efa-nb" % utilVersion changing
 
-  val efaReact = react %% "react-core" % reactVersion changing
+  val efaReact = react %% "react-core" % reactVersion
 
-  val efaReactSwing = react %% "react-swing" % reactVersion changing
+  val efaReactSwing = react %% "react-swing" % reactVersion
 
 
   val nbV = "RELEASE71"
@@ -101,14 +103,14 @@ object UtilBuild extends Build {
   lazy val core = Project (
     "rpg-core",
     file("core"),
-    settings = addDeps (scalazCheckET ++ Seq(scalaSwing, efaCore))
+    settings = addDeps (scalazCheckET ++ Seq(scalaSwing, efaCore, efaData))
   )
 
   lazy val being = Project (
     "rpg-being",
     file("being"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact, nbLoaders,
+      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact, efaData, nbLoaders,
         nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer))
   ) dependsOn (core, preferences, rules)
 
@@ -116,21 +118,21 @@ object UtilBuild extends Build {
     "rpg-describedPanel",
     file("describedPanel"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact))
+      Seq (scalaSwing, efaCore, efaData, efaIo, efaNb, efaReact))
   ) dependsOn (core, preferences)
 
   lazy val explorer = Project (
     "rpg-explorer",
     file("explorer"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaNb, nbFilesystems, nbLoaders))
+      Seq (scalaSwing, efaCore, efaData, efaNb, nbFilesystems, nbLoaders))
   ) dependsOn (items, preferences)
 
   lazy val items = Project (
     "rpg-items",
     file("items"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test")) :+ (
+      Seq (scalaSwing, efaCore, efaData, efaIo, efaNb, nbLoaders, nbFilesystems % "test")) :+ (
         parallelExecution in Test := false
       )
   ) dependsOn (core, preferences)
@@ -145,7 +147,7 @@ object UtilBuild extends Build {
   lazy val rules = Project (
     "rpg-rules",
     file("rules"),
-    settings = addDeps (scalazCheckET ++ Seq(efaCore, efaIo, efaReact))
+    settings = addDeps (scalazCheckET ++ Seq(efaCore, efaIo, efaReact, efaData))
   )
   
   lazy val rulesUI = Project (

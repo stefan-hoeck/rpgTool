@@ -1,17 +1,16 @@
 package efa.rpg.core
 
-import efa.core.{UniqueId, ToXml, Default}
+import efa.core.{ToXml, Default}
+import efa.data.{UniqueIdL, NamedL}
 import scalaz._, Scalaz._
 
-trait RpgItem[A] extends Described[A] with WithId[A] {
+trait RpgItem[A] extends Described[A] with UniqueIdL[A,Int] with NamedL[A] {
   def dataL: A @> ItemData
   lazy val nameL: A @> String = dataL.name
   lazy val idL: A @> Int = dataL.id
   lazy val descL: A @> String = dataL.desc
 
-  def id (a: A) = idL get a
-  override def name (a: A) = nameL get a
-  override def desc (a: A) = descL get a
+  def desc (a: A): String = descL get a
 }
 
 trait RpgItemLike[+A] {

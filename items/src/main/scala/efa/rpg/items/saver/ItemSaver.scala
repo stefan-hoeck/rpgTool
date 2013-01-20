@@ -20,10 +20,10 @@ sealed case class ItemSaver[I] (
     l.logVal (dataLoader, emptyFolder) ∘ (IState fromFolder _)
 
   def saveState (l: LoggerIO)(is: IState[I]): IO[Unit] =
-    l logValM saver (fromIdxFolder (is.root))
+    l logValZ saver (fromIdxFolder (is.root))
 
   def loadTemplates (l: LoggerIO): IO[List[I]] =
-    l logValM templatesLoader
+    l logValZ templatesLoader
 }
 
 object ItemSaver {

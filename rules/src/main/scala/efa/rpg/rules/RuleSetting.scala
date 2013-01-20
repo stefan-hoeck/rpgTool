@@ -1,6 +1,7 @@
 package efa.rpg.rules
 
-import efa.core.{Localization, Localized, UniqueId}
+import efa.core.{Localization, Localized}
+import efa.data.UniqueId
 import scalaz._, Scalaz._
 
 case class RuleSetting(loc: Localization, active: Boolean)

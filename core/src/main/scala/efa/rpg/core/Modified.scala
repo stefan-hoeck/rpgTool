@@ -24,7 +24,7 @@ trait Modified[A] extends HasModifiers[A] {
     key: ModifierKey
   )(f: (A,Long) ⇒ Long): A = modS(f, name, value, key) exec a
 
-  def modifiers(a: A) = modifiersL get a
+  def modifiers (a: A) = modifiersL get a
 
   def modifiersL: A @> Modifiers
 
