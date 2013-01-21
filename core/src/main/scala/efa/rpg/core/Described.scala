@@ -5,6 +5,8 @@ import scala.swing.Component
 import scalaz.Show
 
 trait Described[A] extends Named[A] with EfaDesc[A] {
+  def desc (a: A): String
+
   def fullDesc (a: A): String
 
   def htmlDesc (a: A) = HtmlDesc(name(a), fullDesc(a))

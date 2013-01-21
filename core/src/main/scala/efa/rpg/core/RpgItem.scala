@@ -6,7 +6,6 @@ import scalaz._, Scalaz._
 
 trait RpgItem[A]
    extends Described[A]
-   with DescribedL[A]
    with UniqueIdL[A,Int]
    with NamedL[A] {
 
@@ -14,6 +13,7 @@ trait RpgItem[A]
   lazy val nameL: A @> String = dataL.name
   lazy val idL: A @> Int = dataL.id
   lazy val descL: A @> String = dataL.desc
+  def desc (a: A) = descL get a
 }
 
 trait RpgItemLike[+A] {
