@@ -1,14 +1,14 @@
 package efa.rpg.items
 
-import scalaz._, Scalaz._
 import efa.core.{Folder, EndoVal, Validators}
-import efa.rpg.core.{RpgItem, DB, DBs}
+import efa.rpg.core.{RpgItem, DB}
+import scalaz._, Scalaz._
 
 case class IState[+I] (
   root: IFolder[I], map: DB[I], folderId: Int, itemId: Int
 )
 
-object IState extends FolderFunctions with DBs {
+object IState extends FolderFunctions {
 
   type UIState[I] = State[IState[I],Unit]
 

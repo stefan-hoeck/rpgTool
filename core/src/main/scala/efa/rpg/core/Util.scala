@@ -15,6 +15,8 @@ trait Util
   def !![B:Default]: B = Default[B].default
 
   def a[B:Arbitrary]: Gen[B] = Arbitrary.arbitrary
+
+  def db[A]: DB[A] = Map.empty
 }
 
 // vim: set ts=2 sw=2 et:

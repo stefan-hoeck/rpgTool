@@ -51,10 +51,10 @@ object FolderNode {
   })
 
   def itemFactory[A:RpgItem] (out: ItemNodes.FullOut[A]): FFactory[A] =
-    uniqueIdF(out) ∙ FF.folderPairToItems[A]
+    intIdF(out)(FF.folderPairToItems[A])
 
   def folderFactory[A] (out: FullOut[A]): FFactory[A] =
-    uniqueIdF(out) ∙ FF.folderPairToFolders[A]
+    intIdF(out)(FF.folderPairToFolders[A])
 
   def itemsNt[A:RpgItem:Equal:IEditable] (as: List[A]): FullOut[A] = {
     val dialog = N.addNtDialog[ItemPair[A],A]
