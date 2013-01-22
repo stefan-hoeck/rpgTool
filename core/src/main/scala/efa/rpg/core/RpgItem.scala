@@ -1,7 +1,7 @@
 package efa.rpg.core
 
 import efa.core.{ToXml, Default}
-import efa.data.{UniqueIdL, NamedL}
+import efa.data.{UniqueIdL, NamedL, Described ⇒ DDesc}, DDesc.Tag
 import scalaz._, Scalaz._
 
 trait RpgItem[A]
@@ -44,7 +44,7 @@ trait RpgItemLikes[A<:RpgItemLike[A]] extends Util {
   private def idXml = ToXml[ItemData]
 
   protected def tagShortDesc (a: A, tags: Tag*): String =
-    nameShortDesc(a.name, tags: _*)
+    namePlusTags (a.name, tags: _*)
 
   protected def dataToNode (a: A): Seq[Node] = idXml toXml a.data
 

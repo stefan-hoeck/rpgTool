@@ -1,14 +1,14 @@
 package efa.rpg.core
 
 import efa.core._
-import efa.data.{UniqueIdFunctions, UniqueIdLFunctions}
+import efa.data.{UniqueIdFunctions, UniqueIdLFunctions, DescribedFunctions}
 import org.scalacheck.{Arbitrary, Gen}
 
 /**
  * Utility Functions
  */
 trait Util
-   extends HtmlTags 
+   extends DescribedFunctions
    with UniqueIdFunctions
    with UniqueIdLFunctions {
 
