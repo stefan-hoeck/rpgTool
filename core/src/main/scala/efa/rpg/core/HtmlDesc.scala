@@ -3,7 +3,7 @@ package efa.rpg.core
 import scalaz.Equal
 
 case class HtmlDesc (name: String, text: String) {
-  def html = "<html>%s</html>" format text
+  def html = s"<html>$text</html>"
 }
 
 object HtmlDesc {

@@ -17,18 +17,18 @@ object RulesNode {
   type Fac[-A] = Factory[A,Nothing]
   
   lazy val settingOut: NOut[RuleSetting] =
-    N.name[RuleSetting] (_.loc.locName) ⊹
-    N.desc ("<html>%s</html>" format _.loc.desc) ⊹
+    N.named[RuleSetting] ⊹
+    N.described ⊹
     N.contextRootsA (List("ContextActions/RuleNode")) ⊹
-    N.iconBase.contramap(_.active ? active | inactive) ⊹
-    (N.cookie[EnableCookie] ∙ activateS)
+    activeIcon ⊹
+    enable
 
   lazy val folderOut: FolderOut = {
     val rest: FolderOut =
-      N.name[RulesFolder] (_.label._1) ⊹
+      N.named[RulesFolder] ⊹
       N.contextRootsA (List("ContextActions/RulesFolderNode")) ⊹
-      N.iconBase.contramap(isActive(_) ? active | inactive) ⊹
-      (N.cookie[EnableCookie] ∙ activateF)
+      activeIcon ⊹
+      enable
 
     val settingsF: Factory[RulesFolder,Nothing] =
       (uniqueIdF(settingOut): Fac[List[RuleSetting]]) ∙ (_.data.toList)
@@ -43,8 +43,15 @@ object RulesNode {
     allOut
   }
 
-  private val active = "efa/rpg/rules/ui/activerule.png"
-  private val inactive = "efa/rpg/rules/ui/inactiverule.png"
+  private def activeIcon[A:ActiveL]: NodeOut[A,Nothing] =
+    N.iconBase ∙ (
+      ActiveL[A].active (_) ?
+      "efa/rpg/rules/ui/activerule.png" |
+      "efa/rpg/rules/ui/inactiverule.png"
+    )
+
+  private def enable[A:ActiveL]: NodeOut[A,Nothing] =
+    N.cookie[EnableCookie] ∙ {a: A ⇒ EnableCookie(ActiveL[A] activate a)}
 }
 
 // vim: set ts=2 sw=2 et:

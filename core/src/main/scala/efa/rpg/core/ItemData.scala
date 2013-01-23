@@ -1,6 +1,7 @@
 package efa.rpg.core
 
 import efa.core.{ToXml, Efa, Default}, Efa._
+import efa.data.{UniqueIdL, NamedL}
 import org.scalacheck.{Arbitrary, Gen}, Arbitrary.arbitrary
 import scala.xml.Node
 import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._
@@ -46,6 +47,12 @@ object ItemData {
   implicit lazy val ItemDataArbitrary = Arbitrary (
     ^^(arbitrary[Int], Gen.identifier, Gen.identifier)(ItemData.apply)
   )
+
+  implicit lazy val ItemDataItem =
+    new UniqueIdL[ItemData,Int] with NamedL[ItemData] {
+      def idL = ItemData.id
+      def nameL = ItemData.name
+    }
 }
 
 // vim: set ts=2 sw=2 et:

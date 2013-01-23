@@ -12,9 +12,9 @@ trait ItemNodeFunctions {
 
   type FullOut[A] = NodeOut[ItemPair[A],VSt[A]]
 
-  def name[A:RpgItem]: OutOnly[A] = N name rpg.name
+  def name[A:RpgItem]: OutOnly[A] = N.named
 
-  def desc[A:RpgItem]: OutOnly[A] = N desc rpg.shortDesc
+  def desc[A:RpgItem]: OutOnly[A] = N.described
 
   def htmlDesc[A:RpgItem]: OutOnly[A] = N.cookie[HtmlDesc] ∙ rpg.htmlDesc
 
