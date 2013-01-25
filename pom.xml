@@ -24,6 +24,10 @@
       <groupId>efa.scala</groupId>
       <artifactId>scalazW</artifactId>
     </dependency>
+    <dependency>
+      <groupId>efa.scala</groupId>
+      <artifactId>shapelessW</artifactId>
+    </dependency>
   </dependencies>
   <dependencyManagement>
     <dependencies>    
@@ -46,6 +50,11 @@
         <groupId>efa.scala</groupId>
         <artifactId>scalaCheckW</artifactId>
         <version>1.10.0</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.scala</groupId>
+        <artifactId>shapelessW</artifactId>
+        <version>1.2.3</version>
       </dependency>
 
       <dependency>
