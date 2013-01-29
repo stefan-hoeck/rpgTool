@@ -1,8 +1,9 @@
 package efa.rpg.core
 
-import scalaz._, Scalaz._
 import efa.core._, Efa._
 import scala.util.Random
+import scalaz._, Scalaz._
+import shapeless._, HList._, Nat._
 
 case class DieRoller(count: Int, die: Int, plus: Int) {
   import DieRoller._
@@ -69,9 +70,11 @@ object DieRoller {
     }
   }
 
+  implicit val DRIso = Iso.hlist(DieRoller.apply _, DieRoller.unapply _)
+
   implicit lazy val DieRollerDefault = Default default default
 
-  implicit val DieRollerEqual: Equal[DieRoller] = Equal.equalA
+  implicit val DieRollerEqual: Equal[DieRoller] = ccEqual
 
   implicit val DieRollerShow: Show[DieRoller] = Show shows (_.toString)
 
@@ -92,20 +95,18 @@ object DieRoller {
   private lazy val rnd = new Random
 
   //Lenses
-
-  val die: DieRoller @> Int =
-    Lens.lensu((a,b) ⇒ a copy (die = b), _.die)
-
-  val count: DieRoller @> Int =
-    Lens.lensu((a,b) ⇒ a copy (count = b), _.count)
-
-  val plus: DieRoller @> Int =
-    Lens.lensu((a,b) ⇒ a copy (plus = b), _.plus)
+  val Lenses = SLens[DieRoller]
   
   implicit class DieRollerLenses[A](val l: A @> DieRoller) extends AnyVal {
-    def die = l >=> DieRoller.die
-    def count = l >=> DieRoller.count
-    def plus = l >=> DieRoller.plus
+    def count = l >=> Lenses.at(_0)
+    def die = l >=> Lenses.at(_1)
+    def plus = l >=> Lenses.at(_2)
+  }
+  
+  implicit class DieRollerLensesP[A](val l: A @?> DieRoller) extends AnyVal {
+    def count = l >=> ~Lenses.at(_0)
+    def die = l >=> ~Lenses.at(_1)
+    def plus = l >=> ~Lenses.at(_2)
   }
 }
 
