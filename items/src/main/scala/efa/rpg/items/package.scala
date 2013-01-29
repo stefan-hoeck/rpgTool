@@ -1,8 +1,7 @@
 package efa.rpg
 
 import scalaz._, Scalaz._
-import efa.core.{Service, Folder}
-import efa.data.UniqueId
+import efa.core.{Service, Folder, UniqueId}
 import efa.rpg.items.spi.ItemsLocal
 
 package object items {

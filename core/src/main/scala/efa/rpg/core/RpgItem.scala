@@ -1,7 +1,6 @@
 package efa.rpg.core
 
-import efa.core.{ToXml, Default}
-import efa.data.{UniqueIdL, NamedL, Described ⇒ DDesc}, DDesc.Tag
+import efa.core.{ToXml, Default, UniqueIdL, NamedL, Described ⇒ DDesc}, DDesc.Tag
 import scalaz._, Scalaz._
 
 trait RpgItem[A]

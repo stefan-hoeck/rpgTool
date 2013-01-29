@@ -1,7 +1,6 @@
 package efa.rpg.core
 
 import efa.core._
-import efa.data.{UniqueIdFunctions, UniqueIdLFunctions, DescribedFunctions}
 import org.scalacheck.{Arbitrary, Gen}
 
 /**

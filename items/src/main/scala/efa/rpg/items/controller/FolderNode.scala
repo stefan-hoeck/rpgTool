@@ -1,7 +1,6 @@
 package efa.rpg.items.controller
 
 import efa.core._, Efa._
-import efa.data.UniqueId
 import efa.nb.node.{NodeOut, NbChildren, NbNode ⇒ N, PasteType}, NbChildren._
 import efa.rpg.items._
 import efa.rpg.core.RpgItem

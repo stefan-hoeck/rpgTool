@@ -1,7 +1,6 @@
 package efa.rpg.core
 
-import efa.core.{ToXml, Efa, Default}, Efa._
-import efa.data.{UniqueIdL, NamedL}
+import efa.core.{ToXml, Efa, Default, UniqueIdL, NamedL}, Efa._
 import org.scalacheck.{Arbitrary, Gen}, Arbitrary.arbitrary
 import scala.xml.Node
 import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._

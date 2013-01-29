@@ -42,10 +42,6 @@
       <artifactId>efa-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>efa</groupId>
-      <artifactId>efa-data</artifactId>
-    </dependency>
-    <dependency>
       <groupId>efa.react</groupId>
       <artifactId>react-core</artifactId>
     </dependency>

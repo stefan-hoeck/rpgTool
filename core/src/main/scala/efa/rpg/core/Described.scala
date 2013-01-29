@@ -1,6 +1,6 @@
 package efa.rpg.core
 
-import efa.data.{Described ⇒ EfaDesc, Named}
+import efa.core.{Described ⇒ EfaDesc, Named}
 import scala.swing.Component
 import scalaz.Show
 

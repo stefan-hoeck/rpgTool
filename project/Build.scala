@@ -40,8 +40,6 @@ object Dependencies {
   val react = "efa.react"
   val efaCore = util %% "efa-core" % utilVersion changing
 
-  val efaData = util %% "efa-data" % utilVersion changing
-
   val efaIo = util %% "efa-io" % utilVersion changing
 
   val efaNb = util %% "efa-nb" % utilVersion changing
@@ -103,14 +101,14 @@ object UtilBuild extends Build {
   lazy val core = Project (
     "rpg-core",
     file("core"),
-    settings = addDeps (scalazCheckET ++ Seq(scalaSwing, efaCore, efaData))
+    settings = addDeps (scalazCheckET ++ Seq(scalaSwing, efaCore))
   )
 
   lazy val being = Project (
     "rpg-being",
     file("being"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact, efaData, nbLoaders,
+      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact, nbLoaders,
         nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer))
   ) dependsOn (core, preferences, rules)
 
@@ -118,21 +116,21 @@ object UtilBuild extends Build {
     "rpg-describedPanel",
     file("describedPanel"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaData, efaIo, efaNb, efaReact))
+      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact))
   ) dependsOn (core, preferences)
 
   lazy val explorer = Project (
     "rpg-explorer",
     file("explorer"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaData, efaNb, nbFilesystems, nbLoaders))
+      Seq (scalaSwing, efaCore, efaNb, nbFilesystems, nbLoaders))
   ) dependsOn (items, preferences)
 
   lazy val items = Project (
     "rpg-items",
     file("items"),
     settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaData, efaIo, efaNb, nbLoaders, nbFilesystems % "test")) :+ (
+      Seq (scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test")) :+ (
         parallelExecution in Test := false
       )
   ) dependsOn (core, preferences)
@@ -147,7 +145,7 @@ object UtilBuild extends Build {
   lazy val rules = Project (
     "rpg-rules",
     file("rules"),
-    settings = addDeps (scalazCheckET ++ Seq(efaCore, efaIo, efaReact, efaData))
+    settings = addDeps (scalazCheckET ++ Seq(efaCore, efaIo, efaReact))
   )
   
   lazy val rulesUI = Project (
