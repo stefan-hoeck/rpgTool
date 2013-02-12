@@ -31,10 +31,10 @@ object RulesNode {
       enable
 
     val settingsF: Factory[RulesFolder,Nothing] =
-      (uniqueIdF(settingOut): Fac[List[RuleSetting]]) ∙ (_.data.toList)
+      uidF(settingOut){ r: RulesFolder ⇒ r.data }
 
     lazy val foldersF: Factory[RulesFolder,Nothing] =
-      (uniqueIdF(allOut): Fac[List[RulesFolder]]) ∙ (_.folders.toList)
+      uidF(allOut){ r: RulesFolder ⇒ r.folders }
 
     lazy val chld: FolderOut = children(foldersF, settingsF)
 

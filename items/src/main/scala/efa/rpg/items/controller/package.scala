@@ -30,7 +30,7 @@ package object controller {
   def undoTrans[A]: SST[A,A] = UndoEdit undoSST undoOut
 
   def editable[A:RpgItem,C<:ItemPanel[A]](p: ItemPair[A] ⇒ IO[C])
-    : IEditable[A] = DialogEditable.io[ItemPair[A],A,C](
+    : IEditable[A] = DialogEditable.io1[ItemPair[A],A,C](
       ip ⇒ for { c ← p(ip); _ ← c.adjust } yield c)(_.in)
 
   private[controller] def rpg[A:RpgItem] = RpgItem[A]
@@ -38,7 +38,7 @@ package object controller {
   implicit def FolderEditable[A:Equal] =
     new DialogEditable[FolderPair[A],VSt[A]] {
       type Comp = FolderPanel[A]
-      def component (p: FolderPair[A]) = IO(new FolderPanel(p))
+      def component (p: FolderPair[A], ic: Boolean) = IO(new FolderPanel(p))
       def signalIn (c: Comp) = c.in
       override def name (p: FolderPair[A]) = loc.folder
     }

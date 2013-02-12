@@ -19,7 +19,7 @@ abstract class PanelFactoryProps[A:Arbitrary:Equal:IEditable:RpgItem](
     val exp = a.success
 
     def res = for {
-      comp   ← ed component itemToPair(a)
+      comp   ← ed component (itemToPair(a), false)
       sig    ← ed signalIn comp runIO ()
       found  ← sig._2.now
     } yield (found ≟ exp) :| ("Exp: %s, found: %s" format (exp, found))
