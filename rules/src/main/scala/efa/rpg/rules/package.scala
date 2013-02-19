@@ -23,7 +23,7 @@ package object rules {
         val newA = ! active (f)
         val newF = f map (RuleSetting.activeL set (_, newA))
 
-        Lens.self[RulesFolder] updateFolder (f, newF)
+        Lens.lensId[RulesFolder] updateFolder (f, newF)
       }
     }
 

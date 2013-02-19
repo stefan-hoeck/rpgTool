@@ -34,7 +34,7 @@ object FolderFunctionsTest
     (fnd ≟ exp) :| "Exp: %s, Fnd: %s".format(exp, fnd)
   }
   
-  val selfL = Lens.self[AFolder]
+  val selfL = Lens.lensId[AFolder]
 
   property("labelGet") = Prop.forAll { f: AFolder ⇒ 
     (selfL.label get f) ≟ f.label

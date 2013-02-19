@@ -6,7 +6,7 @@ import org.scalacheck.Prop
 object DieRollerTest extends ReadProps[DieRoller]("DieRoller") {
   import DieRoller._
   
-  val L = scalaz.Lens.self[DieRoller]
+  val L = scalaz.Lens.lensId[DieRoller]
 
   property("valdateCount") = Prop forAll validated(L.count.set)(countVal)
 

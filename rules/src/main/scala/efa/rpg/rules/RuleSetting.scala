@@ -29,7 +29,7 @@ object RuleSetting extends DescribedFunctions {
       def shortDesc (s: RuleSetting) = wrapHtml (s.loc.desc)
       def active (s: RuleSetting) = s.active
       def activate (s: RuleSetting) = 
-        Lens.self[RulesFolder] update (s, activeL mod (! _, s))
+        Lens.lensId[RulesFolder] update (s, activeL mod (! _, s))
     }
 }
 
