@@ -17,13 +17,13 @@
 
   <dependencies>
     <dependency>
-      <groupId>efa.scala</groupId>
-      <artifactId>scalaCheckW</artifactId>
+      <groupId>efa</groupId>
+      <artifactId>scalacheckw_2.10</artifactId>
     </dependency>
 
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>efa-core</artifactId>
+      <artifactId>efa-core_2.10</artifactId>
     </dependency>
     <dependency>
       <groupId>org.netbeans.api</groupId>

@@ -17,11 +17,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>efa.scala</groupId>
-      <artifactId>scalaSwingW</artifactId>
-    </dependency>
-
-    <dependency>
       <groupId>efa.rpg</groupId>
       <artifactId>rpg-core</artifactId>
       <version>${core.version}</version>
@@ -39,19 +34,19 @@
 
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>efa-core</artifactId>
+      <artifactId>efa-core_2.10</artifactId>
     </dependency>
     <dependency>
       <groupId>efa.react</groupId>
-      <artifactId>react-core</artifactId>
+      <artifactId>react-core_2.10</artifactId>
     </dependency>
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>efa-nb</artifactId>
+      <artifactId>efa-nb_2.10</artifactId>
     </dependency>
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>efa-io</artifactId>
+      <artifactId>efa-io_2.10</artifactId>
     </dependency>
     <dependency>
       <groupId>org.netbeans.api</groupId>

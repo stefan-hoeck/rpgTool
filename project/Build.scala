@@ -34,8 +34,8 @@ object Resolvers {
 object Dependencies {
   import BuildSettings.sv  
 
-  val utilVersion = "0.2.0-SNAPSHOT"
-  val reactVersion = "0.1.0"
+  val utilVersion = "0.2.1-SNAPSHOT"
+  val reactVersion = "0.2.1-SNAPSHOT"
   val util = "efa"
   val react = "efa.react"
   val efaCore = util %% "efa-core" % utilVersion changing
