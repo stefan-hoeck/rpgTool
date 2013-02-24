@@ -94,6 +94,7 @@
         <artifactId>react-swing_2.10</artifactId>
         <version>${react.version}</version>
       </dependency>
+
       <dependency>
         <groupId>efa</groupId>
         <artifactId>efa-core_2.10</artifactId>
@@ -104,11 +105,13 @@
         <artifactId>efa-io_2.10</artifactId>
         <version>${util.version}</version>
       </dependency>
+
       <dependency>
-        <groupId>efa</groupId>
-        <artifactId>efa-nb_2.10</artifactId>
-        <version>${util.version}</version>
+        <groupId>efa.nb</groupId>
+        <artifactId>efa-nb</artifactId>
+        <version>${nb.version}</version>
       </dependency>
+
       <dependency>
         <groupId>org.netbeans.api</groupId>
         <artifactId>org-netbeans-core-multiview</artifactId>
@@ -146,6 +149,7 @@
     <scala.version>2.10.0</scala.version>
     <scalaz.version>7.0.0-M8</scalaz.version>
     <util.version>0.2.1-SNAPSHOT</util.version>
+    <nb.version>0.2.1-SNAPSHOT</nb.version>
     <react.version>0.2.1-SNAPSHOT</react.version>
     <core.version>1.0.0-SNAPSHOT</core.version>
     <preferences.version>1.0.0-SNAPSHOT</preferences.version>

@@ -2,18 +2,17 @@ import sbt._
 import Keys._
 
 object BuildSettings {
-  import Resolvers._
-
   val sv = "2.10.0"
   val buildOrganization = "efa.rpg"
   val buildVersion = "1.0.0-SNAPSHOT"
   val buildScalaVersion = sv
+  val netbeansRepo = "Netbeans" at "http://bits.netbeans.org/maven2/"
 
   val buildSettings = Defaults.defaultSettings ++ Seq (
     organization := buildOrganization,
     version := buildVersion,
     scalaVersion := buildScalaVersion,
-    resolvers ++= repos,
+    resolvers += netbeansRepo,
     scalacOptions ++= Seq ("-deprecation", "-feature", "-language:higherKinds",
       "-language:postfixOps"),
     publishArtifact in (Compile, packageDoc) := false,
@@ -21,66 +20,59 @@ object BuildSettings {
   )
 } 
 
-object Resolvers {
- val netbeansRepo = "Netbeans" at "http://bits.netbeans.org/maven2/"
- val scalatoolsRepo = "Scala-Tools Maven2 Repository Releases" at
-   "http://scala-tools.org/repo-releases"
- val sonatypeRepo = "releases" at
-   "http://oss.sonatype.org/content/repositories/releases"
-
- val repos = Seq (netbeansRepo, scalatoolsRepo, sonatypeRepo)
-}
-
 object Dependencies {
   import BuildSettings.sv  
 
-  val utilVersion = "0.2.1-SNAPSHOT"
-  val reactVersion = "0.2.1-SNAPSHOT"
+  val utilV = "0.2.1-SNAPSHOT"
+  val reactV = "0.2.1-SNAPSHOT"
+  val efaNbV = "0.2.1-SNAPSHOT"
+  val nbV = "RELEASE71"
+  val scalazV = "7.0.0-M8"
+
+  val nb = "org.netbeans.api"
   val util = "efa"
   val react = "efa.react"
-  val efaCore = util %% "efa-core" % utilVersion changing
+  val scalaz = "org.scalaz"
 
-  val efaIo = util %% "efa-io" % utilVersion changing
+  val efaCore = util %% "efa-core" % utilV changing
 
-  val efaNb = util %% "efa-nb" % utilVersion changing
+  val efaIo = util %% "efa-io" % utilV changing
 
-  val efaReact = react %% "react-core" % reactVersion
+  val efaNb = "efa.nb" %% "efa-nb" % efaNbV changing
 
-  val efaReactSwing = react %% "react-swing" % reactVersion
+  val efaReact = react %% "react-core" % reactV changing
 
-
-  val nbV = "RELEASE71"
+  val efaReactSwing = react %% "react-swing" % reactV changing
 
   val scalaSwing = "org.scala-lang" % "scala-swing" % sv
  
-  val nbUtil = "org.netbeans.api" % "org-openide-util" % nbV
-  val nbLookup = "org.netbeans.api" % "org-openide-util-lookup" % nbV
-  val nbExplorer = "org.netbeans.api" % "org-openide-explorer" % nbV
-  val nbWindows = "org.netbeans.api" % "org-openide-windows" % nbV
-  val nbNodes = "org.netbeans.api" % "org-openide-nodes" % nbV
-  val nbFilesystems = "org.netbeans.api" % "org-openide-filesystems" % nbV
-  val nbLoaders = "org.netbeans.api" % "org-openide-loaders" % nbV
-  val nbModules = "org.netbeans.api" % "org-openide-modules" % nbV
-  val nbAwt = "org.netbeans.api" % "org-openide-awt" % nbV
-  val nbSettings = "org.netbeans.api" % "org-netbeans-modules-settings" % nbV
-  val nbActions = "org.netbeans.api" % "org-openide-actions" % nbV
-  val nbDialogs = "org.netbeans.api" % "org-openide-dialogs" % nbV
-  val nbOutline = "org.netbeans.api" % "org-netbeans-swing-outline" % nbV
-  val nbAutoupdateUi = "org.netbeans.api" % "org-netbeans-modules-autoupdate-ui" % nbV
-  val nbAutoupdateServices = "org.netbeans.api" % "org-netbeans-modules-autoupdate-services" % nbV
-  val nbModulesOptions = "org.netbeans.api" % "org-netbeans-modules-options-api" % nbV
-  val nbMultiview = "org.netbeans.api" % "org-netbeans-core-multiview" % nbV
+  val nbUtil = nb % "org-openide-util" % nbV
+  val nbLookup = nb % "org-openide-util-lookup" % nbV
+  val nbExplorer = nb % "org-openide-explorer" % nbV
+  val nbWindows = nb % "org-openide-windows" % nbV
+  val nbNodes = nb % "org-openide-nodes" % nbV
+  val nbFilesystems = nb % "org-openide-filesystems" % nbV
+  val nbLoaders = nb % "org-openide-loaders" % nbV
+  val nbModules = nb % "org-openide-modules" % nbV
+  val nbAwt = nb % "org-openide-awt" % nbV
+  val nbSettings = nb % "org-netbeans-modules-settings" % nbV
+  val nbActions = nb % "org-openide-actions" % nbV
+  val nbDialogs = nb % "org-openide-dialogs" % nbV
+  val nbOutline = nb % "org-netbeans-swing-outline" % nbV
+  val nbAutoupdateUi = nb % "org-netbeans-modules-autoupdate-ui" % nbV
+  val nbAutoupdateServices = nb % "org-netbeans-modules-autoupdate-services" % nbV
+  val nbModulesOptions = nb % "org-netbeans-modules-options-api" % nbV
+  val nbMultiview = nb % "org-netbeans-core-multiview" % nbV
 
-  val scalaz_core = "org.scalaz" %% "scalaz-core" % "7.0.0-M8"
-  val scalaz_effect = "org.scalaz" %% "scalaz-effect" % "7.0.0-M8"
-  val scalaz_scalacheck =
-    "org.scalaz" %% "scalaz-scalacheck-binding" % "7.0.0-M8"
-  val scalaz_scalacheckT = scalaz_scalacheck % "test"
+  val shapeless = "com.chuusai" %% "shapeless" % "1.2.3"
+  val scalaz_core = scalaz %% "scalaz-core" % scalazV
+  val scalaz_effect = scalaz %% "scalaz-effect" % scalazV
+  val scalaz_scalacheck = scalaz %% "scalaz-scalacheck-binding" % scalazV
 
   val scalacheck = "org.scalacheck" %% "scalacheck" % "1.10.0"
-  val scalacheckT = scalacheck % "test"
-  val scalazCheckT = Seq(scalaz_core, scalaz_scalacheckT, scalacheckT)
-  val scalazCheckET = scalazCheckT :+ scalaz_effect
+
+  val coolness = Seq(scalaz_core, scalaz_effect, scalaz_scalacheck,
+                     shapeless, scalacheck)
 }
 
 object UtilBuild extends Build {
@@ -88,8 +80,8 @@ object UtilBuild extends Build {
   import Dependencies._
   import BuildSettings._
 
-  def addDeps (ds: Seq[ModuleID]) =
-    BuildSettings.buildSettings ++ Seq (libraryDependencies ++= ds)
+  def addDeps (ds: ModuleID*) = BuildSettings.buildSettings ++
+    Seq(libraryDependencies ++= (ds ++ coolness))
 
   lazy val util = Project (
     "rpg",
@@ -101,58 +93,54 @@ object UtilBuild extends Build {
   lazy val core = Project (
     "rpg-core",
     file("core"),
-    settings = addDeps (scalazCheckET ++ Seq(scalaSwing, efaCore))
+    settings = addDeps(scalaSwing, efaCore)
   )
 
   lazy val being = Project (
     "rpg-being",
     file("being"),
-    settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact, nbLoaders,
-        nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer))
+    settings = addDeps(
+      scalaSwing, efaCore, efaIo, efaNb, efaReact, nbLoaders,
+      nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer
+    )
   ) dependsOn (core, preferences, rules)
 
   lazy val describedPanel = Project (
     "rpg-describedPanel",
     file("describedPanel"),
-    settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, efaReact))
+    settings = addDeps(scalaSwing, efaCore, efaIo, efaNb, efaReact)
   ) dependsOn (core, preferences)
 
   lazy val explorer = Project (
     "rpg-explorer",
     file("explorer"),
-    settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaNb, nbFilesystems, nbLoaders))
+    settings = addDeps(scalaSwing, efaCore, efaNb, nbFilesystems, nbLoaders)
   ) dependsOn (items, preferences)
 
   lazy val items = Project (
     "rpg-items",
     file("items"),
-    settings = addDeps (scalazCheckET ++
-      Seq (scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test")) :+ (
-        parallelExecution in Test := false
-      )
+    settings = 
+      addDeps(scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test") :+ 
+      (parallelExecution in Test := false)
   ) dependsOn (core, preferences)
 
   lazy val preferences = Project (
     "rpg-preferences",
     file("preferences"),
-    settings = addDeps (scalazCheckET ++Seq (scalaSwing, efaCore,
-      efaIo, nbFilesystems))
+    settings = addDeps(scalaSwing, efaCore, efaIo, nbFilesystems)
   )
   
   lazy val rules = Project (
     "rpg-rules",
     file("rules"),
-    settings = addDeps (scalazCheckET ++ Seq(efaCore, efaIo, efaReact))
+    settings = addDeps(efaCore, efaIo, efaReact)
   )
   
   lazy val rulesUI = Project (
     "rpg-rulesUI",
     file("rulesUI"),
-    settings = addDeps (scalazCheckET ++
-      Seq(efaCore, efaIo, efaReact, efaNb, nbNodes))
+    settings = addDeps(efaCore, efaIo, efaReact, efaNb, nbNodes)
   ) dependsOn (rules)
 }
 

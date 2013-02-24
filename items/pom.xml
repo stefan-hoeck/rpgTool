@@ -34,10 +34,6 @@
     </dependency>
 
     <dependency>
-      <groupId>efa</groupId>
-      <artifactId>efa-core_2.10</artifactId>
-    </dependency>
-    <dependency>
       <groupId>efa.react</groupId>
       <artifactId>react-core_2.10</artifactId>
     </dependency>
@@ -45,14 +41,21 @@
       <groupId>efa.react</groupId>
       <artifactId>react-swing_2.10</artifactId>
     </dependency>
+
     <dependency>
       <groupId>efa</groupId>
-      <artifactId>efa-nb_2.10</artifactId>
+      <artifactId>efa-core_2.10</artifactId>
     </dependency>
     <dependency>
       <groupId>efa</groupId>
       <artifactId>efa-io_2.10</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>efa.nb</groupId>
+      <artifactId>efa-nb</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.netbeans.api</groupId>
       <artifactId>org-openide-util</artifactId>
