@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
 <filesystem>
- <folder name="Actions">
-        <folder name="Window">
-            <file name="efa-rpg-describedpanel-DescribedAction.instance">
-                <attr name="component" methodvalue="efa.rpg.describedpanel.DescribedTcProvider.findInstance"/>
-                <attr name="displayName" bundlevalue="efa.rpg.describedpanel.Bundle#CTL_DescribedAction"/>
-                <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
-            </file>
-        </folder>
+  <folder name="Actions">
+    <folder name="Window">
+      <file name="efa-rpg-describedpanel-DescribedAction.instance">
+        <attr name="component" methodvalue="efa.rpg.describedpanel.DescribedTcProvider.findInstance"/>
+        <attr name="displayName" bundlevalue="efa.rpg.describedpanel.Bundle#CTL_DescribedAction"/>
+        <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+      </file>
     </folder>
-    <folder name="Menu">
-        <folder name="Window">
-            <file name="DescribedAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/Window/efa-rpg-describedpanel-DescribedAction.instance"/>
-                <attr name="position" intvalue="10"/>
-            </file>
-        </folder>
+  </folder>
+  <folder name="Menu">
+    <folder name="Window">
+      <file name="DescribedAction.shadow">
+        <attr name="originalFile" stringvalue="Actions/Window/efa-rpg-describedpanel-DescribedAction.instance"/>
+        <attr name="position" intvalue="10"/>
+      </file>
     </folder>
-    <folder name="Windows2">
-        <folder name="Components">
-            <file name="DescribedTc.settings" url="DescribedTcSettings.xml"/>
-        </folder>
-        <folder name="Modes">
-            <folder name="navigator">
-                <file name="DescribedTc.wstcref" url="DescribedTcWstcref.xml"/>
-            </folder>
-        </folder>
+  </folder>
+  <folder name="Windows2">
+    <folder name="Components">
+      <file name="DescribedTc.settings" url="DescribedTcSettings.xml"/>
     </folder>
+    <folder name="Modes">
+      <folder name="navigator">
+        <file name="DescribedTc.wstcref" url="DescribedTcWstcref.xml"/>
+      </folder>
+    </folder>
+  </folder>
 </filesystem>
+
+<!-- vim: set ts=2 sw=2 et nowrap: -->

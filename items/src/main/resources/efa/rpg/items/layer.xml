@@ -1,119 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.0//EN" "http://www.netbeans.org/dtds/filesystem-1_0.dtd">
 <filesystem>
- <folder name="Loaders">
-        <folder name="text">
-            <folder name="x-data">
-                <folder name="Actions">
-                </folder>
-                <folder name="Factories">
-                    <file name="PrototypeDataLoader.instance">
-                        <attr name="dataObjectClass" stringvalue="efa.rpg.items.dob.ItemDo"/>
-                        <attr name="iconBase" stringvalue="org/myorg/abcfiletype/Datasource.gif"/>
-                        <attr name="instanceCreate" methodvalue="org.openide.loaders.DataLoaderPool.factory"/>
-                        <attr name="mimeType" stringvalue="text/x-data"/>
-                    </file>
-                </folder>
-            </folder>
+  <folder name="Loaders">
+    <folder name="text">
+      <folder name="x-data">
+        <folder name="Actions">
         </folder>
-    </folder>
-    <folder name="Services">
-        <folder name="MIMEResolver">
-            <file name="DataResolver.xml" url="DataResolver.xml">
-                <attr name="displayName" bundlevalue="efa.rpg.items.Bundle#Services/MIMEResolver/DataResolver.xml"/>
-                <attr name="position" intvalue="1000"/>
-            </file>
+        <folder name="Factories">
+          <file name="PrototypeDataLoader.instance">
+            <attr name="dataObjectClass" stringvalue="efa.rpg.items.dob.ItemDo"/>
+            <attr name="iconBase" stringvalue="org/myorg/abcfiletype/Datasource.gif"/>
+            <attr name="instanceCreate" methodvalue="org.openide.loaders.DataLoaderPool.factory"/>
+            <attr name="mimeType" stringvalue="text/x-data"/>
+          </file>
         </folder>
+      </folder>
     </folder>
-    <folder name="RpgTool">
-        <folder name="RpgItems"/>
+  </folder>
+  <folder name="Services">
+    <folder name="MIMEResolver">
+      <file name="DataResolver.xml" url="DataResolver.xml">
+        <attr name="displayName" bundlevalue="efa.rpg.items.Bundle#Services/MIMEResolver/DataResolver.xml"/>
+        <attr name="position" intvalue="1000"/>
+      </file>
     </folder>
-    <folder name="ContextActions">
-        <folder name="RpgItemNode">
-            <folder name="All">
-                <file name="CutAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CutAction.instance"/>
-                    <attr name="position" intvalue="50"/>
-                </file>
-                <file name="CopyAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CopyAction.instance"/>
-                    <attr name="position" intvalue="100"/>
-                </file>
-                <file name="DeleteAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
-                    <attr name="position" intvalue="150"/>
-                </file>
-                <file name="EditAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-EditAction.instance"/>
-                    <attr name="position" intvalue="1000"/>
-                </file>
-                <file name="RenameAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
-                    <attr name="position" intvalue="1050"/>
-                </file>
-                <file name="Separator1.instance">
-                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                    <attr name="position" intvalue="1025"/>
-                </file>
-            </folder>
-        </folder>
-        <folder name="ItemFolderNode">
-            <folder name="Root">
-                <file name="NewAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
-                    <attr name="position" intvalue="25"/>
-                </file>
-                <file name="PasteAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-PasteAction.instance"/>
-                    <attr name="position" intvalue="125"/>
-                </file>
-                <file name="SaveAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-SaveAction.instance"/>
-                    <attr name="position" intvalue="200"/>
-                </file>
-                <file name="Separator1.instance">
-                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                    <attr name="position" intvalue="50"/>
-                </file>
-                <file name="Separator2.instance">
-                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                    <attr name="position" intvalue="150"/>
-                </file>
-            </folder>
-            <folder name="Branch">
-                <file name="NewAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
-                    <attr name="position" intvalue="25"/>
-                </file>
-                <file name="CutAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CutAction.instance"/>
-                    <attr name="position" intvalue="50"/>
-                </file>
-                <file name="CopyAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CopyAction.instance"/>
-                    <attr name="position" intvalue="100"/>
-                </file>
-                <file name="PasetAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-PasteAction.instance"/>
-                    <attr name="position" intvalue="125"/>
-                </file>
-                <file name="DeleteAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
-                    <attr name="position" intvalue="150"/>
-                </file>
-                <file name="RenameAction.shadow">
-                    <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
-                    <attr name="position" intvalue="1050"/>
-                </file>
-                <file name="Separator1.instance">
-                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                    <attr name="position" intvalue="30"/>
-                </file>
-                <file name="Separator2.instance">
-                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
-                    <attr name="position" intvalue="1000"/>
-                </file>
-            </folder>
-        </folder>
+  </folder>
+  <folder name="RpgTool">
+    <folder name="RpgItems"/>
+  </folder>
+  <folder name="ContextActions">
+    <folder name="RpgItemNode">
+      <folder name="All">
+        <file name="CutAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CutAction.instance"/>
+          <attr name="position" intvalue="50"/>
+        </file>
+        <file name="CopyAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CopyAction.instance"/>
+          <attr name="position" intvalue="100"/>
+        </file>
+        <file name="DeleteAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+          <attr name="position" intvalue="150"/>
+        </file>
+        <file name="EditAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-EditAction.instance"/>
+          <attr name="position" intvalue="1000"/>
+        </file>
+        <file name="RenameAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
+          <attr name="position" intvalue="1050"/>
+        </file>
+        <file name="Separator1.instance">
+          <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+          <attr name="position" intvalue="1025"/>
+        </file>
+      </folder>
     </folder>
+    <folder name="ItemFolderNode">
+      <folder name="Root">
+        <file name="NewAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
+          <attr name="position" intvalue="25"/>
+        </file>
+        <file name="PasteAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-PasteAction.instance"/>
+          <attr name="position" intvalue="125"/>
+        </file>
+        <file name="SaveAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-SaveAction.instance"/>
+          <attr name="position" intvalue="200"/>
+        </file>
+        <file name="Separator1.instance">
+          <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+          <attr name="position" intvalue="50"/>
+        </file>
+        <file name="Separator2.instance">
+          <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+          <attr name="position" intvalue="150"/>
+        </file>
+      </folder>
+      <folder name="Branch">
+        <file name="NewAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
+          <attr name="position" intvalue="25"/>
+        </file>
+        <file name="CutAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CutAction.instance"/>
+          <attr name="position" intvalue="50"/>
+        </file>
+        <file name="CopyAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CopyAction.instance"/>
+          <attr name="position" intvalue="100"/>
+        </file>
+        <file name="PasetAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-PasteAction.instance"/>
+          <attr name="position" intvalue="125"/>
+        </file>
+        <file name="DeleteAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+          <attr name="position" intvalue="150"/>
+        </file>
+        <file name="RenameAction.shadow">
+          <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
+          <attr name="position" intvalue="1050"/>
+        </file>
+        <file name="Separator1.instance">
+          <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+          <attr name="position" intvalue="30"/>
+        </file>
+        <file name="Separator2.instance">
+          <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+          <attr name="position" intvalue="1000"/>
+        </file>
+      </folder>
+    </folder>
+  </folder>
 </filesystem>
+
+<!-- vim: set ts=2 sw=2 et nowrap: -->

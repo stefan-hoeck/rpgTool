@@ -1,45 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
 <filesystem>
-    <folder name="RpgTool">
-        <folder name="Explorer">
-            <file name="BeingsFolder.instance">
-                <attr name="instanceOf" stringvalue="org.openide.nodes.Node"/>
-                <attr name="instanceCreate" methodvalue="efa.rpg.being.nodes.BeingFolderRoot.root"/>
-                <attr name="position" intvalue="0"/>
-            </file>    
-        </folder>
+  <folder name="RpgTool">
+    <folder name="Explorer">
+      <file name="BeingsFolder.instance">
+        <attr name="instanceOf" stringvalue="org.openide.nodes.Node"/>
+        <attr name="instanceCreate" methodvalue="efa.rpg.being.nodes.BeingFolderRoot.root"/>
+        <attr name="position" intvalue="0"/>
+      </file>    
     </folder>
-    <folder name="ContextActions">
-        <folder name="BeingFolderRoot">
-            <file name="NewAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
-                <attr name="position" intvalue="25"/>
-            </file>
-        </folder>
-        <folder name="BeingFolderNode">
-            <file name="NewAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
-                <attr name="position" intvalue="25"/>
-            </file>
-            <file name="RenameAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
-                <attr name="position" intvalue="1050"/>
-            </file>
-            <file name="DeleteAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
-                <attr name="position" intvalue="150"/>
-            </file>
-        </folder>
-        <folder name="BeingFileNode">
-            <file name="RenameAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
-                <attr name="position" intvalue="1050"/>
-            </file>
-            <file name="DeleteAction.shadow">
-                <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
-                <attr name="position" intvalue="150"/>
-            </file>
-        </folder>
+  </folder>
+  <folder name="ContextActions">
+    <folder name="BeingFolderRoot">
+      <file name="NewAction.shadow">
+        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
+        <attr name="position" intvalue="25"/>
+      </file>
     </folder>
+    <folder name="BeingFolderNode">
+      <file name="NewAction.shadow">
+        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-NewAction.instance"/>
+        <attr name="position" intvalue="25"/>
+      </file>
+      <file name="RenameAction.shadow">
+        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
+        <attr name="position" intvalue="1050"/>
+      </file>
+      <file name="DeleteAction.shadow">
+        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+        <attr name="position" intvalue="150"/>
+      </file>
+    </folder>
+    <folder name="BeingFileNode">
+      <file name="RenameAction.shadow">
+        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
+        <attr name="position" intvalue="1050"/>
+      </file>
+      <file name="DeleteAction.shadow">
+        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+        <attr name="position" intvalue="150"/>
+      </file>
+    </folder>
+  </folder>
 </filesystem>
+
+<!-- vim: set ts=2 sw=2 et nowrap: -->
