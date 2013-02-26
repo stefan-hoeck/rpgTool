@@ -33,20 +33,20 @@
     </dependency>
 
     <dependency>
-      <groupId>efa.scala</groupId>
+      <groupId>efa.nb</groupId>
       <artifactId>efaCoreW</artifactId>
     </dependency>
     <dependency>
-      <groupId>efa.scala</groupId>
+      <groupId>efa.nb</groupId>
       <artifactId>efaIoW</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>efa.scala</groupId>
+      <groupId>efa.nb</groupId>
       <artifactId>reactW</artifactId>
     </dependency>
     <dependency>
-      <groupId>efa.scala</groupId>
+      <groupId>efa.nb</groupId>
       <artifactId>reactSwingW</artifactId>
     </dependency>
 

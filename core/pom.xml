@@ -17,7 +17,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>efa.scala</groupId>
+      <groupId>efa.nb</groupId>
       <artifactId>efaCoreW</artifactId>
     </dependency>
     <dependency>
