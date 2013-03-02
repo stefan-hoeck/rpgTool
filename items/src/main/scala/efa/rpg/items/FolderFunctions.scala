@@ -44,18 +44,19 @@ trait FolderFunctions {
 
   def fromIdxFolder[A] (f: IFolder[A]): NameFolder[A] = f mapLabel (_._1)
 
-  def folderToXml[A:ToXml] (lbl: String) = new ToXml[NameFolder[A]] {
+  def folderToXml[A:ToXml](lbl: String) = new TaggedToXml[NameFolder[A]] {
     val seqToXml = ToXml.seqToXml[A](lbl)
+    val tag = "folder"
 
     def toXml(f: NameFolder[A]): Seq[Node] = 
       ("name" xml f.label) ++
       (seqToXml toXml f.data.toSeq) ++
-      (f.folders ∘ ("folder".xml(_)(this)))
+      (f.folders ∘ (tag.xml(_)(this)))
 
     def fromXml (ns: Seq[Node]): ValRes[NameFolder[A]] = {
       def label = ns.readTag[String]("name")
       def data = seqToXml fromXml ns map (_.toStream)
-      def forest = (ns \ "folder").toList traverse fromXml map (_.toStream)
+      def forest = (ns \ tag).toList traverse fromXml map (_.toStream)
       
       data ⊛ forest ⊛ label apply Folder.apply[A,String]
     }

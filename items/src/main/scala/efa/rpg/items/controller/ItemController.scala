@@ -9,7 +9,8 @@ import efa.rpg.items.saver.ItemSaver
 import efa.rpg.preferences.{Preferences ⇒ Pref}
 import efa.io.{LoggerIO, IOCached}
 import efa.react.{Signal, SIn, sTrans}
-import efa.rpg.items._, saver.xmlSaver
+import efa.rpg.items._
+import efa.rpg.items.saver.ItemSaver.xmlSaver
 import org.openide.nodes.Node
 import scalaz._, Scalaz._, effect.IO
 
