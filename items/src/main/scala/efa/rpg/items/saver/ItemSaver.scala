@@ -1,7 +1,7 @@
 package efa.rpg.items.saver
 
 import efa.core.{ToXml}
-import efa.io._, EfaIO._, logDisIO._
+import efa.io._, EfaIO._
 import efa.rpg.core.RpgItem
 import efa.rpg.items.{NameFolder, IState, FolderFunctions, emptyFolder}
 import efa.rpg.preferences.Preferences.service
