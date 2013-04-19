@@ -5,6 +5,7 @@ import scala.xml.Node
 import org.scalacheck.Gen
 
 trait RangeVals {
+  import RangeVals.{GenInfo, FullInfo, XmlInfo}
 
   def genInfo (min: Int, max: Int) =
     GenInfo(min, max, Validators interval (min, max), Gen choose (min, max))
@@ -26,7 +27,9 @@ trait RangeVals {
 
   def xmlInfo[A:ToXml](v: Validator[A,A], lbl: String) =
     XmlInfo[A](_.readTagD[A](lbl) flatMap v.run validation, lbl xml _)
+}
 
+object RangeVals extends RangeVals {
   final case class GenInfo[A] (
     min: A, max: A, validate: Validator[A, A], gen: Gen[A]
   ) {
@@ -47,7 +50,5 @@ trait RangeVals {
     def write = xml.write
   }
 }
-
-object RangeVals extends RangeVals
 
 // vim: set ts=2 sw=2 et:
