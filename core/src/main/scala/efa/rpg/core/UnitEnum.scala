@@ -11,12 +11,12 @@ trait UnitEnum[A] extends LocEnum[A] {
   def plural (a: A): String
   def multiplier (a: A): Long
 
-  def showPretty (a: A, nod: Int): Long ⇒ String = l ⇒ 
+  def showPretty(a: A, nod: Int): Long ⇒ String = l ⇒ 
     "%."+nod+"f %s" format (l.toDouble / multiplier(a).toDouble, shortName(a))
 
-  def readPretty (a: A): String ⇒ ValRes[Long] = s ⇒ 
-    s.replace(shortName(a), "").trim.read[Double] ∘
-    (l ⇒ (l * multiplier(a)).round toLong)
+  def readPretty(a: A): Validator[String,Long] = Validators(s ⇒ 
+    s.replace(shortName(a), "").trim.read[Double].disjunction ∘
+    (l ⇒ (l * multiplier(a)).round toLong))
 }
 
 trait IsUnit extends IsLocalized {
