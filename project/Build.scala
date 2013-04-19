@@ -25,7 +25,7 @@ object Dependencies {
 
   val utilV = "0.2.1-SNAPSHOT"
   val direV = "0.1.0-SNAPSHOT"
-  val efaNbV = "0.2.1-SNAPSHOT"
+  val efaNbV = "0.3.0-SNAPSHOT"
   val nbV = "RELEASE71"
   val scalazV = "7.0.0-RC2"
 
@@ -87,9 +87,8 @@ object UtilBuild extends Build {
     "rpg",
     file("."),
     settings = buildSettings
-  ) aggregate(core, preferences)
- // ) aggregate (being, core, describedPanel, explorer,
- //              items, preferences, rules, rulesUI)
+  ) aggregate(core, items, preferences)
+ // ) aggregate (being, describedPanel, explorer, rules, rulesUI)
   
   lazy val core = Project (
     "rpg-core",
@@ -104,19 +103,19 @@ object UtilBuild extends Build {
       scalaSwing, efaCore, efaIo, efaNb, direCore, nbLoaders,
       nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer
     )
-  ) dependsOn (core, preferences, rules)
+  ) dependsOn(core, preferences, rules)
 
   lazy val describedPanel = Project (
     "rpg-describedPanel",
     file("describedPanel"),
     settings = addDeps(scalaSwing, efaCore, efaIo, efaNb, direCore)
-  ) dependsOn (core, preferences)
+  ) dependsOn(core, preferences)
 
   lazy val explorer = Project (
     "rpg-explorer",
     file("explorer"),
     settings = addDeps(scalaSwing, efaCore, efaNb, nbFilesystems, nbLoaders)
-  ) dependsOn (items, preferences)
+  ) dependsOn(items, preferences)
 
   lazy val items = Project (
     "rpg-items",
@@ -124,7 +123,7 @@ object UtilBuild extends Build {
     settings = 
       addDeps(scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test") :+ 
       (parallelExecution in Test := false)
-  ) dependsOn (core, preferences)
+  ).dependsOn(core, preferences)
 
   lazy val preferences = Project (
     "rpg-preferences",
@@ -142,7 +141,7 @@ object UtilBuild extends Build {
     "rpg-rulesUI",
     file("rulesUI"),
     settings = addDeps(efaCore, efaIo, direCore, efaNb, nbNodes)
-  ) dependsOn (rules)
+  ) dependsOn(rules)
 }
 
 // vim: set ts=2 sw=2 et nowrap:

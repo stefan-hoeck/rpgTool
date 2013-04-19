@@ -1,15 +1,15 @@
 package efa.rpg.items.controller
 
-import efa.core._
-import efa.io._, logDisIO._
-import efa.nb.UndoEdit
-import efa.nb.node.{NodeOut, NbNode}
-import efa.rpg.core.ItemData
-import efa.rpg.items._
-import efa.rpg.items.saver.ItemSaver
-import org.scalacheck._, Prop._, Arbitrary.arbitrary
-import scalaz._, Scalaz._, effect._, scalacheck.ScalaCheckBinding._
-
+//import efa.core._
+//import efa.io._, logDisIO._
+//import efa.nb.UndoEdit
+//import efa.nb.node.{NodeOut, NbNode}
+//import efa.rpg.core.ItemData
+//import efa.rpg.items._
+//import efa.rpg.items.saver.ItemSaver
+//import org.scalacheck._, Prop._, Arbitrary.arbitrary
+//import scalaz._, Scalaz._, effect._, scalacheck.ScalaCheckBinding._
+//
 //object ItemControllerTest extends Properties("ItemController") {
 //  val logger = LoggerIO.consoleLogger
 //
