@@ -14,7 +14,7 @@ object BuildSettings {
     scalaVersion := buildScalaVersion,
     resolvers += netbeansRepo,
     scalacOptions ++= Seq ("-deprecation", "-feature", "-language:higherKinds",
-      "-language:postfixOps"),
+      "-language:postfixOps", "-unchecked"),
     publishArtifact in (Compile, packageDoc) := false,
     publishArtifact in (Compile, packageSrc) := false
   )
@@ -24,14 +24,14 @@ object Dependencies {
   import BuildSettings.sv  
 
   val utilV = "0.2.1-SNAPSHOT"
-  val reactV = "0.2.1-SNAPSHOT"
+  val direV = "0.1.0-SNAPSHOT"
   val efaNbV = "0.2.1-SNAPSHOT"
   val nbV = "RELEASE71"
-  val scalazV = "7.0.0-RC1"
+  val scalazV = "7.0.0-RC2"
 
   val nb = "org.netbeans.api"
   val util = "efa"
-  val react = "efa.react"
+  val dire = "dire"
   val scalaz = "org.scalaz"
 
   val efaCore = util %% "efa-core" % utilV changing
@@ -40,9 +40,9 @@ object Dependencies {
 
   val efaNb = "efa.nb" %% "efa-nb" % efaNbV changing
 
-  val efaReact = react %% "react-core" % reactV changing
+  val direCore = dire %% "dire-core" % direV changing
 
-  val efaReactSwing = react %% "react-swing" % reactV changing
+  val direSwing = dire %% "dire-swing" % direV changing
 
   val scalaSwing = "org.scala-lang" % "scala-swing" % sv
  
@@ -87,8 +87,9 @@ object UtilBuild extends Build {
     "rpg",
     file("."),
     settings = buildSettings
-  ) aggregate (being, core, describedPanel, explorer,
-               items, preferences, rules, rulesUI)
+  ) aggregate(core, preferences)
+ // ) aggregate (being, core, describedPanel, explorer,
+ //              items, preferences, rules, rulesUI)
   
   lazy val core = Project (
     "rpg-core",
@@ -100,7 +101,7 @@ object UtilBuild extends Build {
     "rpg-being",
     file("being"),
     settings = addDeps(
-      scalaSwing, efaCore, efaIo, efaNb, efaReact, nbLoaders,
+      scalaSwing, efaCore, efaIo, efaNb, direCore, nbLoaders,
       nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer
     )
   ) dependsOn (core, preferences, rules)
@@ -108,7 +109,7 @@ object UtilBuild extends Build {
   lazy val describedPanel = Project (
     "rpg-describedPanel",
     file("describedPanel"),
-    settings = addDeps(scalaSwing, efaCore, efaIo, efaNb, efaReact)
+    settings = addDeps(scalaSwing, efaCore, efaIo, efaNb, direCore)
   ) dependsOn (core, preferences)
 
   lazy val explorer = Project (
@@ -134,13 +135,13 @@ object UtilBuild extends Build {
   lazy val rules = Project (
     "rpg-rules",
     file("rules"),
-    settings = addDeps(efaCore, efaIo, efaReact)
+    settings = addDeps(efaCore, efaIo, direCore)
   )
   
   lazy val rulesUI = Project (
     "rpg-rulesUI",
     file("rulesUI"),
-    settings = addDeps(efaCore, efaIo, efaReact, efaNb, nbNodes)
+    settings = addDeps(efaCore, efaIo, direCore, efaNb, nbNodes)
   ) dependsOn (rules)
 }
 
