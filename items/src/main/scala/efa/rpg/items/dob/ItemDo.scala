@@ -1,17 +1,16 @@
 package efa.rpg.items.dob
 
-//import efa.rpg.preferences.Preferences.mainLogger
-//import efa.nb.PureLookup
-//import efa.nb.controller._
-//import efa.react.Out
-//import efa.rpg.core.RpgItem
-//import efa.rpg.items.controller.ItemsInfo
-//import org.openide.nodes.Node
-//import org.openide.filesystems.FileObject
-//import org.openide.loaders.{MultiDataObject, MultiFileLoader, DataFolder, DataObject}
-//import org.openide.util.{HelpCtx, Lookup}
-//import scalaz._, Scalaz._, effect.IO
-//
+import efa.rpg.preferences.Preferences.mainLogger
+import efa.nb.PureLookup
+import efa.nb.controller._
+import efa.rpg.core.RpgItem
+import efa.rpg.items.controller.ItemsInfo
+import org.openide.nodes.Node
+import org.openide.filesystems.FileObject
+import org.openide.loaders.{MultiDataObject, MultiFileLoader, DataFolder, DataObject}
+import org.openide.util.{HelpCtx, Lookup}
+import scalaz._, Scalaz._, effect.IO
+
 //class ItemDo(fo: FileObject, loader: MultiFileLoader) 
 //   extends MultiDataObject(fo, loader) {
 //  self ⇒ 

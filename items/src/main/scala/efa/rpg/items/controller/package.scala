@@ -1,7 +1,7 @@
 package efa.rpg.items
 
-import dire.{SIn, validation}, validation.validate
-import dire.swing.{Component, Dim, Elem, TextField}, Elem._
+import dire.{SIn, validation, Out}, validation.validate
+import dire.swing._, Swing._
 import efa.core.{ValRes, ValSt}
 import efa.nb.dialog.{DialogEditable, DEInfo}
 import efa.nb.node.NodeOut
@@ -19,13 +19,10 @@ package object controller {
 
   type StOut[A] = NodeOut[IState[A],VSt[A]]
 
-//  private[this] val cached = efa.io.IOCached (Source[UndoEdit])
-//
-//  lazy val undoIn: EIn[UndoEdit] = eTrans inIO cached.get
-//
-//  lazy val undoOut: Out[UndoEdit] = ue ⇒ cached.get flatMap (_ fire ue)
-//
-//  def undoTrans[A]: SST[A,A] = UndoEdit undoSST undoOut
+  final val undoManager = new org.openide.awt.UndoRedo.Manager
+
+  private[controller] val undoOut: Out[UndoEdit] = ue ⇒
+    IO { undoManager.undoableEditHappened(ue.event(undoManager)) }
 
   def editable[A:RpgItem](f: ItemPair[A] ⇒ DEInfo[A],
                           size: Dim ⇒ Dim = sizeF): IEditable[A] =
@@ -46,9 +43,9 @@ package object controller {
     Show.shows(_ ⇒ loc.folder)
 
   private def folderPanel[A:Equal](p: FolderPair[A]): DEInfo[VSt[A]] = for {
-    name ← TextField(loc.folder)
+    name ← TextField(text := loc.folder)
     elem = Elem(efa.core.loc.name) beside name prefWidth 400
-    in   = name.value >=> validate(FolderFunctions.nameVal ∘
+    in   = name.in >=> validate(FolderFunctions.nameVal ∘
              { IState.addFolder(p._1,_).success })
   } yield (elem, in)
 }

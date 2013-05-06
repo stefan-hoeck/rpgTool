@@ -1,6 +1,6 @@
 package efa.rpg.items
 
-import efa.core.{Folder, EndoVal, Validators}
+import efa.core.{Folder, EndoVal, Validators, Default}
 import efa.rpg.core.{RpgItem, DB}
 import scalaz._, Scalaz._
 
@@ -12,7 +12,7 @@ object IState extends FolderFunctions {
 
   type UIState[I] = State[IState[I],Unit]
 
-  def fromFolder[I:RpgItem] (f: NameFolder[I]): IState[I] = {
+  def fromFolder[I:RpgItem](f: NameFolder[I]): IState[I] = {
     val r = RpgItem[I]
     val (folderId, root) = Folder indexFolders f
     val ids = root.allData ∘ r.id 
@@ -120,6 +120,9 @@ object IState extends FolderFunctions {
   
   implicit def IStateEqual[A:Equal]: Equal[IState[A]] = 
     Equal.equalBy (s ⇒ (s.root, s.map, s.folderId, s.itemId))
+
+  implicit def IStateDefault[A:RpgItem]: Default[IState[A]] = 
+    Default default fromFolder[A](emptyFolder)
 }
 
 // vim: set ts=2 sw=2 et:
