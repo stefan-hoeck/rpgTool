@@ -16,7 +16,8 @@ object BuildSettings {
     scalacOptions ++= Seq ("-deprecation", "-feature", "-language:higherKinds",
       "-language:postfixOps", "-unchecked"),
     publishArtifact in (Compile, packageDoc) := false,
-    publishArtifact in (Compile, packageSrc) := false
+    publishArtifact in (Compile, packageSrc) := false,
+    testOptions in Test += Tests.Setup( () => System.setProperty("java.vm.vendor", "Sun") ) 
   )
 } 
 

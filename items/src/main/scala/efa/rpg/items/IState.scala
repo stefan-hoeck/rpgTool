@@ -104,19 +104,17 @@ object IState extends FolderFunctions {
     _ ← addItem(p, i)
   } yield ()
 
-  def uniqueNameVal[A:RpgItem](p: ItemPair[A]): EndoVal[String] = {
-    def invalid(s: String)(a2: A) =
-      (rpg name a2) ≟ s && (rpg id a2) ≠ (rpg id p._1)
-
-    Validators endo {s ⇒
-      (p._2.root ∃ invalid(s)) ? loc.existsLeft(s) | s.right
+  def nameVal[A:RpgItem](isCreate: Boolean)(p: ItemPair[A]): EndoVal[String] = {
+    def names: Set[String] = {
+      val s = p._2.map map { p ⇒ RpgItem[A] name p._2 } toSet
+      
+      isCreate ? s | (s - RpgItem[A].name(p._1))
     }
-  }
 
-  def nameVal[A:RpgItem] (p: ItemPair[A]): EndoVal[String] =
     Validators.notEmptyString >=>
     Validators.maxStringLength (200) >=>
-    uniqueNameVal(p)
+    Validators.uniqueString(names, efa.core.loc.name)
+  }
   
   implicit def IStateEqual[A:Equal]: Equal[IState[A]] = 
     Equal.equalBy (s ⇒ (s.root, s.map, s.folderId, s.itemId))

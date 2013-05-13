@@ -24,9 +24,9 @@ package object controller {
   private[controller] val undoOut: Out[UndoEdit] = ue ⇒
     IO { undoManager.undoableEditHappened(ue.event(undoManager)) }
 
-  def editable[A:RpgItem](f: ItemPair[A] ⇒ DEInfo[A],
+  def editable[A:RpgItem](f: (ItemPair[A],Boolean) ⇒ DEInfo[A],
                           size: Dim ⇒ Dim = sizeF): IEditable[A] =
-    DialogEditable.io1(f(_) map { case (e,s) ⇒ (e adjustSize size, s) })
+    DialogEditable.io(f(_,_) map { case (e,s) ⇒ (e adjustSize size, s) })
 
   private val sizeF: Dim ⇒ Dim =
     { case (w, h) ⇒ (400 max w min 1000, h min 600) }

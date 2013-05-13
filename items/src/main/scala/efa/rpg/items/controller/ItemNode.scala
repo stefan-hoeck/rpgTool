@@ -35,7 +35,7 @@ trait ItemNodeFunctions {
     N renameEs IState.renameItem[A] contramap (p ⇒ (p._1, v(p)))
 
   def renameDefault[A:Equal:RpgItem]: FullOut[A] =
-    rename(IState.nameVal[A])
+    rename(IState.nameVal[A](false))
 
   def edit[A:Equal:RpgItem:IEditable]: FullOut[A] =
     N editDialogEs IState.updateItem[A]

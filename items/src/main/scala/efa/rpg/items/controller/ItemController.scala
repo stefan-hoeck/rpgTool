@@ -3,7 +3,7 @@ package efa.rpg.items.controller
 import dire._, dire.control.Var, dire.swing.swingSink
 import efa.core._, Efa._
 import efa.nb.VStSF
-import efa.nb.controller.{StateTrans ⇒ ST}
+import efa.nb.controller.{StateTrans ⇒ ST, SavableInfo, Saver}
 import efa.nb.dialog.DialogEditable
 import efa.nb.node.NbNode
 import efa.rpg.core.{RpgItem, DB}
@@ -46,8 +46,8 @@ final class ItemController[I:TypeTag:RpgItem:Equal] private (
 
   lazy val dbIn: SIn[DB[I]] = itemsIn map (_.map)
 
-  lazy val info: ItemsInfo =
-    ItemsInfo(node, itemsIn.events map saver.saveState(ioLog))
+  lazy val info: ItemsInfo = ItemsInfo(node,
+    si ⇒ itemsIn >=> Saver.sf(si, saver.saveState(ioLog)) void)
 
   private def sf: SIn[IState[I]] = {
     //SF for user interface plus logging of invalid input

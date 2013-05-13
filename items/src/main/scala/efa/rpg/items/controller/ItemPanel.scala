@@ -5,9 +5,33 @@ import dire.swing._, Swing._
 import efa.core.{Validators, EndoVal}
 import efa.nb.WidgetFunctions
 import efa.rpg.core.{RpgItem, ItemData, UnitEnum}
+import efa.rpg.items.{ItemPair, IState}
 import scalaz._, Scalaz._, effect.IO
 
+final class ItemDataUI(
+    id: Int,
+    v: EndoVal[String],
+    val name: TextField,
+    val desc: TextArea,
+    val sp: ScrollPane) {
+  import dire.validation.{SfVApplicative, validate, success}
+
+  def in: VSIn[ItemData] =
+    id.η[VSIn] ⊛
+    (name.in >=> validate(v)) ⊛
+    (desc.in >=> success) apply ItemData.apply
+}
+
 trait ItemPanelFunctions extends WidgetFunctions {
+  def dataWidgets[A](p: ItemPair[A], isCreate: Boolean)
+                    (implicit A: RpgItem[A]): IO[ItemDataUI] = for {
+    name ← TextField(text := A.name(p._1))
+    desc ← TextArea(text := A.desc(p._1))
+    sp   ← ScrollPane(desc)
+  } yield new ItemDataUI(A id p._1, IState.nameVal(isCreate)(p), name, desc, sp)
+
+  def item[A](p: ItemPair[A]): A = p._1
+
   def unitIn[A:UnitEnum](a: A, t: TextField, v: EndoVal[Long])
   : VSIn[Long] = t.in >=> validate(UnitEnum[A].readPretty(a) >=> v)
 

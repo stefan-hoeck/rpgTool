@@ -21,10 +21,10 @@ final case class ItemSaver[I] (
   def loadState(l: LoggerIO)(implicit r: RpgItem[I]): IO[IState[I]] =
     l logDisD dataLoader.map(IState.fromFolder[I])
 
-  def saveState (l: LoggerIO)(is: IState[I]): IO[Unit] =
+  def saveState(l: LoggerIO)(is: IState[I]): IO[Unit] =
     l logDisZ saver(FolderFunctions fromIdxFolder is.root)
 
-  def loadTemplates (l: LoggerIO): IO[List[I]] =
+  def loadTemplates(l: LoggerIO): IO[List[I]] =
     l logDisZ templatesLoader
 }
 
