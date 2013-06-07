@@ -51,15 +51,9 @@ final class ItemController[I:TypeTag:RpgItem:Equal] private (
 
   private def sf: SIn[IState[I]] = {
     //SF for user interface plus logging of invalid input
-    val uiSf = nodeOut sf node to swingSink(valLog.logValRes)
+    def uiSf = nodeOut sf node to swingSink(valLog.logValRes)
 
-    //SF firing state changes from ui plus Undo/Redo
-    val uiPlusUndo = ST.uiInIsolated(uiSf) merge ST.undoIn(undoOut) 
-
-    //Accumulate state changes with an initial value of the loaded IState
-    val accum = uiPlusUndo >=> ST.collectRaw(saver loadState ioLog) distinct
-
-    ST uiLoop accum asyncTo { is put _.some }
+    ST.completeIsolated(uiSf, undoOut)(saver loadState ioLog) asyncTo { is put _.some }
   }
 }
 
