@@ -18,7 +18,7 @@ abstract class EditableProps[A:RpgItem:Arbitrary:Equal:IEditable](name: String)
 
     val res = for {
       p  ← implicitly[DialogEditable[ItemPair[A],A]] info (ip, true)
-      as = runN(p._2 syncTo { IO putStrLn _.toString }, 1)
+      as = runN(p._2, 1)
     } yield (as ≟ exp) :| s"Exp: $a; but found $as"
 
     res.unsafePerformIO

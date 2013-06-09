@@ -56,7 +56,7 @@ object FolderNode {
     uidF(out)(FF.folderPairToFolders[A])
 
   def itemsNt[A:RpgItem:Equal:IEditable] (as: List[A]): FullOut[A] = {
-    val dialog = N.addNtDialog[ItemPair[A],A]
+    val dialog = N.addNtE[ItemPair[A],A]
     def addItem (p: FolderPair[A], a: A) = IState.addItem(p._1, a).success
     def single (a: A): FullOut[A] =
       dialog.contramap[FolderPair[A]](p ⇒ (a, p._2)) withIn addItem
@@ -64,7 +64,7 @@ object FolderNode {
     as foldMap single
   }
 
-  def folderNt[A:Equal]: FullOut[A] = N.addNtDialog
+  def folderNt[A:Equal]: FullOut[A] = N.addNtE
 
   def defaultOut[A:Manifest:RpgItem:Equal:IEditable] (
     nodeOut: ItemNodes.FullOut[A], templates: List[A]
