@@ -67,13 +67,8 @@ object ItemController {
     nodeOut: List[I] ⇒ StOut[I],
     ioLog: LoggerIO = Pref.mainLogger,
     valLog: LoggerIO = Pref.itemsLogger
-  ): IO[ItemController[I]] = for {
-    n   ← NbNode.apply //The Node used to display items in the UI
-    v   ← Var newVar none[IState[I]]
-    ts  ← saver loadTemplates ioLog
-    ic  = new ItemController[I](v, saver, ioLog, valLog, nodeOut(ts), n)
-    _   ← efa.nb.NbSystem forever ic.sf
-  } yield ic
+  ): IO[ItemController[I]] = 
+    create(saver, nodeOut, ioLog, valLog, true)
 
   def default[I:RpgItem:Equal:ToXml:Manifest:IEditable:TypeTag](
     fileName: String, lblName: String, cl: Class[_])
@@ -85,6 +80,20 @@ object ItemController {
 
     apply(saver, nodeOut)
   }
+
+  private[controller] def create[I:RpgItem:Equal:TypeTag] (
+    saver: ItemSaver[I],
+    nodeOut: List[I] ⇒ StOut[I],
+    ioLog: LoggerIO = Pref.mainLogger,
+    valLog: LoggerIO = Pref.itemsLogger,
+    runSF: Boolean
+  ): IO[ItemController[I]] = for {
+    n   ← NbNode.apply //The Node used to display items in the UI
+    v   ← Var newVar none[IState[I]]
+    ts  ← saver loadTemplates ioLog
+    ic  = new ItemController[I](v, saver, ioLog, valLog, nodeOut(ts), n)
+    _   ← runSF ? efa.nb.NbSystem.forever(ic.sf) | IO(IO.ioUnit)
+  } yield ic
 }
 
 // vim: set ts=2 sw=2 et:
