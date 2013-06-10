@@ -5,7 +5,7 @@ import efa.core._, Efa._
 import efa.nb.VStSF
 import efa.nb.controller.{StateTrans ⇒ ST, SavableInfo, Saver}
 import efa.nb.dialog.DialogEditable
-import efa.nb.node.NbNode
+import efa.nb.node.{NbNode, NodeOut}
 import efa.rpg.core.{RpgItem, DB}
 import efa.rpg.items.saver.ItemSaver
 import efa.rpg.preferences.{Preferences ⇒ Pref}
@@ -40,7 +40,7 @@ final class ItemController[I:TypeTag:RpgItem:Equal] private (
   ioLog: LoggerIO,
   valLog: LoggerIO,
   nodeOut: StOut[I],
-  node: NbNode
+  private[controller] val node: NbNode
 ) {
   lazy val itemsIn: SIn[IState[I]] = is.in collectO identity
 
@@ -49,11 +49,11 @@ final class ItemController[I:TypeTag:RpgItem:Equal] private (
   lazy val info: ItemsInfo = ItemsInfo(node,
     si ⇒ itemsIn >=> Saver.sf(si, saver.saveState(ioLog)) void)
 
-  private def sf: SIn[IState[I]] = {
+  private[controller] def sf: SIn[IState[I]] = {
     //SF for user interface plus logging of invalid input
     def uiSf = nodeOut sf node to swingSink(valLog.logValRes)
 
-    ST.completeIsolated(uiSf, undoOut)(saver loadState ioLog) asyncTo { is put _.some }
+    ST.completeIsolated(uiSf, undoOut)(saver loadState ioLog) syncTo { is put _.some }
   }
 }
 
@@ -68,7 +68,7 @@ object ItemController {
     ioLog: LoggerIO = Pref.mainLogger,
     valLog: LoggerIO = Pref.itemsLogger
   ): IO[ItemController[I]] = 
-    create(saver, nodeOut, ioLog, valLog, true)
+    create(saver, nodeOut, ioLog, valLog, _ ⇒ IO.ioUnit, false)
 
   def default[I:RpgItem:Equal:ToXml:Manifest:IEditable:TypeTag](
     fileName: String, lblName: String, cl: Class[_])
@@ -84,15 +84,17 @@ object ItemController {
   private[controller] def create[I:RpgItem:Equal:TypeTag] (
     saver: ItemSaver[I],
     nodeOut: List[I] ⇒ StOut[I],
-    ioLog: LoggerIO = Pref.mainLogger,
-    valLog: LoggerIO = Pref.itemsLogger,
-    runSF: Boolean
+    ioLog: LoggerIO,
+    valLog: LoggerIO,
+    onSet: Out[Unit],
+    isTest: Boolean
   ): IO[ItemController[I]] = for {
     n   ← NbNode.apply //The Node used to display items in the UI
     v   ← Var newVar none[IState[I]]
     ts  ← saver loadTemplates ioLog
-    ic  = new ItemController[I](v, saver, ioLog, valLog, nodeOut(ts), n)
-    _   ← runSF ? efa.nb.NbSystem.forever(ic.sf) | IO(IO.ioUnit)
+    out = nodeOut(ts) ⊹ NodeOut[Any,Nothing]((_, _) ⇒ _ ⇒ onSet(()))
+    ic  = new ItemController[I](v, saver, ioLog, valLog, out, n)
+    _   ← isTest ? IO(IO.ioUnit) | efa.nb.NbSystem.forever(ic.sf)
   } yield ic
 }
 
