@@ -1,24 +1,21 @@
 package efa.rpg.explorer
 
-import efa.nb.UndoEdit
+//import efa.nb.UndoEdit
 import efa.nb.node.FolderNode
-import efa.nb.tc.{EfaTc, WithOutline, TcProvider, ExplorerMgrTc}
-import efa.rpg.items.controller.undoIn
+import efa.nb.tc.{OutlineNb, WithOutline, TcProvider, ExplorerMgrTc}
 import efa.rpg.preferences.Preferences.mainLogger
 import java.awt.BorderLayout
 import javax.swing.text.DefaultEditorKit
-import org.openide.awt.UndoRedo
 import org.openide.explorer.ExplorerUtils
 import org.openide.explorer.view.OutlineView
 import scalaz._, Scalaz._, effect.IO
 
 class ExplorerTc (private val p: ExplorerParams)
-  extends WithOutline(p._1, none) {
-  private def this() = this(ExplorerTc.unsafeParams)
+  extends WithOutline(p._1, p._2, none) {
+  private def this() = this(ExplorerTc.loadParams.unsafePerformIO)
 
-  override protected val outline = new OutlineView(efa.core.loc.name)
-  setName (loc.explorerTcName)
-  setToolTipText (loc.explorerTcHint)
+  setName(loc.explorerTcName)
+  setToolTipText(loc.explorerTcHint)
   
   private def mgr = getExplorerManager
   getActionMap.put(DefaultEditorKit.copyAction, ExplorerUtils.actionCopy(mgr))
@@ -28,11 +25,13 @@ class ExplorerTc (private val p: ExplorerParams)
   
   override protected def preferredID = ExplorerTcProvider.preferredId
   override protected val version = "1.0"
+  override protected def initialize = IO.ioUnit
+  override protected def cleanup = IO.ioUnit
   
   setLayout(new BorderLayout)
-  add(outline, BorderLayout.CENTER)
+  add(outlineNb.peer, BorderLayout.CENTER)
   
-  override def getUndoRedo: UndoRedo = p._2
+  override def getUndoRedo = efa.rpg.items.controller.undoManager
 }
 
 object ExplorerTc {
@@ -40,22 +39,18 @@ object ExplorerTc {
   lazy val create: IO[ExplorerTc] = for {
     p   ← createParams
     _   ← mainLogger debug "Creating ExplorerTc"
-    res ← IO (new ExplorerTc (p))
-  } yield res
+  } yield new ExplorerTc(p)
 
-  private lazy val createParams: IO[ExplorerParams] = for {
-    n  ← FolderNode forLayerPath "RpgTool/Explorer"
-    ur ← UndoEdit.undoManager(undoIn).run
-  } yield (n, ur._2)
+  private lazy val createParams: IO[ExplorerParams] =
+    ^(OutlineNb(), FolderNode forLayerPath "RpgTool/Explorer")(Pair.apply)
 
-  private def unsafeParams: ExplorerParams = (for {
+  private def loadParams = for {
     ps ← createParams
     _  ← mainLogger debug "Deserializing ExplorerTc"
-  } yield ps).unsafePerformIO
+  } yield ps
 }
 
-object ExplorerTcProvider extends TcProvider[ExplorerTc] (ExplorerTc.create) {
-  override protected[explorer] val preferredId = "ExplorerTc"
-}
+object ExplorerTcProvider
+  extends TcProvider[ExplorerTc](ExplorerTc.create, "ExplorerTc"){}
 
 // vim: set ts=2 sw=2 et:
