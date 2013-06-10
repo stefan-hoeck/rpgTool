@@ -1,6 +1,7 @@
 package efa.rpg.items.controller
 
-import dire._, dire.control.Var, dire.swing.swingSink
+import dire._, dire.control.Var, dire.swing.{swingSink, SwingStrategy}
+import dire.util.test.Sequential
 import efa.core._, Efa._
 import efa.nb.VStSF
 import efa.nb.controller.{StateTrans ⇒ ST, SavableInfo, Saver}
@@ -15,6 +16,7 @@ import efa.rpg.items.saver.ItemSaver.xmlSaver
 import org.openide.nodes.Node
 import scala.reflect.runtime.universe.TypeTag
 import scalaz._, Scalaz._, effect.IO
+import scalaz.concurrent.Strategy
 
 /**
  * An ItemController provides the main functionality
@@ -40,7 +42,8 @@ final class ItemController[I:TypeTag:RpgItem:Equal] private (
   ioLog: LoggerIO,
   valLog: LoggerIO,
   nodeOut: StOut[I],
-  private[controller] val node: NbNode
+  node: NbNode,
+  st: Option[Strategy] //needed for testing
 ) {
   lazy val itemsIn: SIn[IState[I]] = is.in collectO identity
 
@@ -51,9 +54,10 @@ final class ItemController[I:TypeTag:RpgItem:Equal] private (
 
   private[controller] def sf: SIn[IState[I]] = {
     //SF for user interface plus logging of invalid input
-    def uiSf = nodeOut sf node to swingSink(valLog.logValRes)
+    def uiSf = nodeOut sfST (node, st) to swingSink(valLog.logValRes)
 
-    ST.completeIsolated(uiSf, undoOut)(saver loadState ioLog) syncTo { is put _.some }
+    ST.completeIsolated(uiSf, undoOut, st)(
+      saver loadState ioLog) asyncTo { is put _.some }
   }
 }
 
@@ -68,7 +72,7 @@ object ItemController {
     ioLog: LoggerIO = Pref.mainLogger,
     valLog: LoggerIO = Pref.itemsLogger
   ): IO[ItemController[I]] = 
-    create(saver, nodeOut, ioLog, valLog, _ ⇒ IO.ioUnit, false)
+    create(saver, nodeOut, ioLog, valLog, false)
 
   def default[I:RpgItem:Equal:ToXml:Manifest:IEditable:TypeTag](
     fileName: String, lblName: String, cl: Class[_])
@@ -86,14 +90,14 @@ object ItemController {
     nodeOut: List[I] ⇒ StOut[I],
     ioLog: LoggerIO,
     valLog: LoggerIO,
-    onSet: Out[Unit],
     isTest: Boolean
   ): IO[ItemController[I]] = for {
     n   ← NbNode.apply //The Node used to display items in the UI
     v   ← Var newVar none[IState[I]]
     ts  ← saver loadTemplates ioLog
-    out = nodeOut(ts) ⊹ NodeOut[Any,Nothing]((_, _) ⇒ _ ⇒ onSet(()))
-    ic  = new ItemController[I](v, saver, ioLog, valLog, out, n)
+    out = nodeOut(ts)
+    st  = isTest ? Sequential | SwingStrategy
+    ic  = new ItemController[I](v, saver, ioLog, valLog, out, n, st)
     _   ← isTest ? IO(IO.ioUnit) | efa.nb.NbSystem.forever(ic.sf)
   } yield ic
 }
