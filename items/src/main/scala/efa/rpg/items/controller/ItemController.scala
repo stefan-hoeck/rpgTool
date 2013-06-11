@@ -14,7 +14,6 @@ import efa.io.LoggerIO
 import efa.rpg.items._
 import efa.rpg.items.saver.ItemSaver.xmlSaver
 import org.openide.nodes.Node
-import scala.reflect.runtime.universe.TypeTag
 import scalaz._, Scalaz._, effect.IO
 import scalaz.concurrent.Strategy
 
@@ -36,7 +35,7 @@ import scalaz.concurrent.Strategy
  * typcially happens when the user modifies the state in the UI
  * via the Node and its children.
  */
-final class ItemController[I:TypeTag:RpgItem:Equal] private (
+final class ItemController[I:RpgItem:Equal] private (
   is: Var[Option[IState[I]]],
   saver: ItemSaver[I],
   ioLog: LoggerIO,
@@ -66,7 +65,7 @@ object ItemController {
   /**
    * Creates an ItemController from a saver and a NodeOut
    */
-  def apply[I:RpgItem:Equal:TypeTag] (
+  def apply[I:RpgItem:Equal] (
     saver: ItemSaver[I],
     nodeOut: List[I] ⇒ StOut[I],
     ioLog: LoggerIO = Pref.mainLogger,
@@ -74,7 +73,7 @@ object ItemController {
   ): IO[ItemController[I]] = 
     create(saver, nodeOut, ioLog, valLog, false)
 
-  def default[I:RpgItem:Equal:ToXml:Manifest:IEditable:TypeTag](
+  def default[I:RpgItem:Equal:ToXml:Manifest:IEditable](
     fileName: String, lblName: String, cl: Class[_])
   : IO[ItemController[I]] = {
     val saver = xmlSaver[I](fileName, lblName, cl)
@@ -85,7 +84,7 @@ object ItemController {
     apply(saver, nodeOut)
   }
 
-  private[controller] def create[I:RpgItem:Equal:TypeTag] (
+  private[controller] def create[I:RpgItem:Equal] (
     saver: ItemSaver[I],
     nodeOut: List[I] ⇒ StOut[I],
     ioLog: LoggerIO,
