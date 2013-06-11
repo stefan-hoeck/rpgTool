@@ -8,8 +8,8 @@ import scalaz._, Scalaz._
 object RulesNode {
 
   lazy val root: Node = (for {
-    n ← N.apply
-    _ ← RuleSettings.in andThen folderOut.set(n) go
+    n ← N()
+    _ ← efa.nb.NbSystem forever (RuleSettings.in >=> folderOut.sf(n))
   } yield n).unsafePerformIO()
 
   type NOut[-A] = NodeOut[A,Nothing]
@@ -45,7 +45,7 @@ object RulesNode {
 
   private def activeIcon[A:ActiveL]: NodeOut[A,Nothing] =
     N.iconBase ∙ (
-      ActiveL[A].active (_) ?
+      ActiveL[A].active(_) ?
       "efa/rpg/rules/ui/activerule.png" |
       "efa/rpg/rules/ui/inactiverule.png"
     )

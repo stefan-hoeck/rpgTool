@@ -88,8 +88,9 @@ object UtilBuild extends Build {
     "rpg",
     file("."),
     settings = buildSettings
-  ) aggregate(core, describedPanel, explorer, items, preferences, rules)
- // ) aggregate (being, rules, rulesUI)
+  ) aggregate(core, describedPanel, explorer, items, preferences,
+              rules, rulesUI)
+ // ) aggregate being
   
   lazy val core = Project (
     "rpg-core",

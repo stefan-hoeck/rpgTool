@@ -9,17 +9,19 @@ import scalaz._, Scalaz._, effect.IO, Dual._
 object RuleSettings {
   type LocFolders = List[LocFolder]
 
+  private lazy val rfVar: Var[RulesFolder] =
+    load >>= Var.newVar unsafePerformIO
+
   lazy val in: SIn[RulesFolder] = rfVar.in
 
   lazy val actives: SIn[Set[String]] = in map activeIds
 
-  def endoSF[A,B](rs: List[Rule[B]]): SF[A,Endo[B]] =
-    actives map (ns ⇒ rs foldMap (_ endo ns)) sf
-
   lazy val sink: DataSink[RulesFolder] = rfVar.sink
 
-  private lazy val rfVar: Var[RulesFolder] =
-    load >>= Var.newVar unsafePerformIO
+  def mod(f: RulesFolder ⇒ RulesFolder): IO[Unit] = rfVar mod f
+
+  def endoSF[A,B](rs: List[Rule[B]]): SF[A,Endo[B]] =
+    actives map (ns ⇒ rs foldMap (_ endo ns)) sf
 
   private[this] def load: IO[RulesFolder] = {
     def merge (fs: Seq[LocFolder]): Stream[LocFolder] = {
