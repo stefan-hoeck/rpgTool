@@ -121,7 +121,7 @@
     <module>explorer</module>
     <module>items</module>
     <module>describedPanel</module>
-    <!--module>being</module-->
+    <module>being</module>
     <module>rules</module>
     <module>rulesUI</module>
   </modules>

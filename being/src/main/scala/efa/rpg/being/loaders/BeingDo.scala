@@ -1,34 +1,34 @@
 package efa.rpg.being.loaders
 
-import efa.nb.PureLookup
-import efa.nb.controller._
-import efa.nb.node.NbNode
-import efa.react.Out
-import org.openide.filesystems.FileObject
-import org.openide.loaders.{MultiFileLoader, MultiDataObject, DataNode, OpenSupport}
-import org.openide.nodes.Children
-import org.openide.util.Lookup
-import org.openide.util.lookup.ProxyLookup
-import scalaz._, Scalaz._, effect.IO
-
-class BeingDo private[being] (
-  private[being] val fo: FileObject,
-  loader: MultiFileLoader,
-  private[being] val pl: PureLookup
-) extends MultiDataObject(fo, loader) {
-  private lazy val lkp = new ProxyLookup(getCookieSet.getLookup, pl.l)
-  
-  override protected lazy val createNodeDelegate =
-    new DataNode(this, Children.LEAF, getLookup){setDisplayName(fo.getName)}
-  override def getLookup = lkp
-
-  private val modified: Out[Boolean] = b ⇒ IO(setModified(b))
-
-  private[being] val saveOut: Out[SaveEvent] = _ match {
-    case Registered(s) ⇒ pl.add[Saver](s) >> modified(true)
-    case Unregistered(s) ⇒ pl.remove[Saver](s) >> modified(false)
-  }
-}
+//import efa.nb.PureLookup
+//import efa.nb.controller._
+//import efa.nb.node.NbNode
+//import efa.react.Out
+//import org.openide.filesystems.FileObject
+//import org.openide.loaders.{MultiFileLoader, MultiDataObject, DataNode, OpenSupport}
+//import org.openide.nodes.Children
+//import org.openide.util.Lookup
+//import org.openide.util.lookup.ProxyLookup
+//import scalaz._, Scalaz._, effect.IO
+//
+//class BeingDo private[being] (
+//  private[being] val fo: FileObject,
+//  loader: MultiFileLoader,
+//  private[being] val pl: PureLookup
+//) extends MultiDataObject(fo, loader) {
+//  private lazy val lkp = new ProxyLookup(getCookieSet.getLookup, pl.l)
+//  
+//  override protected lazy val createNodeDelegate =
+//    new DataNode(this, Children.LEAF, getLookup){setDisplayName(fo.getName)}
+//  override def getLookup = lkp
+//
+//  private val modified: Out[Boolean] = b ⇒ IO(setModified(b))
+//
+//  private[being] val saveOut: Out[SaveEvent] = _ match {
+//    case Registered(s) ⇒ pl.add[Saver](s) >> modified(true)
+//    case Unregistered(s) ⇒ pl.remove[Saver](s) >> modified(false)
+//  }
+//}
   
 object BeingDo {
   //Upon creation we need to do the following:

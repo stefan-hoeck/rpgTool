@@ -29,7 +29,7 @@ object BuildSettings {
 object Dependencies {
   import BuildSettings.sv  
 
-  val utilV = "0.2.1-SNAPSHOT"
+  val utilV = "0.2.2-SNAPSHOT"
   val direV = "0.1.0-SNAPSHOT"
   val efaNbV = "0.3.0-SNAPSHOT"
   val nbV = "RELEASE71"
@@ -93,9 +93,8 @@ object UtilBuild extends Build {
     "rpg",
     file("."),
     settings = buildSettings
-  ) aggregate(core, describedPanel, explorer, items, preferences,
+  ) aggregate(being, core, describedPanel, explorer, items, preferences,
               rules, rulesUI)
- // ) aggregate being
   
   lazy val core = Project (
     "rpg-core",
