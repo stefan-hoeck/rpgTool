@@ -31,16 +31,15 @@ object ItemControllerTest
     FolderNode.defaultOut(itemOut, as) ∙ (s ⇒ (s.root, s))
 
   def controller(a: Advantage) = ItemController.create[Advantage](
-    saver(a), folderOut, logger, logger, false)
+    saver(a), folderOut, logger, logger, true)
 
   def controllerT(a: Advantage) = ItemController.create[Advantage](
     saver(a), folderOut, logger, logger, true)
 
-
   property("loading_dbIn") = forAll {a: Advantage ⇒ 
     val res = for {
       c  ← controller(a)
-      m  = runN(c.dbIn, 1).head
+      m  = runN(c.testIn, 1).head
     } yield (m ≟ Map(a.id → a)) :| "map loaded"
 
     eval(res)
@@ -63,12 +62,12 @@ object ItemControllerTest
   val errorSaver = ItemSaver.xmlSaver[Advantage]("blub", "blub", getClass)
   
   val errorController =
-    ItemController[Advantage](errorSaver, folderOut, logger, logger)
+    ItemController[Advantage](errorSaver, folderOut, true, logger, logger)
 
   property("error_when_loading") = {
     val res = for {
       c  ← errorController
-      m  = runN(c.dbIn, 1).head
+      m  = runN(c.testIn, 1).head
     } yield (m == Map.empty) :| "map loaded"
 
     eval(res)

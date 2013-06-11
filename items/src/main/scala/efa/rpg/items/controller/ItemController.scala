@@ -51,6 +51,9 @@ final class ItemController[I:RpgItem:Equal] private (
   lazy val info: ItemsInfo = ItemsInfo(node,
     si ⇒ itemsIn >=> Saver.sf(si, saver.saveState(ioLog)) void)
 
+  /** Use for unit tests */
+  lazy val testIn: SIn[DB[I]] = sf >> dbIn
+
   private[controller] def sf: SIn[IState[I]] = {
     //SF for user interface plus logging of invalid input
     def uiSf = nodeOut sfST (node, st) to swingSink(valLog.logValRes)
@@ -68,20 +71,21 @@ object ItemController {
   def apply[I:RpgItem:Equal] (
     saver: ItemSaver[I],
     nodeOut: List[I] ⇒ StOut[I],
+    isTest: Boolean,
     ioLog: LoggerIO = Pref.mainLogger,
     valLog: LoggerIO = Pref.itemsLogger
   ): IO[ItemController[I]] = 
-    create(saver, nodeOut, ioLog, valLog, false)
+    create(saver, nodeOut, ioLog, valLog, isTest)
 
   def default[I:RpgItem:Equal:ToXml:Manifest:IEditable](
-    fileName: String, lblName: String, cl: Class[_])
+    fileName: String, lblName: String, cl: Class[_], isTest: Boolean)
   : IO[ItemController[I]] = {
     val saver = xmlSaver[I](fileName, lblName, cl)
     val itemOut = ItemNodes.defaultOut[I]
     def nodeOut(ts: List[I]): StOut[I] =
       FolderNode.defaultOut(itemOut, ts) ∙ (s ⇒ (s.root, s))
 
-    apply(saver, nodeOut)
+    apply(saver, nodeOut, isTest)
   }
 
   private[controller] def create[I:RpgItem:Equal] (

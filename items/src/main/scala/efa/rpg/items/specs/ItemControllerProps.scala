@@ -7,7 +7,7 @@ import scalaz._, Scalaz._, effect.IO
 trait ItemControllerProps extends dire.util.TestFunctions {
 
   def testLoading[A](ic: ItemController[A]): Prop =
-    runN(ic.dbIn, 1) match {
+    runN(ic.testIn, 1) match {
       case Nil ⇒ false :| "Returned empty list"
       case m :: Nil ⇒ m.nonEmpty :| "Returned empty map"
       case x ⇒ false :| "Returned more than one map"
