@@ -18,20 +18,18 @@ case class ItemsInfo(
 
 object ItemsInfo {
 
-  private[this] lazy val dummy: IO[ItemsInfo] = for {
-    n ← IO (new AbstractNode(Children.LEAF){})
-  } yield ItemsInfo (n, _ ⇒ ∅[SIn[Unit]])
+  private[this] lazy val dummy: ItemsInfo = 
+    ItemsInfo(new AbstractNode(Children.LEAF){}, _ ⇒ ∅[SIn[Unit]])
 
-  private[this] lazy val map: Map[String,IO[ItemsInfo]] = {
+  private[this] lazy val map: Map[String,ItemsInfo] = {
     def get = Lookup.getDefault.all[ItemsInfoProvider] map (
-      _.foldLeft(Map.empty[String,IO[ItemsInfo]])(_ ++ _.infos)
+      _.foldLeft(Map.empty[String,ItemsInfo])(_ ++ _.infos)
     )
 
     get.unsafePerformIO()
   }
 
-  def forName (name: String): IO[ItemsInfo] =
-    map getOrElse (name, dummy)
+  def forName (name: String): ItemsInfo = map getOrElse (name, dummy)
 }
 
 // vim: set ts=2 sw=2 et:

@@ -42,8 +42,8 @@ class ItemDo(val fo: FileObject, loader: MultiFileLoader)
 object ItemDo {
   private[dob] def fields(mod: Out[Boolean], name: String, key: AnyRef)
     : IO[(Node,PureLookup)]= for {
-    i   ← ItemsInfo forName name
     lkp ← PureLookup()
+    i   = ItemsInfo forName name
     si  = SavableInfo(key, name, saveOut(lkp, mod)) 
     _   ← NbSystem forever i.changes(si)
   } yield (i.rootNode, lkp)
