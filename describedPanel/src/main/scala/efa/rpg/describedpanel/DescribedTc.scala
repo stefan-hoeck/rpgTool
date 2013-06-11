@@ -1,6 +1,6 @@
 package efa.rpg.describedpanel
 
-import dire.{SF, SIn}
+import dire.SIn
 import dire.swing.swingSink
 import efa.nb.PureLookup, efa.nb.lookup._
 import efa.nb.tc.{ReactiveTc, TcProvider}
