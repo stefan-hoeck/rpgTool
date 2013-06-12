@@ -17,7 +17,7 @@ object FolderNode {
 
   type OutOnly[-A] = NodeOut[FolderPair[A],Nothing]
 
-  type FFactory[A] = Factory[FolderPair[A],VSt[A]]
+  type FFactory[A] = NbChildren.Factory[FolderPair[A],VSt[A]]
 
   def name[A]: OutOnly[A] = N name (FF.name[A] get _._1)
 

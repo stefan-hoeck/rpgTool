@@ -7,9 +7,9 @@ import efa.nb.tc.{ReactiveTc, TcProvider}
 import efa.rpg.core.{HtmlDesc,HtmlEditorPane}
 import efa.rpg.preferences.Preferences.mainLogger
 import java.awt.BorderLayout
+import javax.swing.{JTabbedPane, JScrollPane}
 import org.openide.util.{Utilities, Lookup}
 import scala.collection.JavaConversions._
-import scala.swing.{TabbedPane, ScrollPane}, TabbedPane.Page
 import scalaz._, Scalaz._, effect.{IO, IORef}
 
 class DescribedTc private(ip: DescribedTc.InnerPane)
@@ -19,7 +19,7 @@ class DescribedTc private(ip: DescribedTc.InnerPane)
   setName (loc.describedTcName)
   setToolTipText (loc.describedTcHint)
   setLayout(new BorderLayout)
-  add(ip.peer, BorderLayout.CENTER)
+  add(ip, BorderLayout.CENTER)
   associateLookup(ip.pl.l)
 
   override protected def preferredID = DescribedTcProvider.preferredId
@@ -27,15 +27,16 @@ class DescribedTc private(ip: DescribedTc.InnerPane)
 }
 
 object DescribedTc {
+  type Page = (String, JScrollPane)
+
   def create: IO[DescribedTc] = for {
     ip  ← createInner(Utilities.actionsGlobalContext)
     _   ← mainLogger debug "Creating DescribedTc"
   } yield new DescribedTc(ip)
 
   private[describedpanel] def createInner(lkp: Lookup): IO[InnerPane] = for {
-    ref   ← IO newIORef Map.empty[HtmlDesc,Page]
     pl    ← PureLookup.apply
-  } yield new InnerPane(ref, pl, lkp.results[HtmlDesc])
+  } yield new InnerPane(pl, lkp.results[HtmlDesc])
 
   private def loadParams = for {
     ip ← createInner(Utilities.actionsGlobalContext)
@@ -43,48 +44,26 @@ object DescribedTc {
   } yield ip
 
   private[describedpanel] class InnerPane(
-    private[describedpanel] val pageMap: IORef[Map[HtmlDesc,Page]],
     private[describedpanel] val pl: PureLookup,
     src: SIn[List[HtmlDesc]]
-  ) extends TabbedPane {
+  ) extends JTabbedPane {
 
     def sin = src to swingSink(adjust)
 
-    private val readPages: IO[List[Page]] = IO(pages.toList)
-
     private def writePages(ps: List[Page]): IO[Unit] = IO {
-      pages.clear()
-      pages.insertAll(0, ps)
+      removeAll()
+      ps foreach { case (s, sp) ⇒ addTab(s, sp) }
     }
 
-    private def modPages(f: List[Page] ⇒ List[Page]): IO[Unit] =
-      readPages map f flatMap writePages
-
     private def adjust(desc: List[HtmlDesc]): IO[Unit] = {
-      def pageFor(d: HtmlDesc): IO[Page] = for {
-        htmlP ← HtmlEditorPane(d.html)
-        _     = htmlP.editable = false
-      } yield new Page(d.name, htmlP)
-
-      def removeGoners (gs: Set[HtmlDesc]): IO[Unit] = for {
-        pm     ← pageMap.read
-        _      ← modPages(_ filterNot (gs map pm))
-        _      ← pageMap mod (_ -- gs)
-        _      ← pl -- gs.toList
-      } yield ()
-      
-      def addNew(news: List[HtmlDesc]): IO[Unit] = for {
-        newPages ← news traverse pageFor
-        _        ← modPages(_ ++ newPages)
-        _        ← pageMap mod (_ ++ (news zip newPages))
-        _        ← pl ++ news
-      } yield ()
+      def pageFor(d: HtmlDesc): IO[Page] =
+        HtmlEditorPane(d.html) map ((d.name, _))
 
       for {
-        pm     ← pageMap.read
-        old    = pm.keySet & desc.toSet //nothing new
-        _      ← removeGoners(pm.keySet -- old)
-        _      ← addNew(desc filterNot old)
+        ps ← desc traverse pageFor
+        _  ← writePages(ps)
+        _  ← pl.clear
+        _  ← pl ++ desc
       } yield ()
     }
   }

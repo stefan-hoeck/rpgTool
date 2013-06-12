@@ -49,8 +49,6 @@ object Dependencies {
   val direCore = dire %% "dire-core" % direV changing
 
   val direSwing = dire %% "dire-swing" % direV changing
-
-  val scalaSwing = "org.scala-lang" % "scala-swing" % sv
  
   val nbUtil = nb % "org-openide-util" % nbV
   val nbLookup = nb % "org-openide-util-lookup" % nbV
@@ -99,14 +97,14 @@ object UtilBuild extends Build {
   lazy val core = Project (
     "rpg-core",
     file("core"),
-    settings = addDeps(scalaSwing, efaCore)
+    settings = addDeps(efaCore)
   )
 
   lazy val being = Project (
     "rpg-being",
     file("being"),
     settings = addDeps(
-      scalaSwing, efaCore, efaIo, efaNb, direCore, nbLoaders,
+      efaCore, efaIo, efaNb, direCore, nbLoaders,
       nbFilesystems, nbMultiview, nbWindows, nbAwt, nbExplorer
     )
   ) dependsOn(core, preferences, rules)
@@ -114,27 +112,27 @@ object UtilBuild extends Build {
   lazy val describedPanel = Project (
     "rpg-describedPanel",
     file("describedPanel"),
-    settings = addDeps(scalaSwing, efaCore, efaIo, efaNb, direCore)
+    settings = addDeps(efaCore, efaIo, efaNb, direCore)
   ) dependsOn(core, preferences)
 
   lazy val explorer = Project (
     "rpg-explorer",
     file("explorer"),
-    settings = addDeps(scalaSwing, efaCore, efaNb, nbFilesystems, nbLoaders)
+    settings = addDeps(efaCore, efaNb, nbFilesystems, nbLoaders)
   ) dependsOn(items, preferences)
 
   lazy val items = Project (
     "rpg-items",
     file("items"),
     settings = 
-      addDeps(scalaSwing, efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test") :+ 
+      addDeps(efaCore, efaIo, efaNb, nbLoaders, nbFilesystems % "test") :+ 
       (parallelExecution in Test := false)
   ).dependsOn(core, preferences)
 
   lazy val preferences = Project (
     "rpg-preferences",
     file("preferences"),
-    settings = addDeps(scalaSwing, efaCore, efaIo, nbFilesystems)
+    settings = addDeps(efaCore, efaIo, nbFilesystems)
   )
   
   lazy val rules = Project (
