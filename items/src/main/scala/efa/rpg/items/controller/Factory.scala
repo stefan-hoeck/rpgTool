@@ -22,11 +22,13 @@ trait Factory {
     * the Netbeans platform and the application is closed),
     * therefore the tests might run forever.
     */
-  var isTest = false
+  private[items] var isTest = new java.util.concurrent.atomic.AtomicBoolean
+
+  private[items] def setTest(b: Boolean) { isTest.set(b) }
 
   def singleton[A:RpgItem:Equal:ToXml:Manifest:IEditable](
     p: (String, String)): ItemController[A] =
-    ItemController.default[A](p._1, p._2, clazz, isTest).unsafePerformIO()
+    ItemController.default[A](p._1, p._2, clazz, isTest.get).unsafePerformIO()
 }
 
 // vim: set ts=2 sw=2 et:
