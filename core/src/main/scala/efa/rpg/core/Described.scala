@@ -1,7 +1,6 @@
 package efa.rpg.core
 
 import efa.core.{Described ⇒ EfaDesc, Named}
-import scala.swing.Component
 import scalaz.Show
 
 trait Described[A] extends Named[A] with EfaDesc[A] {
