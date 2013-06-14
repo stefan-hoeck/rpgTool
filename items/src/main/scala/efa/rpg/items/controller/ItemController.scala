@@ -1,7 +1,6 @@
 package efa.rpg.items.controller
 
-import dire._, dire.control.Var, dire.swing.{swingSink, SwingStrategy}
-import dire.util.test.Sequential
+import dire._, dire.control.Var, dire.swing.{swingSink, swingOut}
 import efa.core._, Efa._
 import efa.nb.VStSF
 import efa.nb.controller.{StateTrans ⇒ ST, SavableInfo, Saver}
@@ -15,7 +14,6 @@ import efa.rpg.items._
 import efa.rpg.items.saver.ItemSaver.xmlSaver
 import org.openide.nodes.Node
 import scalaz._, Scalaz._, effect.IO
-import scalaz.concurrent.Strategy
 
 /**
  * An ItemController provides the main functionality
@@ -41,8 +39,7 @@ final class ItemController[I:RpgItem:Equal] private (
   ioLog: LoggerIO,
   valLog: LoggerIO,
   nodeOut: StOut[I],
-  node: NbNode,
-  st: Option[Strategy] //needed for testing
+  node: NbNode
 ) {
   lazy val itemsIn: SIn[IState[I]] = is.in collectO identity
 
@@ -54,11 +51,13 @@ final class ItemController[I:RpgItem:Equal] private (
   /** Use for unit tests */
   lazy val testIn: SIn[DB[I]] = sf >> dbIn
 
-  private[controller] def sf: SIn[IState[I]] = {
-    //SF for user interface plus logging of invalid input
-    def uiSf = nodeOut sfST (node, st) to swingSink(valLog.logValRes)
+  private[controller] def sf: SIn[IState[I]] = testSF(_ ⇒ IO.ioUnit)
 
-    ST.completeIsolated(uiSf, undoOut, st)(
+  private[controller] def testSF(o: Out[Any]): SIn[IState[I]] = {
+    //SF for user interface plus logging of invalid input
+    def uiSf = nodeOut sfSim (node, o) to swingSink(valLog.logValRes)
+
+    ST.completeIsolated(uiSf, undoOut)(
       saver loadState ioLog) asyncTo { is put _.some }
   }
 }
@@ -99,8 +98,7 @@ object ItemController {
     v   ← Var newVar none[IState[I]]
     ts  ← saver loadTemplates ioLog
     out = nodeOut(ts)
-    st  = isTest ? Sequential | SwingStrategy
-    ic  = new ItemController[I](v, saver, ioLog, valLog, out, n, st)
+    ic  = new ItemController[I](v, saver, ioLog, valLog, out, n)
     _   ← isTest ? IO(IO.ioUnit) | efa.nb.NbSystem.forever(ic.sf)
   } yield ic
 }

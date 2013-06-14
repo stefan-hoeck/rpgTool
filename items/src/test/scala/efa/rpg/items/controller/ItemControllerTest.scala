@@ -81,7 +81,7 @@ object ItemControllerTest
   sealed trait Event
   case class Rename(s: String) extends Event
 
-  private def eventSf(a: Advantage)(o: Out[Unit])
+  private def eventSf(a: Advantage)(o: Out[Any])
     : IO[SF[Event,DB[Advantage]]] = for {
       c  ← controllerT(a)
       n  = c.info.rootNode
@@ -91,7 +91,7 @@ object ItemControllerTest
                  IO(n.getChildren.getNodes(true).head.setName(s))
              }
              
-             SF.id[Event].syncTo(onE) >> c.sf.map(_.map)
+             SF.id[Event].syncTo(onE) >> c.testSF(o).map(_.map)
             }
     } yield sf
 }

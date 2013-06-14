@@ -17,13 +17,15 @@ object ItemNodeTest extends Properties ("ItemNode")
 
   lazy val itemOut = ItemNodes.defaultOut[Advantage]
 
+  def itemSF(n: NbNode)(o: Out[Any]) = IO(itemOut sfSim (n, o))
+
   property ("defaultOut") = forAll { a: Advantage ⇒ 
     val pair = itemToPair(a)
     val hd = HtmlDesc(a.name, a.desc)
 
     val res = for {
       n   ← NbNode.apply
-      _   = runN(pair.η[SIn] andThen itemOut.sf(n), 0)
+      _   = simulate(List(pair), false)(itemSF(n))
       ec  ← n.getLookup.head[EditCookie]
       hdo ← n.getLookup.head[HtmlDesc]
     } yield (n.getDisplayName ≟ a.name) :| "display name" &&
@@ -46,21 +48,18 @@ object ItemNodeTest extends Properties ("ItemNode")
     simulate(List(s), true)(eventSf(a)) ∀ { _.isSuccess ≟ nesVal(s).isRight }
   }
 
-  private def evalIO (io: IO[Boolean]) = io.unsafePerformIO
+  private def evalIO(io: IO[Boolean]) = io.unsafePerformIO
 
-  private def evalPropIO (io: IO[Prop]) = io.unsafePerformIO
+  private def evalPropIO(io: IO[Prop]) = io.unsafePerformIO
 
-  private def eventSf(a: Advantage)(o: Out[Unit])
+  private def eventSf(a: Advantage)(o: Out[Any])
     : IO[SF[String,VSt[Advantage]]] = for {
       n  ← NbNode()
       sf ← IO {
              def onE(s: String): IO[Unit] = IO(n.setName(s))
 
-             val nodeOut: NodeOut[Unit,VSt[Advantage]] = 
-               renameOut.contramap{ _: Unit ⇒ itemToPair(a) } ⊹
-               NodeOut[Unit,VSt[Advantage]]((_,_) ⇒ o)
-             
-             (SF.id[String] syncTo onE) >> (SF.once(()) >=> nodeOut.sf(n))
+             (SF.id[String] syncTo onE) >> 
+             (SF.once(itemToPair(a)) >=> renameOut.sfSim(n, o).syncTo(o))
            }
     } yield sf
 }

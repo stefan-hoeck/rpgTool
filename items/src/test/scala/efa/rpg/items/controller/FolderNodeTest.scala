@@ -1,8 +1,8 @@
 package efa.rpg.items.controller
 
-import dire.{SF, SIn}
+import dire.{SF, SIn, Out}
 import efa.core.{Folder, Default}
-import efa.nb.node.NbNode
+import efa.nb.node.{NbNode, NodeOut}
 import efa.rpg.items._, ItemsStateTest.IsArbitrary
 import org.openide.nodes.Node
 import org.scalacheck._, Prop._
@@ -20,8 +20,7 @@ object FolderNodeTest
   property("name") = forAll { s: IState[Advantage] ⇒ 
     def res = for {
       n  ← NbNode.apply
-      sf = sin(s) andThen FolderNode.name[Advantage].sf(n)
-      _  = runN(sf, 0)
+      _  = simulate(pair(s), false)(testSF(FolderNode.name[Advantage], n))
     } yield n.getDisplayName ≟ IState.root.name.get(s)
 
     evalIO (res)
@@ -30,8 +29,8 @@ object FolderNodeTest
   property("children") = forAll { s: IState[Advantage] ⇒ 
     def res = for {
       n  ← NbNode.apply
-      sf = sin(s) andThen FolderNode.defaultOut[Advantage](advOut, Nil).sf(n)
-      _  = runN(sf, 0)
+      _  = simulate(pair(s), false)(
+             testSF(FolderNode.defaultOut[Advantage](advOut, Nil), n))
       fNames = folderToNames(s.root)
       nNames = nodeToNames(n)
     } yield fNames ≟ nNames
@@ -52,8 +51,9 @@ object FolderNodeTest
     val s = IState fromFolder itemsWide
     def res = for {
       n  ← NbNode.apply
-      sf = sin(s) andThen FolderNode.defaultOut[Advantage](advOut, Nil).sf(n)
-      _  = runN(sf, 0)
+      n  ← NbNode.apply
+      _  = simulate(pair(s), false)(
+             testSF(FolderNode.defaultOut[Advantage](advOut, Nil), n))
       cCount = n.getChildren.getNodes(true).size
       fNames = folderToNames(s.root)
       nNames = nodeToNames(n)
@@ -62,8 +62,8 @@ object FolderNodeTest
     evalIO (res)
   }
 
-  def sin(s: IState[Advantage]): SIn[FolderPair[Advantage]] =
-    SF const (s.root, s)
+  def pair(s: IState[Advantage]): List[FolderPair[Advantage]] =
+    List((s.root, s))
 
   private def evalIO (io: IO[Boolean]) = io.unsafePerformIO
 
@@ -73,15 +73,18 @@ object FolderNodeTest
     lazy val folderNames =
       f.folders.sortBy(_.label._1) ∘ (folderToNames)
 
-    node (f.label._1, folderNames #::: itemNames)
+    node(f.label._1, folderNames #::: itemNames)
   }
 
   def nodeToNames (n: Node): Tree[String] = {
     def children = n.getChildren getNodes true toStream
     def childNames = children ∘ (nodeToNames)
 
-    node (n.getDisplayName, childNames)
+    node(n.getDisplayName, childNames)
   }
+
+  def testSF[A,B](no: NodeOut[A,B], n: NbNode)(o: Out[Any]) =
+    IO(no sfSim (n, o))
 }
 
 // vim: set ts=2 sw=2 et:
