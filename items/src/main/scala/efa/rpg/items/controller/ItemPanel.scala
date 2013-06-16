@@ -8,13 +8,16 @@ import efa.rpg.core.{RpgItem, ItemData, UnitEnum}
 import efa.rpg.items.{ItemPair, IState}
 import scalaz._, Scalaz._, effect.IO
 
-final class ItemDataUI(
-    id: Int,
+final class ItemDataUI[A](
+    val p: ItemPair[A],
     v: EndoVal[String],
     val name: TextField,
     val desc: TextArea,
-    val sp: ScrollPane) {
+    val sp: ScrollPane)(implicit A: RpgItem[A]) {
   import dire.validation.{SfVApplicative, validate, success}
+  def item: A = p._1
+
+  def id: Int = A id item
 
   def in: VSIn[ItemData] =
     id.η[VSIn] ⊛
@@ -24,11 +27,11 @@ final class ItemDataUI(
 
 trait ItemPanelFunctions extends WidgetFunctions {
   def dataWidgets[A](p: ItemPair[A], isCreate: Boolean)
-                    (implicit A: RpgItem[A]): IO[ItemDataUI] = for {
+                    (implicit A: RpgItem[A]): IO[ItemDataUI[A]] = for {
     name ← TextField(text := A.name(p._1))
     desc ← TextArea(text := A.desc(p._1))
     sp   ← ScrollPane(desc)
-  } yield new ItemDataUI(A id p._1, IState.nameVal(isCreate)(p), name, desc, sp)
+  } yield new ItemDataUI(p, IState.nameVal(isCreate)(p), name, desc, sp)
 
   def item[A](p: ItemPair[A]): A = p._1
 
