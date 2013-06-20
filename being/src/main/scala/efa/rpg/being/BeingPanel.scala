@@ -1,21 +1,53 @@
 package efa.rpg.being
 
-//import efa.core.{Read, EndoVal}
-//import efa.nb.{InputWidgets, VSET}
-//import efa.react.{Out}
-//import efa.react.swing.{GbPanel, UiFactory, Swing}
-//import efa.rpg.core._
-//import java.awt.Font
-//import scala.language.implicitConversions
-//import scala.swing.{Label, ComboBox, TextField, Component}
-//import scalaz._, Scalaz._
-//
-//trait BeingPanel[A,B] extends GbPanel with InputWidgets with UiFactory {
-//  import BeingPanel._
-//
-//  def set: VSET[A,B]
-//
-//  def enumBox[X:RpgEnum]: ComboBox[X] = comboBox[X](RpgEnum[X].valuesNel)
+import dire._, dire.swing._, Swing._
+import efa.core.{Read, EndoVal}
+import efa.nb.{VStSF, WidgetFunctions}
+import efa.rpg.core._
+import java.awt.Font
+import scalaz._, Scalaz._, effect.IO
+
+final case class BeingPanel[A,B,C](p: C, sf: VStSF[A,B]) {
+}
+
+trait BeingPanelFunctions extends WidgetFunctions {
+  lazy val bold = {
+    val f = new javax.swing.JLabel().getFont
+    new Font(f.getName, Font.BOLD, f.getSize)
+  }
+
+  def disabledNumeric: IO[TextField] =
+    TextField(hAlign := HAlign.Trailing, editable := false)
+
+  def enumBox[A:RpgEnum]: IO[ComboBox[A]] = 
+    ComboBox(RpgEnum[A].values, RpgEnum[A].valuesNel.head)
+
+  def modifierToolTip[A:HasModifiers](
+    k: ModifierKey, format: Long ⇒ String)(a: A): Option[String] =
+    prettyModsKey(k, format) apply a some
+
+  def modifiedProp[A:HasModifiers,B,C:TextComponent](
+    k: ModifierKey, c: C, format: Long ⇒ String = (l: Long) ⇒ l.toString
+  ): VStSF[A,B] =
+    tooltipOut[A,B,C](k, c, format) ⊹ 
+    outOnly(c.text ∙ { a: A ⇒ format(property(a, k)) })
+
+  def tooltipOut[A:HasModifiers,B,C:Component](
+    k: ModifierKey, c: C, format: Long ⇒ String = (l: Long) ⇒ l.toString
+  ): VStSF[A,B] =
+    outOnly(c.tooltip ∙ modifierToolTip[A](k, format))
+
+  def outOnly[A,B](s: DataSink[A]): VStSF[A,B] = 
+    SF.id[A].to(s) >> SF.never
+
+  implicit val ModifierKeyAsElem: AsSingleElem[ModifierKey] =
+    new AsSingleElem[ModifierKey] {
+      def single(k: ModifierKey) = k.loc.locName.single
+    }
+}
+
+object BeingPanel extends BeingPanelFunctions
+
 //
 //  def unitSET[X:UnitEnum] (
 //    t: TextField,
@@ -26,31 +58,6 @@ package efa.rpg.being
 //  ): VSET[B,B] = textIn[B,Long](
 //    t, v, UnitEnum[X] showPretty (x, prec)
 //  )(l)(Read readV UnitEnum[X].readPretty(x))
-//
-//  def modifiedProp (
-//    k: ModifierKey, format: Long ⇒ String = (l: Long) ⇒ l.toString
-//  )(t: TextField)(implicit M:HasModifiers[A]): VSET[A,B] =
-//    tooltipOut(k, format)(t) ⊹ 
-//    outOnly((a: A) ⇒ Swing.text(t)(format(property(a, k))))
-//
-//  def tooltipOut (
-//    k: ModifierKey, format: Long ⇒ String = (l: Long) ⇒ l.toString
-//  )(c: Component)(implicit M:HasModifiers[A]): VSET[A,B] =
-//    outOnly(a ⇒ Swing.tooltip(c)(modifierToolTip(a, k, format)))
-//
-//
-//  implicit def ModifierKey2Elem (k: ModifierKey): Elem = k.loc.locName
-//}
-//
-//object BeingPanel{
-//  lazy val bold = {
-//    val f = new scala.swing.Label().font
-//    new Font(f.getName, Font.BOLD, f.getSize)
-//  }
-//
-//  def modifierToolTip[A:HasModifiers](
-//    a: A, k: ModifierKey, format: Long ⇒ String
-//  ): String = prettyModsKey(k, format) apply a
 //}
 
 // vim: set ts=2 sw=2 et:

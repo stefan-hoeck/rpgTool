@@ -21,8 +21,7 @@ package object controller {
 
   final val undoManager = new org.openide.awt.UndoRedo.Manager
 
-  private[controller] val undoOut: Out[UndoEdit] = ue ⇒
-    IO { undoManager.undoableEditHappened(ue.event(undoManager)) }
+  private[controller] val undoOut = efa.nb.undo out undoManager
 
   def editable[A:RpgItem](f: (ItemPair[A],Boolean) ⇒ DEInfo[A],
                           size: Dim ⇒ Dim = sizeF): IEditable[A] =

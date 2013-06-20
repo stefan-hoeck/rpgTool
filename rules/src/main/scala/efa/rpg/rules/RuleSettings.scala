@@ -20,8 +20,8 @@ object RuleSettings {
 
   def mod(f: RulesFolder ⇒ RulesFolder): IO[Unit] = rfVar mod f
 
-  def endoSF[A,B](rs: List[Rule[B]]): SF[A,Endo[B]] =
-    actives map (ns ⇒ rs foldMap (_ endo ns)) sf
+  def endoIn[A](rs: List[Rule[A]]): SIn[Endo[A]] =
+    actives map (ns ⇒ rs foldMap (_ endo ns))
 
   private[this] def load: IO[RulesFolder] = {
     def merge (fs: Seq[LocFolder]): Stream[LocFolder] = {
