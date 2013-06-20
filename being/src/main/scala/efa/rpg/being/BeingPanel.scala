@@ -1,14 +1,15 @@
 package efa.rpg.being
 
 import dire._, dire.swing._, Swing._
-import efa.core.{Read, EndoVal}
+import efa.core.{Read, EndoVal, Validators, Efa}, Efa._
 import efa.nb.{VStSF, WidgetFunctions}
 import efa.rpg.core._
 import java.awt.Font
+import javax.swing.BorderFactory
+import javax.swing.border.Border
 import scalaz._, Scalaz._, effect.IO
 
-final case class BeingPanel[A,B,C](p: C, sf: VStSF[A,B]) {
-}
+final case class BeingPanel[A,B,C](p: C, sf: VStSF[A,B])
 
 trait BeingPanelFunctions extends WidgetFunctions {
   lazy val bold = {
@@ -16,11 +17,21 @@ trait BeingPanelFunctions extends WidgetFunctions {
     new Font(f.getName, Font.BOLD, f.getSize)
   }
 
+  def numeric: IO[TextField] = TextField trailing ""
+
   def disabledNumeric: IO[TextField] =
     TextField(hAlign := HAlign.Trailing, editable := false)
 
   def enumBox[A:RpgEnum]: IO[ComboBox[A]] = 
     ComboBox(RpgEnum[A].values, RpgEnum[A].valuesNel.head)
+
+  def intSf[A](sf: SF[String,String],
+               v: EndoVal[Int] = Validators.dummy[Int])
+              (l: A @> Int): VStSF[A,A] = readSf(sf, v)(l)
+
+  def longSf[A](sf: SF[String,String],
+                v: EndoVal[Long] = Validators.dummy[Long])
+               (l: A @> Long): VStSF[A,A] = readSf(sf, v)(l)
 
   def modifierToolTip[A:HasModifiers](
     k: ModifierKey, format: Long ⇒ String)(a: A): Option[String] =
@@ -31,6 +42,19 @@ trait BeingPanelFunctions extends WidgetFunctions {
   ): VStSF[A,B] =
     tooltipOut[A,B,C](k, c, format) ⊹ 
     outOnly(c.text ∙ { a: A ⇒ format(property(a, k)) })
+
+  def readSf[A:Read:Show,B]
+    (sf: SF[String,String], v: EndoVal[A])(l: B @> A): VStSF[B,B] = {
+    val rs = ((sf >=> read[A]) ∙ { a: A ⇒ a.shows }) >=> reValidate(v)
+
+    lensedV(rs)(l)
+  }
+
+  def stringSf[A](sf: SF[String,String],
+                  v: EndoVal[String] = Validators.dummy[String])
+                 (l: A @> String): VStSF[A,A] = readSf(sf, v)(l)
+
+  def titleBorder(s: String): Border = BorderFactory createTitledBorder s
 
   def tooltipOut[A:HasModifiers,B,C:Component](
     k: ModifierKey, c: C, format: Long ⇒ String = (l: Long) ⇒ l.toString
