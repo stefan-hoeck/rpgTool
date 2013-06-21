@@ -64,6 +64,18 @@ trait BeingPanelFunctions extends WidgetFunctions {
   def outOnly[A,B](s: DataSink[A]): VStSF[A,B] = 
     SF.id[A].to(s) >> SF.never
 
+  def unitSf[A,B](
+    sf: SF[String,String],
+    unit: A,
+    prec: Int,
+    v: EndoVal[Long],
+    l: B @> Long
+  )(implicit A: UnitEnum[A]): VStSF[B,B] = {
+    def validate(s: String) = A.readPretty(unit)(s) >>= v.run validation
+
+    lensedV(sf ∘ validate ∙ A.showPretty(unit, prec))(l)
+  }
+
   implicit val ModifierKeyAsElem: AsSingleElem[ModifierKey] =
     new AsSingleElem[ModifierKey] {
       def single(k: ModifierKey) = k.loc.locName.single
@@ -72,12 +84,6 @@ trait BeingPanelFunctions extends WidgetFunctions {
 
 object BeingPanel extends BeingPanelFunctions
 
-//
-//  def unitSET[X:UnitEnum] (
-//    t: TextField,
-//    x: X,
-//    prec: Int,
-//    v: EndoVal[Long],
 //    l: B @> Long
 //  ): VSET[B,B] = textIn[B,Long](
 //    t, v, UnitEnum[X] showPretty (x, prec)
