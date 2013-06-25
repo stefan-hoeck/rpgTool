@@ -1,14 +1,12 @@
 package efa.rpg.being.loaders
 
 import dire.Out
-import efa.nb.PureLookup
+import efa.nb.{PureLookup, lookup}, lookup._
 import efa.nb.controller._
 import efa.nb.node.NbNode
 import org.openide.filesystems.FileObject
 import org.openide.loaders.{MultiFileLoader, MultiDataObject, DataNode, OpenSupport}
 import org.openide.nodes.Children
-import org.openide.util.Lookup
-import org.openide.util.lookup.ProxyLookup
 import scalaz._, Scalaz._, effect.IO
 
 class BeingDo private[being] (
@@ -16,10 +14,11 @@ class BeingDo private[being] (
   loader: MultiFileLoader,
   private[being] val pl: PureLookup
 ) extends MultiDataObject(fo, loader) {
-  private lazy val lkp = new ProxyLookup(getCookieSet.getLookup, pl.l)
+  private lazy val lkp = getCookieSet.getLookup ⊹ pl.l
   
   override protected lazy val createNodeDelegate =
     new DataNode(this, Children.LEAF, getLookup){setDisplayName(fo.getName)}
+
   override def getLookup = lkp
 
   private val modified: Out[Boolean] = b ⇒ IO(setModified(b))

@@ -9,7 +9,10 @@ import javax.swing.BorderFactory
 import javax.swing.border.Border
 import scalaz._, Scalaz._, effect.IO
 
-final case class BeingPanel[A,B,C](p: C, sf: VStSF[A,B])
+final case class BeingPanel[A,B,C](p: C, sf: VStSF[A,B]) {
+  def title(s: String)(implicit C: Component[C]): IO[Unit] = 
+    p properties (border := BorderFactory.createTitledBorder(s))
+}
 
 trait BeingPanelFunctions extends WidgetFunctions {
   lazy val bold = {
@@ -82,12 +85,13 @@ trait BeingPanelFunctions extends WidgetFunctions {
     }
 }
 
-object BeingPanel extends BeingPanelFunctions
+trait BeingPanelInstances {
+  implicit def BPAsElem[A,B,C:AsSingleElem]: AsSingleElem[BeingPanel[A,B,C]] =
+    new AsSingleElem[BeingPanel[A,B,C]] {
+      def single(p: BeingPanel[A,B,C]) = p.p fillV 0
+    }
+}
 
-//    l: B @> Long
-//  ): VSET[B,B] = textIn[B,Long](
-//    t, v, UnitEnum[X] showPretty (x, prec)
-//  )(l)(Read readV UnitEnum[X].readPretty(x))
-//}
+object BeingPanel extends BeingPanelFunctions with BeingPanelInstances
 
 // vim: set ts=2 sw=2 et:
