@@ -133,7 +133,7 @@ object BeingLoader extends StateTransFunctions {
       um     ← IO(new UndoRedo.Manager)
       ctc    ← createMV(mvis map editorDesc(um), coh)
       rs     ← rules
-      kill   ← NbSystem forever sin(uii._1, ctc, um, rs)
+      kill   ← NbSystem forever sin(uii._1.events, ctc, um, rs)
     } yield (ctc, kill)
   }
 
