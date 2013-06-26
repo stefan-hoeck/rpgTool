@@ -9,10 +9,7 @@ import javax.swing.BorderFactory
 import javax.swing.border.Border
 import scalaz._, Scalaz._, effect.IO
 
-final case class BeingPanel[A,B,C](p: C, sf: VStSF[A,B]) {
-  def title(s: String)(implicit C: Component[C]): IO[Unit] = 
-    p properties (border := BorderFactory.createTitledBorder(s))
-}
+final case class BeingPanel[A,B,C](p: C, sf: VStSF[A,B])
 
 trait BeingPanelFunctions extends WidgetFunctions {
   lazy val bold = {
@@ -56,8 +53,6 @@ trait BeingPanelFunctions extends WidgetFunctions {
   def stringSf[A](sf: SF[String,String],
                   v: EndoVal[String] = Validators.dummy[String])
                  (l: A @> String): VStSF[A,A] = readSf(sf, v)(l)
-
-  def titleBorder(s: String): Border = BorderFactory createTitledBorder s
 
   def tooltipOut[A:HasModifiers,B,C:Component](
     k: ModifierKey, c: C, format: Long ⇒ String = (l: Long) ⇒ l.toString
