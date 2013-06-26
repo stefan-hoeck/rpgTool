@@ -52,7 +52,8 @@ trait BeingPanelFunctions extends WidgetFunctions {
 
   def stringSf[A](sf: SF[String,String],
                   v: EndoVal[String] = Validators.dummy[String])
-                 (l: A @> String): VStSF[A,A] = readSf(sf, v)(l)
+                 (l: A @> String): VStSF[A,A] = 
+    lensedV(sf >=> validate(v))(l)
 
   def tooltipOut[A:HasModifiers,B,C:Component](
     k: ModifierKey, c: C, format: Long ⇒ String = (l: Long) ⇒ l.toString
