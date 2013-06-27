@@ -24,7 +24,7 @@ object ItemNodeTest extends Properties ("ItemNode")
     val hd = HtmlDesc(a.name, a.desc)
 
     val res = for {
-      n   ← NbNode.apply
+      n   ← NbNode()
       _   = simulate(List(pair), false)(itemSF(n))
       ec  ← n.getLookup.head[EditCookie]
       hdo ← n.getLookup.head[HtmlDesc]

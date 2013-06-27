@@ -49,8 +49,8 @@ object FolderNode {
     n setPasters List(paster)
   })
 
-  def itemFactory[A:RpgItem] (out: ItemNodes.FullOut[A]): FFactory[A] =
-    uidF(out)(FF.folderPairToItems[A])
+  def itemFactory[A:RpgItem](out: ItemNodes.FullOut[A]): FFactory[A] =
+    leavesF(out)(FF.folderPairToItems[A])
 
   def folderFactory[A] (out: FullOut[A]): FFactory[A] =
     uidF(out)(FF.folderPairToFolders[A])

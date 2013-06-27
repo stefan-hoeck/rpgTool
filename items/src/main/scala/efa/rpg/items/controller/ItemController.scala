@@ -94,7 +94,7 @@ object ItemController {
     valLog: LoggerIO,
     isTest: Boolean
   ): IO[ItemController[I]] = for {
-    n   ← NbNode.apply //The Node used to display items in the UI
+    n   ← NbNode() //The Node used to display items in the UI
     v   ← Var newVar none[IState[I]]
     ts  ← saver loadTemplates ioLog
     out = nodeOut(ts)

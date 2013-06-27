@@ -19,7 +19,7 @@ object FolderNodeTest
 
   property("name") = forAll { s: IState[Advantage] ⇒ 
     def res = for {
-      n  ← NbNode.apply
+      n  ← NbNode()
       _  = simulate(pair(s), false)(testSF(FolderNode.name[Advantage], n))
     } yield n.getDisplayName ≟ IState.root.name.get(s)
 
@@ -28,14 +28,19 @@ object FolderNodeTest
 
   property("children") = forAll { s: IState[Advantage] ⇒ 
     def res = for {
-      n  ← NbNode.apply
+      n  ← NbNode()
       _  = simulate(pair(s), false)(
              testSF(FolderNode.defaultOut[Advantage](advOut, Nil), n))
       fNames = folderToNames(s.root)
       nNames = nodeToNames(n)
-    } yield fNames ≟ nNames
+    } yield (fNames ≟ nNames) :| {
+      val should = fNames.toList mkString "\n"
+      val was = nNames.toList mkString "\n"
 
-    evalIO (res)
+      s"Exp:\n$should \nFound:\n$was"
+    }
+
+    evalPropIO (res)
   }
 
   val emptyFA: NameFolder[Advantage] =
@@ -50,8 +55,7 @@ object FolderNodeTest
   property("itemsWide") = {
     val s = IState fromFolder itemsWide
     def res = for {
-      n  ← NbNode.apply
-      n  ← NbNode.apply
+      n  ← NbNode()
       _  = simulate(pair(s), false)(
              testSF(FolderNode.defaultOut[Advantage](advOut, Nil), n))
       cCount = n.getChildren.getNodes(true).size
@@ -66,6 +70,8 @@ object FolderNodeTest
     List((s.root, s))
 
   private def evalIO (io: IO[Boolean]) = io.unsafePerformIO
+
+  private def evalPropIO (io: IO[Prop]) = io.unsafePerformIO
 
   def folderToNames (f: IFolder[Advantage]): Tree[String] = {
     lazy val itemNames =
