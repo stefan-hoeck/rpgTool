@@ -1,6 +1,6 @@
 package efa.rpg.being
 
-import dire._
+import dire._, dire.swing.swingSink
 import efa.core._, Efa._
 import efa.io.LoggerIO
 import efa.nb.{PureLookup, VStSF, NbSystem, undo}
@@ -13,6 +13,7 @@ import efa.rpg.rules.{Rule, RuleSettings}
 import java.awt.Image
 import javax.swing.{Action, JToolBar}
 import org.netbeans.core.spi.multiview._
+import org.openide.cookies.{OpenCookie, CloseCookie}
 import org.openide.util.{Lookup, HelpCtx}
 import org.openide.awt.UndoRedo
 import org.openide.filesystems.FileObject
@@ -112,12 +113,13 @@ object BeingLoader extends StateTransFunctions {
       def calcRW(b: B, w: RuleWorld): C = w._2 apply calc(b, w._1)
       def sinRW = ^(world, RuleSettings endoIn rs)(Pair.apply)
 
-      def loggedSt = st asyncTo valLog.logValRes //log failures
-      
       //Display name in view and and set being at data object's lookup
       def displayOut: Out[C] = c ⇒ IO(ctc.setDisplayName(Described[C] name c))
-      def nameOut: Out[C] = displayOut ⊹ bd.pl.set[C]
+      def nameSink = swingSink(displayOut ⊹ bd.pl.set[C])
 
+      def loggedSt = SF.id[C] to nameSink andThen
+                     st asyncTo valLog.logValRes //log failures
+      
       def load = saver loadFromFo bd.fo //Load being from file
 
       def saveSF = Saver.sf(bd.saveInfo, saver saveToFo bd.fo)
@@ -142,15 +144,15 @@ object BeingLoader extends StateTransFunctions {
 
   private[being] class BeingOpenSupport (
     bd: BeingDo, c: Controller, ref: IORef[Option[BeingOpenParams]]
-  )  extends org.openide.loaders.OpenSupport(bd.getPrimaryEntry)
-     with org.openide.cookies.OpenCookie 
-     with org.openide.cookies.CloseCookie 
-     with COHandler {
+  ) extends OpenSupport(bd.getPrimaryEntry)
+    with OpenCookie 
+    with CloseCookie 
+    with COHandler {
 
-     private def load: IO[CTC] = for {
-       op ← ref.read
-       ps ← op.cata(_.η[IO], doLoad)
-     } yield ps._1
+    private def load: IO[CTC] = for {
+      op ← ref.read
+      ps ← op.cata(_.η[IO], doLoad)
+    } yield ps._1
 
     private def doLoad = c(this, bd) >>= (ps ⇒ ref write ps.some as ps)
 
@@ -158,8 +160,13 @@ object BeingLoader extends StateTransFunctions {
     
     protected def createCloneableTopComponent = load.unsafePerformIO()
 
-    def resolveCloseOperation(es: Array[COState]): Boolean =
-      doClose >> ref.write(None) >> IO(canClose) unsafePerformIO
+    override def resolveCloseOperation(es: Array[COState]): Boolean = true
+
+    override def close() = 
+      IO(super.close()) >>
+      IO.putStrLn("closing") >>
+      doClose >>
+      ref.write(None).as(true) unsafePerformIO
   }
 
   private def editorDesc (u: UndoRedo)(i: MVInfo) =
