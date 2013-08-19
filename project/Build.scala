@@ -33,7 +33,7 @@ object Dependencies {
   val direV = "0.1.0-SNAPSHOT"
   val efaNbV = "0.3.0-SNAPSHOT"
   val nbV = "RELEASE71"
-  val scalazV = "7.0.0"
+  val scalazV = "7.0.3"
 
   val nb = "org.netbeans.api"
   val util = "efa"
