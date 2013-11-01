@@ -1,3 +1,4 @@
+import scala.language.postfixOps
 import sbt._
 import Keys._
 
@@ -32,7 +33,7 @@ object Dependencies {
   val utilV = "0.2.2-SNAPSHOT"
   val direV = "0.1.0-SNAPSHOT"
   val efaNbV = "0.3.0-SNAPSHOT"
-  val nbV = "RELEASE71"
+  val nbV = "RELEASE74"
   val scalazV = "7.0.4"
 
   val nb = "org.netbeans.api"
