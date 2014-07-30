@@ -6,13 +6,13 @@ import org.scalacheck.Prop
 object DieRollerTest extends ReadProps[DieRoller]("DieRoller") {
   import DieRoller._
   
-  val L = scalaz.Lens.lensId[DieRoller]
+  val L = shapeless.lens[DieRoller]
 
-  property("valdateCount") = Prop forAll validated(L.count.set)(countVal)
+  property("valdateCount") = Prop forAll validatedL(L >> 'count)(countVal)
 
-  property("valdateDie") = Prop forAll validated(L.die.set)(dieVal)
+  property("valdateDie") = Prop forAll validatedL(L >> 'die)(dieVal)
 
-  property("valdatePlus") = Prop forAll validated(L.plus.set)(plusVal)
+  property("valdatePlus") = Prop forAll validatedL(L >> 'plus)(plusVal)
 }
 
 // vim: set ts=2 sw=2 et:

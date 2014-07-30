@@ -11,7 +11,7 @@ sealed trait EnumMap[K,V] extends Function1[K,V] {
 
   def map[W] (f: V ⇒ W): EnumMap[K,W]
 
-  def + (p: Pair[K,V]): EnumMap[K,V]
+  def + (p: (K,V)): EnumMap[K,V]
 
   def mod (k: K, f: V ⇒ V): EnumMap[K,V] = this + (k -> f(apply(k)))
 
@@ -40,7 +40,7 @@ object EnumMap extends EnumMapInstances0 {
   private case class Impl[K,V](m: Map[K,V]) extends EnumMap[K,V] {
     def apply (k: K) = m(k)
 
-    def + (p: Pair[K,V]): EnumMap[K,V] = Impl(m + p)
+    def + (p: (K,V)): EnumMap[K,V] = Impl(m + p)
 
     def map[W] (f: V ⇒ W): EnumMap[K,W] = Impl(m map {case (k,v) ⇒ (k, f(v))})
 
@@ -114,7 +114,9 @@ abstract class EnumMaps[K:RpgEnum,V:Show:Equal:Read] {
   
     
     def entries = s split delim toList
-    def allVs = validateSize (entries) flatMap (_ traverse readV)
+
+    import Validation.FlatMap._
+    def allVs = validateSize(entries) flatMap (_ traverse readV)
 
     allVs ∘ (vs ⇒ EnumMap fromMap (ks zip vs toMap))
   }

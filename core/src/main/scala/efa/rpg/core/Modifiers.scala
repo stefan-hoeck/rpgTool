@@ -30,7 +30,7 @@ sealed trait Modifiers {
 
 object Modifiers {
 
-  def apply (ps: Pair[ModifierKey, List[Modifier]]*): Modifiers =
+  def apply (ps: (ModifierKey, List[Modifier])*): Modifiers =
     Impl(Map(ps:_*))
 
   lazy val empty: Modifiers = Impl(Map.empty)

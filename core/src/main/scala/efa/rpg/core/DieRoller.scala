@@ -70,11 +70,9 @@ object DieRoller {
     }
   }
 
-  implicit val DRIso = Iso.hlist(DieRoller.apply _, DieRoller.unapply _)
-
   implicit lazy val DieRollerDefault = Default default default
 
-  implicit val DieRollerEqual: Equal[DieRoller] = ccEqual
+  implicit val DieRollerEqual = deriveEqual[DieRoller]
 
   implicit val DieRollerShow: Show[DieRoller] = Show shows (_.toString)
 
@@ -93,21 +91,6 @@ object DieRoller {
   }
 
   private lazy val rnd = new Random
-
-  //Lenses
-  val Lenses = SLens[DieRoller]
-  
-  implicit class DieRollerLenses[A](val l: A @> DieRoller) extends AnyVal {
-    def count = l >=> Lenses.at(_0)
-    def die = l >=> Lenses.at(_1)
-    def plus = l >=> Lenses.at(_2)
-  }
-  
-  implicit class DieRollerLensesP[A](val l: A @?> DieRoller) extends AnyVal {
-    def count = l >=> ~Lenses.at(_0)
-    def die = l >=> ~Lenses.at(_1)
-    def plus = l >=> ~Lenses.at(_2)
-  }
 }
 
 // vim: set ts=2 sw=2 et:

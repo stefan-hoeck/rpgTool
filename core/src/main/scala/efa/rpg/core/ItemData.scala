@@ -1,6 +1,7 @@
 package efa.rpg.core
 
 import efa.core.{ToXml, Efa, Default, UniqueIdL, NamedL}, Efa._
+import efa.core.syntax.{StringOps, NodeSeqOps}
 import org.scalacheck.{Arbitrary, Gen}, Arbitrary.arbitrary
 import scala.xml.Node
 import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._
@@ -31,7 +32,7 @@ object ItemData {
   
   implicit lazy val ItemDataDefault = Default default default
 
-  implicit lazy val ItemDataEqual = Equal.equalA[ItemData]
+  implicit lazy val ItemDataEqual = deriveEqual[ItemData]
 
   implicit lazy val ItemDataToXml = new ToXml[ItemData] {
     def fromXml (ns: Seq[Node]) =
