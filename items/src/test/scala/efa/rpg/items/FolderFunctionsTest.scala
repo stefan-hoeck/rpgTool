@@ -1,6 +1,7 @@
 package efa.rpg.items
 
 import efa.core._, Efa._
+import efa.core.syntax.{string, nodeSeq}
 import org.scalacheck._, Arbitrary._, Prop._
 import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._
 

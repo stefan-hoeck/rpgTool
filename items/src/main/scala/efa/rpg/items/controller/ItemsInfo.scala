@@ -5,7 +5,7 @@ package efa.rpg.items.controller
  * files where RpgItems are stored and the corresponding RpgItems signal.
  */
 import dire.SIn 
-import efa.core.syntax.lookup._
+import efa.core.syntax.lookup
 import efa.nb.controller.SavableInfo
 import efa.rpg.items.spi.ItemsInfoProvider
 import org.openide.nodes.{Node, AbstractNode, Children}

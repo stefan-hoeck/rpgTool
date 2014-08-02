@@ -1,5 +1,6 @@
 package efa.rpg.core
 
+import efa.core.Default
 import scalaz._, Scalaz._
 
 sealed trait Modifiers {
@@ -41,6 +42,8 @@ object Modifiers {
     val zero = empty
     def append (a: Modifiers, b: ⇒ Modifiers) = a append b
   }
+
+  implicit lazy val ModifierDefault = Default.monoid[Modifiers]
 
   implicit class ModLens[A](val l: A @> Modifiers) extends AnyVal {
     def modMods (k: ModifierKey, f: List[Modifier] ⇒ List[Modifier])

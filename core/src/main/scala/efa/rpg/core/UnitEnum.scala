@@ -1,7 +1,7 @@
 package efa.rpg.core
 
 import efa.core._, Efa._
-import efa.core.syntax.StringOps
+import efa.core.syntax.string
 import scalaz._, Scalaz._
 
 trait UnitEnum[A] extends LocEnum[A] {

@@ -1,6 +1,7 @@
 package efa.rpg.items.controller
 
 import efa.core._, Efa._
+import efa.core.syntax.lookup
 import efa.nb.node.{NodeOut, NbChildren, NbNode ⇒ N, PasteType}, NbChildren._
 import efa.rpg.items._
 import efa.rpg.core.RpgItem
@@ -10,18 +11,16 @@ import scalaz._, Scalaz._, effect.IO
 
 object FolderNode {
   implicit def ItemPairUniqueId[A:RpgItem] =
-    UniqueId.get[ItemPair[A],Int](p ⇒ RpgItem[A] id p._1)
+    UniqueId.contramap{ p: ItemPair[A] ⇒ p._1 }
 
   implicit def FolderPairUniqueId[A] =
-    UniqueId.get[FolderPair[A],Int](p ⇒ FF.id[A] get p._1)
-
-  type OutOnly[-A] = NodeOut[FolderPair[A],Nothing]
+    UniqueId.contramap{ p: FolderPair[A] ⇒ p._1 }
 
   type FFactory[A] = NbChildren.Factory[FolderPair[A],VSt[A]]
 
-  def name[A]: OutOnly[A] = N name (FF.name[A] get _._1)
+  def name[A]: FullOut[A] = N name (FF.name[A] get _._1)
 
-  def contextRoot[A](isRoot: Boolean): OutOnly[A] = {
+  def contextRoot[A](isRoot: Boolean): FullOut[A] = {
     val path =
       "ContextActions/ItemFolderNode/" + (isRoot ? "Root" | "Branch")
 
@@ -49,7 +48,7 @@ object FolderNode {
     n setPasters List(paster)
   })
 
-  def itemFactory[A:RpgItem](out: ItemNodes.FullOut[A]): FFactory[A] =
+  def itemFactory[A:RpgItem](out: ItemNodes.PairOut[A]): FFactory[A] =
     leavesF(out)(FF.folderPairToItems[A])
 
   def folderFactory[A] (out: FullOut[A]): FFactory[A] =
@@ -67,7 +66,7 @@ object FolderNode {
   def folderNt[A:Equal]: FullOut[A] = N.addNtE
 
   def defaultOut[A:Manifest:RpgItem:Equal:IEditable] (
-    nodeOut: ItemNodes.FullOut[A], templates: List[A]
+    nodeOut: ItemNodes.PairOut[A], templates: List[A]
   ): FullOut[A] = {
     val ntOut: FullOut[A] =
       (N.clearNt: FullOut[A]) ⊹ folderNt ⊹ itemsNt(templates)

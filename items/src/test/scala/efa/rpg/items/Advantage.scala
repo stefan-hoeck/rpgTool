@@ -2,6 +2,7 @@ package efa.rpg.items
 
 import dire.swing._, Swing._
 import efa.core._, Efa._
+import efa.core.syntax.{string,nodeSeq}
 import efa.nb.dialog.{DialogEditable, DEInfo}
 import efa.rpg.core.{RpgItem, RpgItemLike, RpgItemLikes, ItemData}
 import efa.rpg.items.controller.{ItemPanelFunctions, editable}

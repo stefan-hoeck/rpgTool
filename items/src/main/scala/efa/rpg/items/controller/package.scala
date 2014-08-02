@@ -5,7 +5,7 @@ import dire.swing._, Swing._
 import efa.core.{ValRes, ValSt}
 import efa.nb.dialog.{DialogEditable, DEInfo}
 import efa.nb.node.NodeOut
-import efa.rpg.core.RpgItem
+import efa.rpg.core.{RpgItem, Described}
 import scalaz._, Scalaz._, scalaz.effect.IO
 
 package object controller {
@@ -45,7 +45,7 @@ package object controller {
     name ← TextField(text := loc.folder)
     elem = Elem(efa.core.loc.name) beside name prefWidth 400
     in   = name.in >=> validate(FolderFunctions.nameVal ∘
-             { IState.addFolder(p._1,_).success })
+             { IState.addFolder(p._1,_).success[NonEmptyList[String]] })
   } yield (elem, in)
 }
 

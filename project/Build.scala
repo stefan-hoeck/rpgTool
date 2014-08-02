@@ -41,7 +41,7 @@ object Dependencies {
   import BuildSettings.sv  
 
   val direV                = "0.2.0-SNAPSHOT"
-  val efaNbV               = "0.3.1-SNAPSHOT"
+  val efaNbV               = "0.3.2-SNAPSHOT"
   val nbV                  = "RELEASE80"
   val scalacheckV          = "1.11.4"
   val scalazV              = "7.1.0-RC2"
@@ -100,7 +100,7 @@ object UtilBuild extends Build {
     "rpg",
     file("."),
     settings = buildSettings
-  ) aggregate(preferences, core, describedPanel) //(being, explorer, items,
+  ) aggregate(preferences, core, describedPanel, items) //(being, explorer
               //rules, rulesUI)
   
   lazy val core = Project (

@@ -1,6 +1,7 @@
 package efa.rpg.items
 
 import efa.core.{Folder, EndoVal, Validators, Default}
+import efa.core.Shapeless._
 import efa.rpg.core.{RpgItem, DB}
 import scalaz._, Scalaz._
 
@@ -116,8 +117,7 @@ object IState extends FolderFunctions {
     Validators.uniqueString(names, efa.core.loc.name)
   }
   
-  implicit def IStateEqual[A:Equal]: Equal[IState[A]] = 
-    Equal.equalBy (s ⇒ (s.root, s.map, s.folderId, s.itemId))
+  implicit def IStateEqual[A:Equal] = deriveEqual[IState[A]]
 
   implicit def IStateDefault[A:RpgItem]: Default[IState[A]] = 
     Default default fromFolder[A](emptyFolder)

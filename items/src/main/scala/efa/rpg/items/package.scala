@@ -8,13 +8,13 @@ package object items {
 
   lazy val loc = Service.unique[ItemsLocal](ItemsLocal)
 
-  type NameFolder[+A] = Folder[A,String]
+  type NameFolder[A] = Folder[A,String]
 
-  type IFolder[+A] = Folder[A,(String, Int)]
+  type IFolder[A] = Folder[A,(String, Int)]
 
-  type ItemPair[+A] = (A,IState[A])
+  type ItemPair[A] = (A,IState[A])
 
-  type FolderPair[+A] = (IFolder[A],IState[A])
+  type FolderPair[A] = (IFolder[A],IState[A])
 
   def emptyFolder[A]: Folder[A,String] =
     Folder(Stream.empty, Stream.empty, loc.folder)

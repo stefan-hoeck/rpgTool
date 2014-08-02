@@ -2,6 +2,7 @@ package efa.rpg.items.controller
 
 import dire.{SIn, SF, Out}
 import efa.core._, Efa._
+import efa.core.syntax.lookup
 import efa.nb.node.{NbNode, NodeOut}
 import efa.rpg.items._
 import efa.rpg.core.{HtmlDesc}

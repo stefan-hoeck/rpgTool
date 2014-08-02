@@ -1,7 +1,7 @@
 package efa.rpg.core.specs
 
 import efa.core.{ValRes, Efa, Validator}
-import efa.core.syntax.StringOps
+import efa.core.syntax.string
 import efa.rpg.core.{UnitEnum, RpgEnumSpecs}
 import org.scalacheck.{Prop, Arbitrary}
 import scalaz._, Scalaz._

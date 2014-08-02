@@ -8,39 +8,40 @@ import efa.rpg.items._
 import scalaz._, Scalaz._
 
 trait ItemNodeFunctions {
-  type OutOnly[-A] = NodeOut[A,Nothing]
+  type ItemOut[A] = NodeOut[A,VSt[A]]
 
-  type FullOut[A] = NodeOut[ItemPair[A],VSt[A]]
+  type PairOut[A] = NodeOut[ItemPair[A],VSt[A]]
 
-  def name[A:RpgItem]: OutOnly[A] = N.named
+  def name[A:RpgItem]: ItemOut[A] = N.named
 
-  def desc[A:RpgItem]: OutOnly[A] = N.described
+  def desc[A:RpgItem]: ItemOut[A] = N.described
 
-  def htmlDesc[A:RpgItem]: OutOnly[A] = N.cookie[HtmlDesc] ∙ rpg.htmlDesc
+  def htmlDesc[A:RpgItem]: ItemOut[A] =
+    N.cookie[HtmlDesc,VSt[A]] ∙ rpg.htmlDesc
 
-  def item[A:Manifest]: OutOnly[A] = N.cookie
+  def item[A:Manifest]: ItemOut[A] = N.cookie
 
-  def contextRoot[A](implicit M: Manifest[A]): OutOnly[A] = {
+  def contextRoot[A](implicit M: Manifest[A]): ItemOut[A] = {
     val cn = M.runtimeClass.getCanonicalName replace (".", "-")
     val base = "ContextActions/RpgItemNode/"
 
     N contextRootsA List(base + "All", base + cn)
   }
 
-  def delete[A:Equal:RpgItem]: FullOut[A] =
+  def delete[A:Equal:RpgItem]: PairOut[A] =
     N destroyEs IState.deleteItem[A] contramap (_._1)
 
   def rename[A:Equal:RpgItem] (v: ItemPair[A] ⇒ EndoVal[String])
-    : FullOut[A] =
+    : PairOut[A] =
     N renameEs IState.renameItem[A] contramap (p ⇒ (p._1, v(p)))
 
-  def renameDefault[A:Equal:RpgItem]: FullOut[A] =
+  def renameDefault[A:Equal:RpgItem]: PairOut[A] =
     rename(IState.nameVal[A](false))
 
-  def edit[A:Equal:RpgItem:IEditable]: FullOut[A] =
+  def edit[A:Equal:RpgItem:IEditable]: PairOut[A] =
     N editS IState.updateItem[A]
 
-  def defaultOut[A:Manifest:Equal:RpgItem:IEditable]: FullOut[A] =
+  def defaultOut[A:Manifest:Equal:RpgItem:IEditable]: PairOut[A] =
     renameDefault[A] ⊹ edit ⊹ delete ⊹ 
     (name ⊹ desc ⊹ contextRoot ⊹ htmlDesc ⊹ item).contramap(_._1)
 }

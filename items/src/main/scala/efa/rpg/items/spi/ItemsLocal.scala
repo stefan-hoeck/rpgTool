@@ -1,7 +1,8 @@
 package efa.rpg.items.spi
 
 import efa.core.DisRes
-import scalaz.syntax.id._
+import scalaz.syntax.either._
+import scalaz.syntax.nel._
 
 trait ItemsLocal {
   def exists (n: String): String

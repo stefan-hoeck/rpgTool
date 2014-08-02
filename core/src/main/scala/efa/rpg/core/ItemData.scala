@@ -1,7 +1,7 @@
 package efa.rpg.core
 
 import efa.core.{ToXml, Efa, Default, UniqueIdL, NamedL}, Efa._
-import efa.core.syntax.{StringOps, NodeSeqOps}
+import efa.core.syntax.{string, nodeSeq}
 import org.scalacheck.{Arbitrary, Gen}, Arbitrary.arbitrary
 import scala.xml.Node
 import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._

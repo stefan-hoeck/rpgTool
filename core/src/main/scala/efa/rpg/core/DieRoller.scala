@@ -3,13 +3,12 @@ package efa.rpg.core
 import efa.core._, Efa._
 import scala.util.Random
 import scalaz._, Scalaz._
-import shapeless._, HList._, Nat._
 
 case class DieRoller(count: Int, die: Int, plus: Int) {
   import DieRoller._
-  require (countVal(count).isRight)
-  require (dieVal(die).isRight)
-  require (plusVal(plus).isRight)
+  require(countVal(count).isRight)
+  require(dieVal(die).isRight)
+  require(plusVal(plus).isRight)
   
   //def roll = {
   //  def roll1(cnt: Int, sum: Int): Int = cnt match {

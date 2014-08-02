@@ -3,6 +3,7 @@ package efa.rpg.items
 import scalaz._, Scalaz._
 import collection.generic.Subtractable
 import efa.core._, Efa._
+import efa.core.syntax.{string, nodeSeq}
 import efa.rpg.core.RpgItem
 import scala.xml.{Node, Attribute, Null, Text, MetaData}
 
@@ -34,7 +35,7 @@ trait FolderFunctions {
     folders get p._1 sortBy name[A].get map ((_, p._2)) toList
 
   val nameVal: Validator[String,String] =
-    Validators.notEmptyString >=> Validators.maxStringLength (100)
+    Validators.notEmptyString >=> Validators.maxStringLength(100)
 
   def itemToFolder[A] (a: A): NameFolder[A] =
     Folder(Stream(a), Stream.empty, loc.folder)

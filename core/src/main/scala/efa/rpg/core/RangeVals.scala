@@ -1,7 +1,7 @@
 package efa.rpg.core
 
 import efa.core._, Efa._
-import efa.core.syntax.{StringOps, NodeSeqOps}
+import efa.core.syntax.{string, nodeSeq}
 import scala.xml.Node
 import org.scalacheck.Gen
 

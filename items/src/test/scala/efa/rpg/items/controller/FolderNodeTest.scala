@@ -14,7 +14,7 @@ object FolderNodeTest
    with TreeFunctions 
    with dire.util.TestFunctions {
 
-  lazy val advOut: ItemNodes.FullOut[Advantage] =
+  lazy val advOut: ItemNodes.PairOut[Advantage] =
     ItemNodes.name[Advantage] ∙ (_._1)
 
   property("name") = forAll { s: IState[Advantage] ⇒ 
