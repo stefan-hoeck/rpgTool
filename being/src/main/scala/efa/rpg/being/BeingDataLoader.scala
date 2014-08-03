@@ -111,7 +111,7 @@ object BeingLoader extends StateTransFunctions {
 
       //RuleWorld
       def calcRW(b: B, w: RuleWorld): C = w._2 apply calc(b, w._1)
-      def sinRW = ^(world, RuleSettings endoIn rs)(Pair.apply)
+      def sinRW = ^(world, RuleSettings endoIn rs)(Tuple2.apply)
 
       //Display name in view and and set being at data object's lookup
       def displayOut: Out[C] = c ⇒ IO(ctc.setDisplayName(Described[C] name c))

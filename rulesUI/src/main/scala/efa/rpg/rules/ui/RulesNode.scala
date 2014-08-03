@@ -9,15 +9,15 @@ object RulesNode {
 
   lazy val root: Node = (for {
     n ← N()
-    _ ← efa.nb.NbSystem forever (RuleSettings.in >=> folderOut.sf(n))
+    _ ← efa.nb.NbSystem.forever(RuleSettings.in >=> folderOut.sf(n))
   } yield n).unsafePerformIO()
 
-  type NOut[-A] = NodeOut[A,Nothing]
+  type NOut[A] = NodeOut[A,Any]
   type FolderOut = NOut[RulesFolder]
-  type Fac[-A] = Factory[A,Nothing]
+  type Fac[A] = Factory[A,Any]
   
   lazy val settingOut: NOut[RuleSetting] =
-    N.named[RuleSetting] ⊹
+    (N.named: NOut[RuleSetting]) ⊹
     N.described ⊹
     N.contextRootsA (List("ContextActions/RuleNode")) ⊹
     activeIcon ⊹
@@ -25,15 +25,15 @@ object RulesNode {
 
   lazy val folderOut: FolderOut = {
     val rest: FolderOut =
-      N.named[RulesFolder] ⊹
+      (N.named: FolderOut) ⊹
       N.contextRootsA (List("ContextActions/RulesFolderNode")) ⊹
       activeIcon ⊹
       enable
 
-    val settingsF: Factory[RulesFolder,Nothing] =
+    val settingsF: Factory[RulesFolder,Any] =
       uidF(settingOut){ r: RulesFolder ⇒ r.data }
 
-    lazy val foldersF: Factory[RulesFolder,Nothing] =
+    lazy val foldersF: Factory[RulesFolder,Any] =
       uidF(allOut){ r: RulesFolder ⇒ r.folders }
 
     lazy val chld: FolderOut = children(foldersF, settingsF)
@@ -43,15 +43,17 @@ object RulesNode {
     allOut
   }
 
-  private def activeIcon[A:ActiveL]: NodeOut[A,Nothing] =
+  private def activeIcon[A:ActiveL]: NodeOut[A,Any] =
     N.iconBase ∙ (
       ActiveL[A].active(_) ?
       "efa/rpg/rules/ui/activerule.png" |
       "efa/rpg/rules/ui/inactiverule.png"
     )
 
-  private def enable[A:ActiveL]: NodeOut[A,Nothing] =
-    N.cookie[EnableCookie] ∙ {a: A ⇒ EnableCookie(ActiveL[A] activate a)}
+  private def enable[A:ActiveL]: NodeOut[A,Any] =
+    N.cookie[EnableCookie,Any] ∙ { a: A ⇒
+      EnableCookie(ActiveL[A] activate a)
+    }
 }
 
 // vim: set ts=2 sw=2 et:

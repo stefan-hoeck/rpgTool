@@ -21,7 +21,7 @@ object RuleSettings {
   def mod(f: RulesFolder ⇒ RulesFolder): IO[Unit] = rfVar mod f
 
   def endoIn[A](rs: List[Rule[A]]): SIn[Endo[A]] =
-    actives map (ns ⇒ rs foldMap (_ endo ns))
+    actives map (ns ⇒ Tag.unwrap(rs foldMap (_ endo ns)))
 
   private[this] def load: IO[RulesFolder] = {
     def merge (fs: Seq[LocFolder]): Stream[LocFolder] = {
