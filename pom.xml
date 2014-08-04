@@ -30,6 +30,10 @@
     </dependency>
     <dependency>
       <groupId>efa.nb</groupId>
+      <artifactId>scalaParserW</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>efa.nb</groupId>
       <artifactId>scalazW</artifactId>
     </dependency>
     <dependency>
@@ -58,6 +62,11 @@
         <groupId>efa.nb</groupId>
         <artifactId>scalaXmlW</artifactId>
         <version>${scalaXml.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.nb</groupId>
+        <artifactId>scalaParserW</artifactId>
+        <version>${scalaParser.version}</version>
       </dependency>
       <dependency>
         <groupId>efa.nb</groupId>
@@ -138,6 +147,7 @@
   <properties>
     <scala.version>2.11.2</scala.version>
     <scalaXml.version>1.0.2</scalaXml.version>
+    <scalaParser.version>1.0.2</scalaParser.version>
     <scalaz.version>7.1.0</scalaz.version>
     <shapeless.version>2.0.0</shapeless.version>
     <scalacheck.version>1.11.4</scalacheck.version>
