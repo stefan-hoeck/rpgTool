@@ -11,6 +11,8 @@ import org.scalacheck._, Prop._
 import scalaz._, Scalaz._, effect._
 
 object XmlSaverTest extends Properties("XmlSaver") {
+  val unit: Unit = ()
+
   property("prefs_registered") = service.isInstanceOf[TestPrefs]
 
   val dataPath = service.dataPath + "/Advantages.data"
@@ -45,7 +47,7 @@ object XmlSaverTest extends Properties("XmlSaver") {
       dataLoaded  = (data ≟ default) :| "data loaded"
       dataCopied  ← dataPath.file map (_.exists :| "data copied")
       save        ← saver saver f
-      saved       = (save ≟ ()) :| "data saved"
+      saved       = (save ≟ unit) :| "data saved"
       reload      ← saver.dataLoader
       reloaded    = (reload ≟ f) :| "data loaded"
       ts          ← saver.templatesLoader
