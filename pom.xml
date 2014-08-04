@@ -5,12 +5,12 @@
   <parent>
     <artifactId>nb</artifactId>
     <groupId>efa.mvn</groupId>
-    <version>7.4.0</version>
+    <version>8.0.0</version>
   </parent>
 
   <groupId>efa</groupId>
   <artifactId>rpg</artifactId>
-  <version>1.1.0-SNAPSHOT</version>
+  <version>1.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>rpg</name>
@@ -23,6 +23,10 @@
     <dependency>
       <groupId>efa.nb</groupId>
       <artifactId>scalaReflectW</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>efa.nb</groupId>
+      <artifactId>scalaXmlW</artifactId>
     </dependency>
     <dependency>
       <groupId>efa.nb</groupId>
@@ -49,6 +53,11 @@
         <groupId>efa.nb</groupId>
         <artifactId>scalaReflectW</artifactId>
         <version>${scala.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efa.nb</groupId>
+        <artifactId>scalaXmlW</artifactId>
+        <version>${scalaXml.version}</version>
       </dependency>
       <dependency>
         <groupId>efa.nb</groupId>
@@ -127,21 +136,22 @@
   </modules>
 
   <properties>
-    <scala.version>2.10.3</scala.version>
-    <scalaz.version>7.0.4</scalaz.version>
-    <shapeless.version>1.2.3</shapeless.version>
-    <scalacheck.version>1.10.0</scalacheck.version>
-    <util.version>0.2.2-SNAPSHOT</util.version>
-    <nb.version>0.3.0-SNAPSHOT</nb.version>
-    <dire.version>0.1.0-SNAPSHOT</dire.version>
-    <core.version>1.1.0-SNAPSHOT</core.version>
-    <preferences.version>1.1.0-SNAPSHOT</preferences.version>
-    <explorer.version>1.1.0-SNAPSHOT</explorer.version>
-    <items.version>1.1.0-SNAPSHOT</items.version>
-    <describedPanel.version>1.1.0-SNAPSHOT</describedPanel.version>
-    <being.version>1.1.0-SNAPSHOT</being.version>
-    <rules.version>1.1.0-SNAPSHOT</rules.version>
-    <rulesUI.version>1.1.0-SNAPSHOT</rulesUI.version>
+    <scala.version>2.11.2</scala.version>
+    <scalaXml.version>1.0.2</scalaXml.version>
+    <scalaz.version>7.1.0</scalaz.version>
+    <shapeless.version>2.0.0</shapeless.version>
+    <scalacheck.version>1.11.4</scalacheck.version>
+    <util.version>0.2.3-SNAPSHOT</util.version>
+    <nb.version>0.3.2-SNAPSHOT</nb.version>
+    <dire.version>0.2.0-SNAPSHOT</dire.version>
+    <core.version>1.2.0-SNAPSHOT</core.version>
+    <preferences.version>1.2.0-SNAPSHOT</preferences.version>
+    <explorer.version>1.2.0-SNAPSHOT</explorer.version>
+    <items.version>1.2.0-SNAPSHOT</items.version>
+    <describedPanel.version>1.2.0-SNAPSHOT</describedPanel.version>
+    <being.version>1.2.0-SNAPSHOT</being.version>
+    <rules.version>1.2.0-SNAPSHOT</rules.version>
+    <rulesUI.version>1.2.0-SNAPSHOT</rulesUI.version>
   </properties>
 </project>
 
