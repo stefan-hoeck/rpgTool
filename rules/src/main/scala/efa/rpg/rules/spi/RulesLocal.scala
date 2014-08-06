@@ -1,10 +1,14 @@
 package efa.rpg.rules.spi
 
+import efa.core.Default
+
 trait RulesLocal {
   def rules: String
 }
 
 object RulesLocal extends RulesLocal {
+  implicit val defImpl: Default[RulesLocal] = Default.default(this)
+
   def rules = "Regeln"
 }
 

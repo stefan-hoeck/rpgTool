@@ -76,7 +76,7 @@ object ItemController {
   ): IO[ItemController[I]] = 
     create(saver, nodeOut, ioLog, valLog, isTest)
 
-  def default[I:RpgItem:Equal:ToXml:Manifest:IEditable](
+  def default[I:RpgItem:Equal:ToXml:Unerased:IEditable](
     fileName: String, lblName: String, cl: Class[_], isTest: Boolean)
   : IO[ItemController[I]] = {
     val saver = xmlSaver[I](fileName, lblName, cl)

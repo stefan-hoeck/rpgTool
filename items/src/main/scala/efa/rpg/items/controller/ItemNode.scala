@@ -19,10 +19,10 @@ trait ItemNodeFunctions {
   def htmlDesc[A:RpgItem]: ItemOut[A] =
     N.cookie[HtmlDesc,VSt[A]] ∙ rpg.htmlDesc
 
-  def item[A:Manifest]: ItemOut[A] = N.cookie
+  def item[A:Unerased]: ItemOut[A] = N.cookie
 
-  def contextRoot[A](implicit M: Manifest[A]): ItemOut[A] = {
-    val cn = M.runtimeClass.getCanonicalName replace (".", "-")
+  def contextRoot[A](implicit M: Unerased[A]): ItemOut[A] = {
+    val cn = M.clazz.getCanonicalName replace (".", "-")
     val base = "ContextActions/RpgItemNode/"
 
     N contextRootsA List(base + "All", base + cn)
@@ -41,7 +41,7 @@ trait ItemNodeFunctions {
   def edit[A:Equal:RpgItem:IEditable]: PairOut[A] =
     N editS IState.updateItem[A]
 
-  def defaultOut[A:Manifest:Equal:RpgItem:IEditable]: PairOut[A] =
+  def defaultOut[A:Unerased:Equal:RpgItem:IEditable]: PairOut[A] =
     renameDefault[A] ⊹ edit ⊹ delete ⊹ 
     (name ⊹ desc ⊹ contextRoot ⊹ htmlDesc ⊹ item).contramap(_._1)
 }

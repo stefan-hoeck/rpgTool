@@ -6,7 +6,7 @@ import scalaz._, Scalaz._
 import shapeless.{Lens ⇒ _, _}
 
 package object rules {
-  lazy val loc = Service.unique[RulesLocal](RulesLocal)
+  lazy val loc = Service.unique[RulesLocal]
 
   type LocFolder = Folder[Localization,String]
 

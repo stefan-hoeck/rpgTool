@@ -10,7 +10,7 @@ import org.openide.nodes.Node
 import scalaz.effect.IO
 
 package object explorer {
-  lazy val loc = Service.unique[ExplorerLoc](ExplorerLoc)
+  lazy val loc = Service.unique[ExplorerLoc]
 
   type ExplorerParams = OutlineNb
 

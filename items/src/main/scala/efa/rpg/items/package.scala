@@ -6,7 +6,7 @@ import efa.rpg.items.spi.ItemsLocal
 
 package object items {
 
-  lazy val loc = Service.unique[ItemsLocal](ItemsLocal)
+  lazy val loc = Service.unique[ItemsLocal]
 
   type NameFolder[A] = Folder[A,String]
 

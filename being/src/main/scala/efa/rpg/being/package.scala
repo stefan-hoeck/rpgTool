@@ -14,7 +14,7 @@ import org.netbeans.core.spi.multiview._
 import scalaz._, Scalaz._, effect.IO
 
 package object being {
-  lazy val loc = Service.unique[BeingLocal](BeingLocal)
+  lazy val loc = Service.unique[BeingLocal]
 
   type CTC = CloneableTopComponent
 

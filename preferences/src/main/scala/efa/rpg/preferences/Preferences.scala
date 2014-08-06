@@ -8,7 +8,7 @@ import org.openide.filesystems.{FileObject, FileUtil}
 import scalaz._, Scalaz._, effect.IO
 
 object Preferences {
-  lazy val service = Service.unique[PreferencesProvider](PreferencesProvider)
+  lazy val service = Service.unique[PreferencesProvider]
 
   def beingFolder: LogDisIO[File] = mkdirs(service.beingPath)
 

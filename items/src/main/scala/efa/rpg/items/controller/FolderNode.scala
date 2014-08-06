@@ -35,7 +35,7 @@ object FolderNode {
 
   def renameDefault[A:Equal]: FullOut[A] = rename(_ ⇒ FF.nameVal)
 
-  def copy[A:Manifest:RpgItem:Equal]: FullOut[A] = NodeOut((o, n) ⇒ p ⇒ {
+  def copy[A:Unerased:RpgItem:Equal]: FullOut[A] = NodeOut((o, n) ⇒ p ⇒ {
     def adjust (pt: PasteType)(a: A): IO[Unit] = pt match {
       case PasteType.Cut  ⇒ o (IState moveItem (p._1, a) success)
       case PasteType.Move ⇒ o (IState moveItem (p._1, a) success)
@@ -65,7 +65,7 @@ object FolderNode {
 
   def folderNt[A:Equal]: FullOut[A] = N.addNtE
 
-  def defaultOut[A:Manifest:RpgItem:Equal:IEditable] (
+  def defaultOut[A:Unerased:RpgItem:Equal:IEditable] (
     nodeOut: ItemNodes.PairOut[A], templates: List[A]
   ): FullOut[A] = {
     val ntOut: FullOut[A] =

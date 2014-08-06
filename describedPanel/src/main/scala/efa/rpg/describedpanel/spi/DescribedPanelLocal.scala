@@ -1,5 +1,7 @@
 package efa.rpg.describedpanel.spi
 
+import efa.core.Default
+
 trait DescribedPanelLocal {
   def describedAction: String
   def describedTcName: String
@@ -7,6 +9,7 @@ trait DescribedPanelLocal {
 }
 
 object DescribedPanelLocal extends DescribedPanelLocal {
+  implicit val defImpl: Default[DescribedPanelLocal] = Default.default(this)
   def describedAction = "Detailansicht"
   def describedTcName = "Detailansicht"
   def describedTcHint = "Zeigt detailierte Informationen zu " ++

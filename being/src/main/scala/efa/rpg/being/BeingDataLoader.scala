@@ -70,7 +70,7 @@ abstract class BeingLoader(ext: String, mime: String, c: Controller)
 object BeingLoader extends StateTransFunctions {
   private val PropExtensions = UniFileLoader.PROP_EXTENSIONS
 
-  def default[B:Equal:Default:TaggedToXml,C:Manifest:Described,W] (
+  def default[B:Equal:Default:TaggedToXml,C:Unerased:Described,W] (
     info: IO[UIInfo[B,C]],
     world: SIn[W],
     calc: (B,W) ⇒ C,
@@ -94,7 +94,7 @@ object BeingLoader extends StateTransFunctions {
    * W is the changeable state of the world that is relevant for
    * calculating beings of type C. 
    */
-  def controller[B:Equal:Default,C:Manifest:Described,W] (
+  def controller[B:Equal:Default,C:Unerased:Described,W] (
     info: IO[UIInfo[B,C]],
     world: SIn[W],
     calc: (B,W) ⇒ C,

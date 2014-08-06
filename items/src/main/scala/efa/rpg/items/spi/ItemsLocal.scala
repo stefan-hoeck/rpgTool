@@ -1,6 +1,6 @@
 package efa.rpg.items.spi
 
-import efa.core.DisRes
+import efa.core.{DisRes, Default}
 import scalaz.syntax.either._
 import scalaz.syntax.nel._
 
@@ -16,6 +16,7 @@ trait ItemsLocal {
 }
 
 object ItemsLocal extends ItemsLocal {
+  implicit val defImpl: Default[ItemsLocal] = Default.default(this)
 
   def exists (n: String): String = "Name bereits vorhanden: " + n
 

@@ -1,5 +1,6 @@
 package efa.rpg.preferences.spi
 
+import efa.core.Default
 import efa.io.LoggerIO
 
 trait PreferencesProvider {
@@ -24,6 +25,7 @@ trait PreferencesProvider {
 }
 
 object PreferencesProvider extends PreferencesProvider {
+  implicit val defImpl: Default[PreferencesProvider] = Default.default(this)
   private val rpg = ".rpgToolZ"
 
   val rootFolder = home + fs + rpg

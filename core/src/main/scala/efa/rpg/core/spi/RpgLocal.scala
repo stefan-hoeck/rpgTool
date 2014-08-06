@@ -1,6 +1,6 @@
 package efa.rpg.core.spi
 
-import efa.core.Localization
+import efa.core.{Localization, Default}
 
 trait RpgLocal {
 
@@ -28,6 +28,8 @@ trait RpgLocal {
 }
 
 object RpgLocal extends RpgLocal {
+  implicit val defImpl: Default[RpgLocal] = Default.default(this)
+
   def maleName = "männlich"
 
   def maleShort = "M"

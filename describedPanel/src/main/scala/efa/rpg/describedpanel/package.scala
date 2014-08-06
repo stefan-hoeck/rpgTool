@@ -5,7 +5,7 @@ import efa.rpg.describedpanel.spi.DescribedPanelLocal
 import javax.swing.JScrollPane
 
 package object describedpanel {
-  lazy val loc = Service.unique[DescribedPanelLocal](DescribedPanelLocal)
+  lazy val loc = Service.unique[DescribedPanelLocal]
 
   type Page = (String, JScrollPane)
 }

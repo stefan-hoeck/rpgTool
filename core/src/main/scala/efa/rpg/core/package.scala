@@ -5,7 +5,7 @@ import efa.rpg.core.spi.RpgLocal
 import scalaz._, Scalaz._
 
 package object core {
-  lazy val loc = Service.unique[RpgLocal](RpgLocal)
+  lazy val loc = Service.unique[RpgLocal]
 
   type DB[+A] = Map[Int,A]
 

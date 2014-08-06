@@ -1,6 +1,6 @@
 package efa.rpg.items.controller
 
-import efa.core.ToXml
+import efa.core.{ToXml, Unerased}
 import efa.rpg.core.RpgItem
 import scalaz.Equal
 
@@ -26,7 +26,7 @@ trait Factory {
 
   private[items] def setTest(b: Boolean) { isTest.set(b) }
 
-  def singleton[A:RpgItem:Equal:ToXml:Manifest:IEditable](
+  def singleton[A:RpgItem:Equal:ToXml:Unerased:IEditable](
     p: (String, String)): ItemController[A] =
     ItemController.default[A](p._1, p._2, clazz, isTest.get).unsafePerformIO()
 }
