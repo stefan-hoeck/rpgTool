@@ -41,7 +41,7 @@ object Dependencies {
   import BuildSettings.sv  
 
   val direV                = "0.2.0-SNAPSHOT"
-  val efaNbV               = "0.3.2-SNAPSHOT"
+  val efaNbV               = "0.3.3-SNAPSHOT"
   val nbV                  = "RELEASE80"
   val scalacheckV          = "1.11.4"
   val scalazV              = "7.1.0"
@@ -96,12 +96,12 @@ object UtilBuild extends Build {
   def addDeps (ds: ModuleID*) = BuildSettings.buildSettings ++
     Seq(libraryDependencies ++= (ds ++ deps))
 
-  lazy val util = Project (
+  lazy val rpg = Project (
     "rpg",
     file("."),
     settings = buildSettings
-  ) aggregate(preferences, being, core, describedPanel, explorer, items,
-              rules, rulesUI)
+  ) aggregate(core)//preferences, being, core, describedPanel, explorer, items,
+                   //rules, rulesUI)
   
   lazy val core = Project (
     "rpg-core",

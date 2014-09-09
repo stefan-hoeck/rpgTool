@@ -1,12 +1,13 @@
 package efa.rpg.core
 
 import efa.core.{Localization, IsLocalized}
-import efa.core.Shapeless._
+import efa.core.typeclass._
+import scalaz.Equal
 import scalaz.std.anyVal._
 
-case class ModifierKey(loc: Localization, min: Long, max: Long)
+final case class ModifierKey(loc: Localization, min: Long, max: Long)
   extends IsLocalized
 
 object ModifierKey {
-  implicit val ModifierKeyEqual = deriveEqual[ModifierKey]
+  implicit val equalInst: Equal[ModifierKey] = equal
 }

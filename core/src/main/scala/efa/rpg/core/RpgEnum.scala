@@ -1,8 +1,13 @@
 package efa.rpg.core
 
 import efa.core.Default
-import org.scalacheck.{Arbitrary, Gen}
-import scalaz._, Scalaz._
+import org.scalacheck.{Arbitrary, Gen, Properties}
+import scalaz.{Enum, Order, NonEmptyList}
+import scalaz.std.anyVal._
+import scalaz.std.list._
+import scalaz.syntax.std.option._
+import scalaz.syntax.foldable._
+import scalaz.syntax.equal._
 
 /**
  * A very rudimentray type class for enumerations
@@ -44,10 +49,10 @@ trait RpgEnum[A] extends Default[A] with Enum[A] {
 
   def arbitrary: Arbitrary[A] = Arbitrary(Gen oneOf values)
 
-  final override def order (x: A, y: A) = Order[Int] order (toId (x), toId (y))
+  final override def order (x: A, y: A) = Order[Int] order (toId(x), toId(y))
 }
 
-object RpgEnum {
+object RpgEnum extends RpgEnumSpecs {
   def apply[A:RpgEnum]: RpgEnum[A] = implicitly
 
   def values[A](a: A, as: A*): RpgEnum[A] = new RpgEnum[A] {
@@ -56,10 +61,17 @@ object RpgEnum {
 }
 
 trait RpgEnumSpecs {
-  def enumUnique[A:RpgEnum:Equal]: Boolean = {
+  def enumUnique[A:RpgEnum]: Boolean = {
     val as = RpgEnum[A].values
 
     as ∀ (a1 ⇒ as ∀ (a2 ⇒ (a1 == a2) ≟ (a1 ≟ a2)))
+  }
+
+  import scalaz.scalacheck.ScalazProperties.enum
+
+  def laws[A:RpgEnum:Arbitrary] = new Properties("rpgEnum") {
+    include(enum.laws[A])
+    property("rpgEnums are unique") = enumUnique[A]
   }
 }
 

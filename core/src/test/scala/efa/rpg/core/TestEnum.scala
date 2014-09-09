@@ -1,6 +1,7 @@
 package efa.rpg.core
 
 import efa.core.{Localization, IsLocalized}
+import org.scalacheck.Arbitrary
 
 sealed trait TestLocEnum extends IsLocalized {
   lazy val loc: Localization = new Localization(toString, toString)
@@ -12,10 +13,10 @@ object TestLocEnum {
   case object C extends TestLocEnum
   case object D extends TestLocEnum
 
-  implicit lazy val TLocEnum =
-    LocEnum.tagged[TestLocEnum](A, B, C, D)("test")
+  implicit val enumInst: LocEnum[TestLocEnum] =
+    LocEnum.values[TestLocEnum](A, B, C, D)
 
-  implicit lazy val TLocEnumArbitrary = TLocEnum.arbitrary
+  implicit val arbInst: org.scalacheck.Arbitrary[TestLocEnum] = enumInst.arbitrary
 }
 
 // vim: set ts=2 sw=2 et:

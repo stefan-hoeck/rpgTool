@@ -1,18 +1,15 @@
 package efa.rpg.core
 
-import efa.core._, Efa._
-import scala.util.Random
-import scalaz._, Scalaz._
+import efa.core.{DisRes, ValRes, Read, Validators, Default, ToXml}
+import efa.core.std.anyVal._
+import scalaz.{Applicative, Equal, Show}
+import scalaz.std.anyVal._
+import scalaz.std.tuple._
+import scalaz.syntax.std.boolean._
+import scalaz.syntax.validation._
+import shapeless.contrib.scalaz.lift._
 
-// @TODO: Make creation of DieRoller total. Do not use
-// case class but final class with private constructor.
-case class DieRoller(count: Int, die: Int, plus: Int) {
-  import DieRoller._
-  require(countVal(count).isRight)
-  require(dieVal(die).isRight)
-  require(plusVal(plus).isRight)
-  
-  
+final class DieRoller private(val count: Int, val die: Int, val plus: Int) {
   override def toString = {
     def countF = (count > 1) ? count.toString | ""
     def plusF = plus match {
@@ -20,7 +17,7 @@ case class DieRoller(count: Int, die: Int, plus: Int) {
       case x if (x > 0) ⇒ " + " + x
       case x ⇒ " - " + x.abs
     }
-    "%s%s%d%s" format (countF, loc.dieString, die, plusF)
+    s"$countF${loc.dieString}$die$plusF"
   } 
 
   //def roll = {
@@ -33,19 +30,24 @@ case class DieRoller(count: Int, die: Int, plus: Int) {
 }
 
 object DieRoller {
-  lazy val default = DieRoller(1, 6, 0)
+  private def create(c: Int, d: Int, p: Int) = new DieRoller(c,d,p)
+
+  private def liftA[F[_]:Applicative] = Applicative[F].liftA(create _)
+
+  def apply(count: Int, die: Int, plus: Int): DisRes[DieRoller] =
+    liftA[DisRes].apply(countVal(count), dieVal(die), plusVal(plus))
   
   //Validators
-  private def intVal = Read[Int].validator
-  lazy val (minCount, maxCount) = (1, 1000)
-  lazy val countVal = Validators.interval(minCount, maxCount)
-  lazy val dieVal = countVal
-  lazy val plusVal = Validators.interval(-maxCount, maxCount)
-  lazy val countValR = intVal >=> countVal
-  lazy val dieValR = intVal >=> dieVal
-  lazy val plusValR = intVal >=> plusVal
-  
-  lazy val fromString = {
+  private val intVal = Read[Int].validator
+  val (minCount, maxCount) = (1, 1000)
+  private val countVal = Validators.interval(minCount, maxCount)
+  private def dieVal = countVal
+  private val plusVal = Validators.interval(-maxCount, maxCount)
+  private val countValR = intVal >=> countVal
+  private val dieValR = intVal >=> dieVal
+  private val plusValR = intVal >=> plusVal
+
+  def fromString(s: String) = {
     def dieString = loc.dieString
     val dr = ("""(\d*)""" + dieString + """(\d+)\s*([\+\-]\s*\d+)?""").r
     val plus = """\+\s*(\d+)""".r
@@ -64,22 +66,23 @@ object DieRoller {
 
     def readDie (s: String): ValRes[Int] = dieValR run s validation
  
-    (s: String) ⇒ s match {
-      case dr(a, b, c) ⇒ 
-        ^^(readCount(a), readDie(b), readPlus(c))(DieRoller.apply)
+    s match {
+      case dr(a, b, c) ⇒ liftA[ValRes].apply(readCount(a), readDie(b), readPlus(c))
       case _ ⇒  loc.unknownDieRollerFormat.failureNel
     }
   }
 
-  implicit lazy val DieRollerDefault = Default default default
+  implicit val defaultInst: Default[DieRoller] =
+    Default default (new DieRoller(1,6,0))
 
-  implicit val DieRollerEqual = deriveEqual[DieRoller]
+  implicit val equalInst: Equal[DieRoller] =
+    Equal.equalBy(x ⇒ (x.count, x.die, x.plus))
 
-  implicit val DieRollerShow: Show[DieRoller] = Show shows (_.toString)
+  implicit val showInst: Show[DieRoller] = Show shows (_.toString)
 
-  implicit val DieRollerRead: Read[DieRoller] = Read readV fromString
+  implicit val readInst: Read[DieRoller] = Read readV fromString
 
-  implicit val DieRollerToXml: ToXml[DieRoller] = ToXml.readShow
+  implicit val toXmlInst: ToXml[DieRoller] = ToXml.readShow
 
   import org.scalacheck._
   import scalaz.scalacheck.ScalaCheckBinding._
@@ -88,10 +91,8 @@ object DieRoller {
     val countGen = Gen.choose(minCount, maxCount)
     val dieGen = countGen
     val plusGen = Gen.choose(-maxCount, maxCount)
-    Arbitrary(^^(countGen, dieGen, plusGen)(DieRoller.apply))
+    Arbitrary(liftA[Gen].apply(countGen, dieGen, plusGen))
   }
-
-  private lazy val rnd = new Random
 }
 
 // vim: set ts=2 sw=2 et:

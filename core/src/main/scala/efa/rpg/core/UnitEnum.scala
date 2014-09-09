@@ -9,8 +9,8 @@ trait UnitEnum[A] extends LocEnum[A] {
   override lazy val map: Map[String, A] =
     values flatMap (a ⇒ (plural(a) :: names(a)) map (_ → a)) toMap
 
-  def plural (a: A): String
-  def multiplier (a: A): Long
+  def plural(a: A): String
+  def multiplier(a: A): Long
 
   def showPretty(a: A, nod: Int): Long ⇒ String = l ⇒ 
     "%."+nod+"f %s" format (l.toDouble / multiplier(a).toDouble, shortName(a))
@@ -35,6 +35,11 @@ object UnitEnum {
       override def plural (a: A): String = a.plural
       override def multiplier (a: A): Long = a.multiplier
     }
+
+  import org.scalacheck.{Arbitrary, Properties}
+  def laws[A:Arbitrary:UnitEnum] = new Properties("UnitEnum") {
+    include(LocEnum.laws[A])
+  }
 }
 
 // vim: set ts=2 sw=2 et:

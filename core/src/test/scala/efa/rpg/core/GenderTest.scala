@@ -1,7 +1,8 @@
 package efa.rpg.core
 
-import efa.rpg.core.specs.LocEnumProps
 
-object GenderTest extends LocEnumProps[Gender]("Gender")
+object GenderTest extends org.scalacheck.Properties("Gender") {
+  include(LocEnum.laws[Gender])
+}
 
 // vim: set ts=2 sw=2 et:
