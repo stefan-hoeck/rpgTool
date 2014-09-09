@@ -17,7 +17,7 @@ case class Advantage(data: ItemData, gp: Int)
 object Advantage extends RpgItemLikes[Advantage] {
   def ap[F[_]:Applicative] = Applicative[F].liftA(Advantage.apply _)
 
-  val default = Advantage (!!, 0)
+  val default = Advantage (!![ItemData], 0)
 
   def shortDesc (a: Advantage) = a.desc
 

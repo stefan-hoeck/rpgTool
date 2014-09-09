@@ -4,19 +4,14 @@ import efa.core._, Efa._
 import scala.util.Random
 import scalaz._, Scalaz._
 
+// @TODO: Make creation of DieRoller total. Do not use
+// case class but final class with private constructor.
 case class DieRoller(count: Int, die: Int, plus: Int) {
   import DieRoller._
   require(countVal(count).isRight)
   require(dieVal(die).isRight)
   require(plusVal(plus).isRight)
   
-  //def roll = {
-  //  def roll1(cnt: Int, sum: Int): Int = cnt match {
-  //    case 0 ⇒ sum
-  //    case x ⇒ roll1(cnt - 1, sum + rnd.nextInt(die) + 1)
-  //  }
-  //  roll1(count, 0) + plus
-  //}
   
   override def toString = {
     def countF = (count > 1) ? count.toString | ""
@@ -28,6 +23,13 @@ case class DieRoller(count: Int, die: Int, plus: Int) {
     "%s%s%d%s" format (countF, loc.dieString, die, plusF)
   } 
 
+  //def roll = {
+  //  def roll1(cnt: Int, sum: Int): Int = cnt match {
+  //    case 0 ⇒ sum
+  //    case x ⇒ roll1(cnt - 1, sum + rnd.nextInt(die) + 1)
+  //  }
+  //  roll1(count, 0) + plus
+  //}
 }
 
 object DieRoller {

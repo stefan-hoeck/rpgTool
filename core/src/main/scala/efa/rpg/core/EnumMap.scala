@@ -6,16 +6,17 @@ import scalaz._, Scalaz._, scalacheck.ScalaCheckBinding._
 import scala.xml._
 import scala.xml.Node
 
+// @TODO: Documentation: Talk about conventions (delimiter = "/")
 sealed trait EnumMap[K,V] extends Function1[K,V] {
   import EnumMap._
 
-  def map[W] (f: V ⇒ W): EnumMap[K,W]
+  def map[W](f: V ⇒ W): EnumMap[K,W]
 
-  def + (p: (K,V)): EnumMap[K,V]
+  def +(p: (K,V)): EnumMap[K,V]
 
-  def mod (k: K, f: V ⇒ V): EnumMap[K,V] = this + (k -> f(apply(k)))
+  def mod(k: K, f: V ⇒ V): EnumMap[K,V] = this + (k -> f(apply(k)))
 
-  def ap[W] (em: EnumMap[K,V ⇒ W]): EnumMap[K,W]
+  def ap[W](em: EnumMap[K,V ⇒ W]): EnumMap[K,W]
 }
 
 object EnumMap extends EnumMapInstances0 {
@@ -80,6 +81,7 @@ trait EnumMapInstances0 {
     }
 }
 
+// @TODO Remove this. Use direct type class derivation
 abstract class EnumMaps[K:RpgEnum,V:Show:Equal:Read] {
   final protected lazy val ks: List[K] = RpgEnum[K].values
 
@@ -132,6 +134,8 @@ abstract class EnumMaps[K:RpgEnum,V:Show:Equal:Read] {
   lazy val !! : EnumMap[K,V] = EnumMap(default)
 }
 
+// @TODO Remove this. Use direct type class derivation
+// Also, don't use EndoVal but use newtypes instead.
 object EnumMaps {
   def apply[K:RpgEnum,V:Show:Equal:Read] (
     endoVal: EndoVal[V],
