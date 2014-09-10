@@ -11,8 +11,7 @@ final case class ItemData(id: Id, name: Name, desc: Desc)
 object ItemData {
   val L = idL[ItemData]
 
-  def apply(n: String): ItemData =
-    (L >> 'name).set(defaultInst.default, Name(n))
+  def apply(n: Name): ItemData = (L >> 'name).set(defaultInst.default, n)
 
   implicit val defaultInst: Default[ItemData] = Default.derive
   implicit val equalInst: Equal[ItemData] = equal

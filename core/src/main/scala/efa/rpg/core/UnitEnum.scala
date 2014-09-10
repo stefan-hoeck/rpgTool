@@ -1,8 +1,9 @@
 package efa.rpg.core
 
-import efa.core._, Efa._
+import efa.core.{Localization, Validator, Validators}
 import efa.core.syntax.string
-import scalaz._, Scalaz._
+import efa.core.std.anyVal._
+import scalaz.NonEmptyList
 
 trait UnitEnum[A] extends LocEnum[A] {
 
@@ -15,12 +16,20 @@ trait UnitEnum[A] extends LocEnum[A] {
   def showPretty(a: A, nod: Int): Long ⇒ String = l ⇒ 
     "%."+nod+"f %s" format (l.toDouble / multiplier(a).toDouble, shortName(a))
 
-  def readPretty(a: A): Validator[String,Long] = Validators(s ⇒ 
-    s.replace(shortName(a), "").trim.read[Double].disjunction ∘
-    (l ⇒ (l * multiplier(a)).round toLong))
+  def readPretty(a: A): Validator[String,Long] = Validators{ s ⇒ 
+    def multiply(d: Double) = (d * multiplier(a)).round.toLong
+    def value = s.replace(shortName(a), "").trim.read[Double].disjunction
+
+    value map multiply
+  }
 }
 
-trait IsUnit extends IsLocalized {
+/** Helper trait to declutter the creation of UnitEnum
+  * instances. Just mixin this trait in your sealed data type
+  * and call UnitEnum.values to create an instance of UnitEnum
+  */
+trait IsUnit {
+  def loc: Localization
   def plural: String
   def multiplier: Long
 }

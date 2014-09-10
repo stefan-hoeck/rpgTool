@@ -11,7 +11,7 @@ package object core {
 
 //  def prettyMods(
 //    sum: Long,
-//    ms: List[Modifier],
+//    ms: Mods,
 //    format: Long ⇒ String = (_: Long).toString
 //  ): String = {
 //    def head = "<b>%s: %s</b>" format (loc.total, format(sum))
@@ -30,7 +30,7 @@ package object core {
 //    format: Long ⇒ String = (_: Long).toString
 //  ): A ⇒ Option[String] = prettyModsKey(k, format) andThen (_.some)
 //
-//  def mods[A:HasModifiers] (a: A, k: ModifierKey): List[Modifier] =
+//  def mods[A:HasModifiers] (a: A, k: ModifierKey): Mods =
 //    HasModifiers[A] modifiers a get k
 //
 //  def property[A:HasModifiers] (a: A, k: ModifierKey): Long =

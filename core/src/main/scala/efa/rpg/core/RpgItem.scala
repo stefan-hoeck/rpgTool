@@ -1,63 +1,44 @@
-//package efa.rpg.core
-//
-//import efa.core.{ToXml, Default, UniqueIdL, NamedL, Described ⇒ DDesc}, DDesc.Tag
-//import scalaz._, Scalaz._
-//
-//trait RpgItem[A]
-//   extends Described[A]
-//   with UniqueIdL[A,Int]
-//   with NamedL[A] {
-//
-//  def dataL: A @> ItemData
-//  lazy val nameL: A @> String = dataL.name
-//  lazy val idL: A @> Int = dataL.id
-//  lazy val descL: A @> String = dataL.desc
-//  def desc (a: A) = descL get a
-//}
-//
-//trait RpgItemLike[+A] {
-//  def data: ItemData
-//  def name: String = data.name
-//  def id: Int = data.id
-//  def desc: String = data.desc
-//  def data_= (v: ItemData): A
-//}
-//
-//object RpgItem {
-//  def apply[A:RpgItem]: RpgItem[A] = implicitly
-//}
-//
+package efa.rpg.core
+
+import efa.core.{UniqueIdL, NamedL, Id, Name, Desc}
+import efa.core.syntax.lens
+import scalaz.@>
+
+trait RpgItem[A]
+   extends Described[A]
+   with UniqueIdL[A,Id]
+   with NamedL[A] {
+
+  def dataL: A @> ItemData
+
+  lazy val nameL: A @> Name = dataL >> 'name
+
+  lazy val idL: A @> Id = dataL >> 'id
+
+  lazy val descL: A @> Desc = dataL >> 'desc
+
+  def desc(a: A) = descL get a
+}
+
+object RpgItem {
+  @inline def apply[A:RpgItem]: RpgItem[A] = implicitly
+
+  def inst[A](l: A @> ItemData,
+              short: A ⇒ Desc,
+              full: A ⇒ Desc): RpgItem[A] = new RpgItem[A] {
+    def dataL = l
+    def shortDesc(a: A) = short(a)
+    def fullDesc(a: A) = full(a)
+  }
+}
+
 ///**
 // * Helper functions and implicits. Best used for companion
 // * object.
 // */
-//trait RpgItemLikes[A<:RpgItemLike[A]] extends Util {
-//  self ⇒ 
-//
-//  def default: A
 //  def shortDesc (a: A): String
 //  def fullDesc (a: A): String = titleBody (a.name, a.desc)
-//
-//  import scala.xml.Node
-//
-//  private def idXml = ToXml[ItemData]
-//
 //  protected def tagShortDesc (a: A, tags: Tag*): String =
 //    namePlusTags (a.name, tags: _*)
 //
-//  protected def dataToNode (a: A): Seq[Node] = idXml toXml a.data
-//
-//  protected def readData (ns: Seq[Node]) = idXml fromXml ns
-//
-//  implicit lazy val asRpgItem = new RpgItem[A] {
-//    lazy val dataL = Lens.lensu[A,ItemData](_ data_= _, _.data)
-//    def shortDesc (a: A) = self shortDesc a
-//    def fullDesc (a: A) = self fullDesc a
-//  }
-//
-//  implicit lazy val asDefault = Default default default
-//
-//  implicit lazy val asEqual = Equal.equalA[A]
-//}
-//
-//// vim: set ts=2 sw=2 et:
+// vim: set ts=2 sw=2 et:

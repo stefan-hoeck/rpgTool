@@ -1,14 +1,14 @@
 package efa.rpg.core
 
 import efa.core.{Described ⇒ EfaDesc, Named, Name, Desc}
-import scalaz.{Show, Contravariant}
+import scalaz.Show
 
 trait Described[A] extends Named[A] with EfaDesc[A] { self ⇒
   def desc(a: A): Desc
 
   def fullDesc(a: A): Desc
 
-  def htmlDesc (a: A) = HtmlDesc(name(a), fullDesc(a))
+  def htmlDesc(a: A): HtmlDesc = HtmlDesc(name(a), fullDesc(a))
 }
 
 object Described {
